@@ -13,11 +13,11 @@ body #wpbody-content {
   background: linear-gradient(
       180deg,
       #f9e9f1 0,
-      #c9d7f5 50px,
-      #dae1f2 100px,
-      #e5e9f4 200px,
-      #fff 400px,
-      #fff 100%
+      #cef1ef 50px,
+      #def2f1 100px,
+      #e5f2f4 200px,
+      #f4fafa 400px,
+      #ffffff 100%
     )
     fixed;
   min-height: 100vh;
@@ -45,10 +45,10 @@ body #wpbody-content {
   margin-right: 7px;
 }
 #wpkin-wc-thank-you-getting-started .wpkin-btn.btn-primary {
-  background-color: #2b88f2;
+  background-color: #32BCB5;
 }
 #wpkin-wc-thank-you-getting-started .wpkin-btn.btn-primary:hover {
-  background-color: #2b88f2;
+  background-color: #138680;
 }
 #wpkin-wc-thank-you-getting-started .wpkin-wc-plugin-container {
   max-width: 1000px;
@@ -85,7 +85,7 @@ body #wpbody-content {
 
 .getting-started-menu .menu-item.active {
     color: #fff;
-    background: linear-gradient(180deg, #4f45c5 0, #6d63d6 50%, #8a82e8 100%);
+    background: linear-gradient(180deg, #32BCB5 0, #3dd4cc 50%, #3dcac3 100%);
 }
 
 .getting-started-menu .menu-item img,
@@ -270,7 +270,7 @@ body #wpbody-content {
   h2
   mark {
   position: relative;
-  background: linear-gradient(270deg, #39c8e8 0, #2b88f2 50%);
+  background: linear-gradient(270deg, #0a7f9a 0, #32BCB5 50%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -322,10 +322,21 @@ body #wpbody-content {
 }
 #wpkin-wc-thank-you-getting-started
   .wpkin-wc-plugin-container
-  section.section-full
-  > div {
-  width: 48%;
+  section.section-full .col-description {
+  width: 55%;
 }
+#wpkin-wc-thank-you-getting-started
+  .wpkin-wc-plugin-container
+  section.section-full .col-description h2,
+  #wpkin-wc-thank-you-getting-started
+  .wpkin-wc-plugin-container
+  section.section-half .col-description h2{
+  	font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
 #wpkin-wc-thank-you-getting-started .wpkin-wc-plugin-container section {
   display: flex;
   flex-wrap: wrap;
@@ -342,8 +353,9 @@ body #wpbody-content {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   background: #fefefe;
-  max-width: 100%;
+  width: 35% !important;
   max-height: 400px;
+
 }
 #wpkin-wc-thank-you-getting-started
   .wpkin-wc-plugin-container
@@ -372,7 +384,7 @@ body #wpbody-content {
   section
   h2
   .badge {
-  background: #2877f3;
+  background: #32BCB5;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -396,6 +408,16 @@ body #wpbody-content {
   .wpkin-wc-plugin-container
   section.section-half {
   justify-content: center;
+}
+#wpkin-wc-thank-you-getting-started
+  .wpkin-wc-plugin-container
+  section.section-half .col-description{
+  width: 100% !important;
+}
+#wpkin-wc-thank-you-getting-started
+  .wpkin-wc-plugin-container
+  section.section-half .col-image{
+  width: 80% !important;
 }
 #wpkin-wc-thank-you-getting-started
   .wpkin-wc-plugin-container
@@ -424,7 +446,7 @@ body #wpbody-content {
   cursor: pointer;
   display: flex;
   align-items: center;
-  background: #eff3fe;
+  background: #eefcfc;
   padding: 15px 20px;
 }
 #wpkin-wc-thank-you-getting-started
@@ -584,14 +606,14 @@ body #wpbody-content {
   align-items: center;
   cursor: pointer;
   padding: 20px;
-  background: rgba(47, 65, 180, 0.088);
+  background: #eefcfc;
   border-radius: 15px;
 }
 #wpkin-wc-thank-you-getting-started
   .wpkin-wc-plugin-container
   .log-header
   span.log-version {
-  background: #2b88f2;
+  background: #32BCB5;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -606,7 +628,7 @@ body #wpbody-content {
 }
 #wpkin-wc-thank-you-getting-started .wpkin-wc-plugin-container .log-header i {
   margin-left: auto;
-  background: #2b88f2;
+  background: #32BCB5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -634,14 +656,14 @@ body #wpbody-content {
   .wpkin-wc-plugin-container
   .log-body
   .log-item-new {
-  color: #3265a6;
+  color: #32BCB5;
 }
 #wpkin-wc-thank-you-getting-started
   .wpkin-wc-plugin-container
   .log-body
   .log-item-new
   i {
-  background: #3265a6;
+  background: #32BCB5;
   color: #fff;
 }
 #wpkin-wc-thank-you-getting-started
@@ -746,13 +768,13 @@ body #wpbody-content {
   .wpkin-wc-plugin-container
   .free-vs-pro-wrap
   span:last-child {
-  color: #2b88f2;
+  color: #32BCB5;
 }
 #wpkin-wc-thank-you-getting-started .wpkin-wc-plugin-container .features-list {
-  background: #eff3fe;
+  background: #ebfbfb;
   border-radius: 7px;
   overflow: hidden;
-  border: 1px solid rgba(47, 180, 75, 0.1);
+  border: 1px solid #cbf0f0;
   text-align: left;
 }
 #wpkin-wc-thank-you-getting-started
@@ -765,7 +787,7 @@ body #wpbody-content {
   font-size: 1.2rem;
   border-bottom: 1px solid rgba(63, 47, 180, 0.088);
   font-weight: 600;
-  background: rgba(63, 47, 180, 0.088);
+  background: #cbf0f0;
 }
 #wpkin-wc-thank-you-getting-started
   .wpkin-wc-plugin-container
@@ -795,7 +817,7 @@ body #wpbody-content {
   .features-list
   .feature-heading
   .feature-title {
-  color: #2b88f2;
+  color: #32BCB5;
   font-size: 18px;
   font-weight: bold;
 }
@@ -846,7 +868,7 @@ body #wpbody-content {
   .feature
   i {
   color: #fff;
-  background: #2b88f2;
+  background: #32BCB5;
   width: 30px;
   height: 30px;
   display: inline-flex;

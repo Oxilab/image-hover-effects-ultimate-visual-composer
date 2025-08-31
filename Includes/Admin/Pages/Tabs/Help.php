@@ -39,12 +39,15 @@ class Help {
 					<div class="faq-header" style="cursor:pointer">
 						<i class="dashicons dashicons-arrow-down-alt2"></i>
 						<h3>
-							<?php _e("What is ThankRedirect and how does it work?", "oxi-flip-box-plugin"); ?>
+							<?php _e("How do I install the Flipbox plugin?", "oxi-flip-box-plugin"); ?>
 						</h3>
 					</div>
 					<div class="faq-body" style="display:none;">
 						<p>
-							<?php _e("ThankRedirect is a WooCommerce plugin that allows you to customize where customers are redirected after completing a purchase. Instead of the default WooCommerce thank you page, you can send customers to any page on your site based on various conditions like product purchased, payment method used, or customer role.", "oxi-flip-box-plugin"); ?>
+							<?php _e("Go to Plugins → Add New → Upload Plugin, choose the Flipbox .zip file, install and activate. You can also install it directly from the WordPress plugin directory by searching for 'Flipbox – Awesomes Image Overlay'.", "oxi-flip-box-plugin"); ?>
+							<a href="https://wpkindemos.com/flipbox/docs/installations/how-to-install-the-plugin/" target="_blank" rel="noopener noreferrer">
+								<?php _e("Read Installation Guide", "oxi-flip-box-plugin"); ?>
+							</a>
 						</p>
 					</div>
 				</div>
@@ -54,17 +57,30 @@ class Help {
 					<div class="faq-header" style="cursor:pointer">
 						<i class="dashicons dashicons-arrow-down-alt2"></i>
 						<h3>
-							<?php _e("I have purchased the PRO version, but it still shows the free plan. What should I do?", "oxi-flip-box-plugin"); ?>
+							<?php _e("I purchased the PRO version, but it still shows the free plan. What should I do?", "oxi-flip-box-plugin"); ?>
 						</h3>
 					</div>
 					<div class="faq-body" style="display:none;">
 						<p>
-							<?php _e("After purchasing the PRO plugin, download and install it on your website. Deactivate the Free plugin first (your data will remain intact). Once the PRO plugin is installed, activate your license key. For details on where to find the download link and license key, refer to the related FAQ below.", "oxi-flip-box-plugin"); ?>
+							<?php _e("Deactivate the free plugin first (your data will not be lost). Then upload, install, and activate the PRO version. Finally, enter your license key from your account area to unlock PRO features.", "oxi-flip-box-plugin"); ?>
 						</p>
 					</div>
 				</div>
 
-				<!-- Add more FAQ items in the same pattern -->
+				<!-- FAQ Item 4 -->
+				<div class="faq-item">
+					<div class="faq-header" style="cursor:pointer">
+						<i class="dashicons dashicons-arrow-down-alt2"></i>
+						<h3>
+							<?php _e("How do I display a Flipbox on my website?", "oxi-flip-box-plugin"); ?>
+						</h3>
+					</div>
+					<div class="faq-body" style="display:none;">
+						<p>
+							<?php _e("Each Flipbox you create generates a shortcode. Copy this shortcode and paste it inside any post, page, or widget area where you want the Flipbox to appear. Works with Gutenberg, Elementor, WPBakery, Divi, and other builders.", "oxi-flip-box-plugin"); ?>
+						</p>
+					</div>
+				</div>
 
 			</section>
 
@@ -74,7 +90,7 @@ class Help {
 					<mark><?php _e("Help?", "oxi-flip-box-plugin"); ?></mark>
 				</h2>
 				<p>
-					<?php _e("Read our knowledge base documentation or contact us directly for support.", "oxi-flip-box-plugin"); ?>
+					<?php _e("Read our documentation or contact us directly for support.", "oxi-flip-box-plugin"); ?>
 				</p>
 			</div>
 
@@ -82,11 +98,11 @@ class Help {
 				<div class="cta-content">
 					<h2><?php _e("Support", "oxi-flip-box-plugin"); ?></h2>
 					<p>
-						<?php _e("Discuss and share your experiences with ThankRedirect. Connect with other users, share ideas, solve problems, and build relationships in our community.", "oxi-flip-box-plugin"); ?>
+						<?php _e("Join our community and get help from other Flipbox users. Share your ideas, solve problems, and learn tips to get the most out of Flipbox.", "oxi-flip-box-plugin"); ?>
 					</p>
 				</div>
 				<div class="cta-btn">
-					<a href="https://wordpress.org/support/plugin/wc-thank-you-page/" class="wpkin-btn btn-primary" target="_blank" rel="noopener noreferrer">
+					<a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/" class="wpkin-btn btn-primary" target="_blank" rel="noopener noreferrer">
 						<i class="dashicons dashicons-sos"></i>
 						<?php _e("Get Support", "oxi-flip-box-plugin"); ?>
 					</a>
