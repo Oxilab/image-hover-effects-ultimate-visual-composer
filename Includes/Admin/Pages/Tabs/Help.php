@@ -62,12 +62,28 @@ class Help {
 					</div>
 					<div class="faq-body" style="display:none;">
 						<p>
-							<?php _e("Deactivate the free plugin first (your data will not be lost). Then upload, install, and activate the PRO version. Finally, enter your license key from your account area to unlock PRO features.", "oxi-flip-box-plugin"); ?>
+							<?php _e("After purchase, go to the Plugins menu in your WordPress dashboard. Scroll down to the Flipbox - Awesome Flip Boxes Image Overlay plugin and click on 'Activate License.' A modal will appear where you can enter and submit your license key.", "oxi-flip-box-plugin"); ?>
+						</p>
+						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/help/license-activate.png' ?>">
+					</div>
+				</div>
+				<!-- FAQ Item 4 -->
+				<div class="faq-item">
+					<div class="faq-header" style="cursor:pointer">
+						<i class="dashicons dashicons-arrow-down-alt2"></i>
+						<h3>
+							<?php _e("Where can I find the PRO license key?", "oxi-flip-box-plugin"); ?>
+						</h3>
+					</div>
+					<div class="faq-body" style="display:none;">
+						<p>
+							<?php _e("After purchase, you should receive a confirmation email containing the license key. If you did not receive it due to email delivery issues, you can access your license key from the", "oxi-flip-box-plugin"); ?>
+							<a href="https://users.freemius.com/store/4896/" target="_blank" rel="noopener noreferrer">Freemius Customer Portal.</a>
 						</p>
 					</div>
 				</div>
 
-				<!-- FAQ Item 4 -->
+				<!-- FAQ Item 5 -->
 				<div class="faq-item">
 					<div class="faq-header" style="cursor:pointer">
 						<i class="dashicons dashicons-arrow-down-alt2"></i>
@@ -78,6 +94,25 @@ class Help {
 					<div class="faq-body" style="display:none;">
 						<p>
 							<?php _e("Each Flipbox you create generates a shortcode. Copy this shortcode and paste it inside any post, page, or widget area where you want the Flipbox to appear. Works with Gutenberg, Elementor, WPBakery, Divi, and other builders.", "oxi-flip-box-plugin"); ?>
+						</p>
+						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/basic-uses/shortcode.png' ?>">
+					</div>
+				</div>
+
+				<!-- FAQ Item 6 -->
+				<div class="faq-item">
+					<div class="faq-header" style="cursor:pointer">
+						<i class="dashicons dashicons-arrow-down-alt2"></i>
+						<h3>
+							<?php _e("Where can I get support if I face an issue?", "oxi-flip-box-plugin"); ?>
+						</h3>
+					</div>
+					<div class="faq-body" style="display:none;">
+						<p>
+							<?php _e("For free users, you can ask questions in the WordPress.org support forum. For Pro users, premium email support is available. You can also contact us directly:", "oxi-flip-box-plugin"); ?>
+							<a href="https://wpkin.com/contact-us/" target="_blank" rel="noopener noreferrer">
+								<?php _e("Contact Support", "oxi-flip-box-plugin"); ?>
+							</a>
 						</p>
 					</div>
 				</div>

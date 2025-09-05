@@ -1,7 +1,7 @@
 ;(function($){
 	$(document).ready(function($) {
 		// Main Tabs
-		$('.wpkin-wc-plugin-container > div').not('.getting-started-header, .getting-started-menu, .introduction').hide();
+		$('.wpkin-flipbox-plugin-container > div').not('.getting-started-header, .getting-started-menu, .introduction').hide();
 
 		$('.getting-started-menu .menu-item').on('click', function() {
 			var target = $(this).data('target');
@@ -11,7 +11,7 @@
 			$(this).addClass('active');
 
 			// Hide all content
-			$('.wpkin-wc-plugin-container > div').not('.getting-started-header, .getting-started-menu').hide();
+			$('.wpkin-flipbox-plugin-container > div').not('.getting-started-header, .getting-started-menu').hide();
 
 			// Show target content by class
 			$('.' + target).show();

@@ -173,6 +173,10 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 == Changelog ==
 
+= 2.10.1 = 
+*Updated Getting started page.
+*Fixed security issue.
+
 = 2.10.0 = 
 *Added Getting started page.
 *Added Freemius for License.

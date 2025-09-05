@@ -15,11 +15,11 @@ class GettingStarted {
 
 	public function Public_Render() {
 ?>
-		<div id="wpkin-wc-thank-you-getting-started">
-			<div class="wpkin-wc-plugin-container">
+		<div id="wpkin-flipbox-getting-started">
+			<div class="wpkin-flipbox-plugin-container">
 				<div class="getting-started-header">
 					<img src="<?php echo esc_attr(OXI_FLIP_BOX_URL . "image/sa-logo.png") ?>" alt="Flipbox">
-					<p class="wc-plugin-description">
+					<p class="wpkin-flipbox-plugin-description">
 						<?php echo esc_html__("Thank you for choosing Flipbox - Awesomes Flip Boxes Image Overlay - the most friendly WordPress Flip Box Or Image Overlay Plugins. Here's how to get started.", 'oxi-flip-box-plugin'); ?>
 					</p>
 				</div>

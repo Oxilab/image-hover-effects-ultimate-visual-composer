@@ -167,10 +167,6 @@ trait Admin_helper
             'Import Templates' => [
                 'name' => 'Import Templates',
                 'homepage' => 'oxi-flip-box-ultimate-import'
-            ],
-            'Addons' => [
-                'name' => 'Addons',
-                'homepage' => 'oxi-flip-box-ultimate-addons'
             ]
         ];
 

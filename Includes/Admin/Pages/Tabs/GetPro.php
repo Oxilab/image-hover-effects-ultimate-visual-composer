@@ -13,24 +13,24 @@ class GetPro {
                 ['title' => '70+ Premium Flipbox Styles', 'free' => false, 'pro' => true],
                 ['title' => 'Image & Icon Support', 'free' => true, 'pro' => true],
                 ['title' => 'Custom Background Colors & Gradients', 'free' => false, 'pro' => true],
-                ['title' => 'Advanced Hover Animations', 'free' => false, 'pro' => true],
+                ['title' => 'Advanced Hover Animations', 'free' => true, 'pro' => true],
             ],
             'Content Features' => [
                 ['title' => 'Custom Titles & Descriptions', 'free' => true, 'pro' => true],
                 ['title' => 'Custom Fonts & Typography', 'free' => false, 'pro' => true],
                 ['title' => 'Unlimited Flipboxes', 'free' => true, 'pro' => true],
-                ['title' => 'Custom Links & Call To Action Buttons', 'free' => false, 'pro' => true],
+                ['title' => 'Custom Links & Call To Action Buttons', 'free' => true, 'pro' => true],
             ],
             'Integrations' => [
                 ['title' => 'Gutenberg Block Support', 'free' => true, 'pro' => true],
                 ['title' => 'Elementor Integration', 'free' => true, 'pro' => true],
                 ['title' => 'WPBakery Page Builder Integration', 'free' => true, 'pro' => true],
-                ['title' => 'Divi Builder Integration', 'free' => false, 'pro' => true],
+                ['title' => 'Divi Builder Integration', 'free' => true, 'pro' => true],
             ],
             'Styling Options' => [
                 ['title' => 'Custom Border & Shadow Settings', 'free' => false, 'pro' => true],
                 ['title' => 'Flip Direction (Left, Right, Top, Bottom)', 'free' => true, 'pro' => true],
-                ['title' => 'Responsive Controls (Desktop/Tablet/Mobile)', 'free' => false, 'pro' => true],
+                ['title' => 'Custom CSS editor', 'free' => false, 'pro' => true],
             ],
             'Support & Updates' => [
                 ['title' => 'Documentation Access', 'free' => true, 'pro' => true],
@@ -49,7 +49,7 @@ class GetPro {
                     <?php echo __('with Flipbox PRO', 'oxi-flip-box-plugin'); ?>
                 </h2>
                 <p><?php echo __('Unlock premium Flipbox designs, advanced animations, and customization options to create stunning hover effects that engage your visitors.', 'oxi-flip-box-plugin'); ?></p>
-                <a href="https://wpkin.com/flipbox-pricing" class="wpkin-btn btn-primary get-pro-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://wpkindemos.com/flipbox/pricing/" class="wpkin-btn btn-primary get-pro-btn" target="_blank" rel="noopener noreferrer">
                     <i class="dashicons dashicons-awards"></i> <?php echo __('Get PRO Now', 'oxi-flip-box-plugin'); ?>
                 </a>
             </div>
@@ -97,7 +97,7 @@ class GetPro {
                     <p><?php echo __('Upgrade to PRO and unlock 70+ premium styles, advanced customization, and premium support to transform your website visuals.', 'oxi-flip-box-plugin'); ?></p>
                 </div>
                 <div class="cta-btn">
-                    <a href="https://wpkin.com/flipbox-pricing" class="wpkin-btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wpkindemos.com/flipbox/pricing/" class="wpkin-btn btn-primary" target="_blank" rel="noopener noreferrer">
                         <i class="dashicons dashicons-cart"></i> <?php echo __('Upgrade Now', 'oxi-flip-box-plugin'); ?>
                     </a>
                 </div>
