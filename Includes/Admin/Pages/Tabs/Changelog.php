@@ -9,6 +9,15 @@ class Changelog {
         // Full changelog array
         $logs = [
             [
+                'version' => '2.10.2',
+                'date' => '05-09-2025',
+                'sections' => [
+                    'fix' => [
+                        'Fixed 1596 characters of unexpected output during activation issue.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.10.1',
                 'date' => '05-09-2025',
                 'sections' => [
