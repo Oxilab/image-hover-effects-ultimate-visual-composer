@@ -2,7 +2,7 @@
 
 namespace OXI_FLIP_BOX_PLUGINS\Public_Render;
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
@@ -24,63 +24,63 @@ class Style24 extends Public_Render {
 
     public function default_render() {
         $styleid = $this->oxiid;
-        $styledata = explode('|', $this->dbdata['css']);
-        $styledata = array_map('esc_attr', explode('|', $this->dbdata['css']));
+        $styledata = explode( '|', $this->dbdata['css'] );
+        $styledata = array_map( 'esc_attr', explode( '|', $this->dbdata['css'] ) );
         $listdata = $this->child;
         ?>
         <div class="oxilab-flip-box-wrapper">
             <?php
-            foreach ($listdata as $value) {
-                if (!empty($value['files'])):
-                    $filesdata = explode("{#}|{#}", $value['files']);
+            foreach ( $listdata as $value ) {
+                if ( ! empty( $value['files'] ) ) :
+                    $filesdata = explode( '{#}|{#}', $value['files'] );
                     ?>
-                    <div class="<?php echo esc_attr($styledata[43]); ?> oxilab-flip-box-padding-<?php echo esc_attr($styleid); ?>"
-                         sa-data-animation="<?php echo esc_attr($styledata[55]); ?>"
-                         sa-data-animation-offset="100%"
-                         sa-data-animation-delay="0ms"
-                         sa-data-animation-duration=" <?php echo esc_attr(($styledata[57] * 1000)); ?>ms"
-                         >
-                        <div class="<?php echo ($this->admin == 'admin') ? 'oxilab-ab-id' : ''; ?> oxilab-flip-box-body-<?php echo esc_attr($styleid); ?> oxilab-flip-box-body-<?php echo esc_attr($styleid); ?>-<?php echo esc_attr($value['id']); ?>">
+                    <div class="<?php echo esc_attr( $styledata[43] ); ?> oxilab-flip-box-padding-<?php echo esc_attr( $styleid ); ?>"
+                        sa-data-animation="<?php echo esc_attr( $styledata[55] ); ?>"
+                        sa-data-animation-offset="100%"
+                        sa-data-animation-delay="0ms"
+                        sa-data-animation-duration=" <?php echo esc_attr( ( $styledata[57] * 1000 ) ); ?>ms"
+                        >
+                        <div class="<?php echo ( $this->admin == 'admin' ) ? 'oxilab-ab-id' : ''; ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?>-<?php echo esc_attr( $value['id'] ); ?>">
                             <?php
-                            if ($filesdata[11] != '') {
-                                echo '<a href="' . esc_url($filesdata[11]) . '" target="' . esc_attr($styledata[53]) . '">';
+                            if ( $filesdata[11] != '' ) {
+                                echo '<a href="' . esc_url( $filesdata[11] ) . '" target="' . esc_attr( $styledata[53] ) . '">';
                             }
                             ?>
                             <div class="oxilab-flip-box-body-absulote">
-                                <div class="<?php echo esc_attr($styledata[1]); ?>">
-                                    <div class="oxilab-flip-box-style-data <?php echo esc_attr($styledata[3]); ?>">
+                                <div class="<?php echo esc_attr( $styledata[1] ); ?>">
+                                    <div class="oxilab-flip-box-style-data <?php echo esc_attr( $styledata[3] ); ?>">
                                         <div class="oxilab-flip-box-style">
                                             <div class="oxilab-flip-box-front">
-                                                <div class="oxilab-flip-box-<?php echo esc_attr($styleid); ?>">
-                                                    <div class="oxilab-flip-box-<?php echo esc_attr($styleid); ?>-data">
+                                                <div class="oxilab-flip-box-<?php echo esc_attr( $styleid ); ?>">
+                                                    <div class="oxilab-flip-box-<?php echo esc_attr( $styleid ); ?>-data">
                                                         <div class="oxilab-icon">
                                                             <div class="oxilab-icon-data">
-                                                                <?php  $this->font_awesome_render($filesdata[3]) ?>
+                                                                <?php $this->font_awesome_render( $filesdata[3] ); ?>
                                                             </div>
                                                         </div>
                                                         <div class="oxilab-heading">
-                                                            <?php  $this->text_render($filesdata[1]); ?>
+                                                            <?php $this->text_render( $filesdata[1] ); ?>
                                                         </div>
                                                         <div class="oxilab-info">
-                                                            <?php  $this->text_render($filesdata[15]); ?>
+                                                            <?php $this->text_render( $filesdata[15] ); ?>
                                                         </div>
 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="oxilab-flip-box-back">
-                                                <div class="oxilab-flip-box-back-<?php echo esc_attr($styleid); ?>">
-                                                    <div class="oxilab-flip-box-back-<?php echo esc_attr($styleid); ?>-data">
+                                                <div class="oxilab-flip-box-back-<?php echo esc_attr( $styleid ); ?>">
+                                                    <div class="oxilab-flip-box-back-<?php echo esc_attr( $styleid ); ?>-data">
                                                         <div class="oxilab-icon">
                                                             <div class="oxilab-icon-data">
-                                                                <?php  $this->font_awesome_render($filesdata[9]) ?>
+                                                                <?php $this->font_awesome_render( $filesdata[9] ); ?>
                                                             </div>
                                                         </div>
                                                         <div class="oxilab-heading">
-                                                            <?php  $this->text_render($filesdata[17]); ?>
+                                                            <?php $this->text_render( $filesdata[17] ); ?>
                                                         </div>
                                                         <div class="oxilab-info">
-                                                            <?php  $this->text_render($filesdata[7]); ?>
+                                                            <?php $this->text_render( $filesdata[7] ); ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,17 +90,17 @@ class Style24 extends Public_Render {
                                 </div>
                             </div>
                             <?php
-                            if ($filesdata[11] != '') {
+                            if ( $filesdata[11] != '' ) {
                                 echo '</a>';
                             }
-                             $this->admin_edit_panel($value['id']);
+                            $this->admin_edit_panel( $value['id'] );
                             ?>
 
                         </div>
 
 
                         <?php
-                        if ($filesdata[5] != '') {
+                        if ( $filesdata[5] != '' ) {
                             $this->inline_css .= '.oxilab-flip-box-body-' . $styleid . '-' . $value['id'] . ' .oxilab-flip-box-' . $styleid . '{
 background: linear-gradient(' . $styledata[5] . ', ' . $styledata[5] . '), url("' . $filesdata[5] . '");
 -moz-background-size: 100% 100%;
@@ -108,7 +108,7 @@ background: linear-gradient(' . $styledata[5] . ', ' . $styledata[5] . '), url("
 background-size: 100% 100%;
 }';
                         }
-                        if ($filesdata[13] != '') {
+                        if ( $filesdata[13] != '' ) {
                             $this->inline_css .= '.oxilab-flip-box-body-' . $styleid . '-' . $value['id'] . ' .oxilab-flip-box-back-' . $styleid . '{
 background: linear-gradient(' . $styledata[15] . ', ' . $styledata[15] . '), url("' . $filesdata[13] . '");
 -moz-background-size: 100% 100%;
@@ -143,7 +143,7 @@ background-size: 100% 100%;
                     position: relative;
                 }
                 .oxilab-flip-box-body-' . $styleid . ':after {
-                    padding-bottom: ' . ($styledata[47] / $styledata[45] * 100) . '%;
+                    padding-bottom: ' . ( $styledata[47] / $styledata[45] * 100 ) . '%;
                     content: "";
                     display: block;
                 }
@@ -202,7 +202,7 @@ background-size: 100% 100%;
                     color: ' . $styledata[13] . ';
                     text-align: ' . $styledata[91] . ';
                     font-size: ' . $styledata[83] . 'px;
-                    font-family: ' . $this->font_familly($styledata[85]) . ';
+                    font-family: ' . $this->font_familly( $styledata[85] ) . ';
                     font-weight: ' . $styledata[89] . ';
                     font-style:' . $styledata[87] . ';
                     padding: ' . $styledata[93] . 'px ' . $styledata[99] . 'px ' . $styledata[95] . 'px ' . $styledata[97] . 'px;
@@ -212,7 +212,7 @@ background-size: 100% 100%;
                     color: ' . $styledata[19] . ';
                     text-align: ' . $styledata[171] . ';
                     font-size: ' . $styledata[163] . 'px;
-                    font-family: ' . $this->font_familly($styledata[165]) . ';
+                    font-family: ' . $this->font_familly( $styledata[165] ) . ';
                     font-weight: ' . $styledata[169] . ';
                     font-style:' . $styledata[167] . ';
                     padding: ' . $styledata[173] . 'px ' . $styledata[179] . 'px ' . $styledata[175] . 'px ' . $styledata[177] . 'px;
@@ -271,7 +271,7 @@ background-size: 100% 100%;
                     color: ' . $styledata[21] . ';
                     text-align: ' . $styledata[189] . ';
                     font-size: ' . $styledata[181] . 'px;
-                    font-family: ' . $this->font_familly($styledata[183]) . ';
+                    font-family: ' . $this->font_familly( $styledata[183] ) . ';
                     font-weight: ' . $styledata[187] . ';
                     font-style:' . $styledata[185] . ';
                     padding:' . $styledata[191] . 'px ' . $styledata[197] . 'px ' . $styledata[193] . 'px ' . $styledata[195] . 'px;
@@ -281,7 +281,7 @@ background-size: 100% 100%;
                     color: ' . $styledata[17] . ';
                     text-align: ' . $styledata[115] . ';
                     font-size: ' . $styledata[107] . 'px;
-                    font-family: ' . $this->font_familly($styledata[109]) . ';
+                    font-family: ' . $this->font_familly( $styledata[109] ) . ';
                     font-weight: ' . $styledata[113] . ';
                     font-style:' . $styledata[111] . ';
                     padding:' . $styledata[117] . 'px ' . $styledata[123] . 'px ' . $styledata[119] . 'px ' . $styledata[121] . 'px;
@@ -293,5 +293,4 @@ background-size: 100% 100%;
 
         <?php
     }
-
 }

@@ -2,8 +2,9 @@
 
 namespace OXI_FLIP_BOX_PLUGINS\Includes;
 
-if (!defined('ABSPATH'))
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
+}
 
 /**
  * Description of Installation
@@ -12,7 +13,7 @@ if (!defined('ABSPATH'))
  */
 class Installation {
 
-    protected static $lfe_instance = NULL;
+    protected static $lfe_instance = null;
 
     /**
      * Constructor of Flipbox Plugins
@@ -20,15 +21,15 @@ class Installation {
      * @since 2.0.0
      */
     public function __construct() {
-
     }
 
     /**
      * Access plugin instance. You can create further instances by calling
      */
     public static function get_instance() {
-        if (NULL === self::$lfe_instance)
-            self::$lfe_instance = new self;
+        if ( null === self::$lfe_instance ) {
+            self::$lfe_instance = new self();
+        }
 
         return self::$lfe_instance;
     }
@@ -42,7 +43,7 @@ class Installation {
 
         $this->Flip_Datatase();
         // Redirect to options page
-        set_transient('oxi_flip_box_activation_redirect', true, 30);
+        set_transient( 'oxi_flip_box_activation_redirect', true, 30 );
     }
 
 	/**
@@ -50,9 +51,9 @@ class Installation {
      *
      * @since 1.0.0
      */
-    public function plugin_upgrade_hook($upgrader_object, $options) {
-        if ($options['action'] == 'update' && $options['type'] == 'plugin') {
-            if (isset($options['plugins']['oxi-flip-box-plugin'])) {
+    public function plugin_upgrade_hook( $upgrader_object, $options ) {
+        if ( $options['action'] == 'update' && $options['type'] == 'plugin' ) {
+            if ( isset( $options['plugins']['oxi-flip-box-plugin'] ) ) {
                 $this->Flip_Datatase();
             }
         }
@@ -89,16 +90,18 @@ class Installation {
                 UNIQUE unique_index (type, name)
 	) $charset_collate;";
 
-        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-        dbDelta($sql1);
-        dbDelta($sql2);
-        dbDelta($sql3);
-        add_option('oxilab_flip_box_version', OXI_FLIP_BOX_PLUGIN_VERSION);
-        $wpdb->query("INSERT INTO {$table_import} (name, type) VALUES
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        dbDelta( $sql1 );
+        dbDelta( $sql2 );
+        dbDelta( $sql3 );
+        add_option( 'oxilab_flip_box_version', OXI_FLIP_BOX_PLUGIN_VERSION );
+        $wpdb->query(
+            "INSERT INTO {$table_import} (name, type) VALUES
         (1, 'flip'),
         (2, 'flip'),
         (3, 'flip'),
         (4, 'flip'),
-        (5, 'flip')");
+        (5, 'flip')"
+        );
     }
 }

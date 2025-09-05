@@ -12,8 +12,8 @@ namespace OXI_FLIP_BOX_PLUGINS\Includes\Admin\Pages;
  *
  * @author biplo
  */
-class Settings
-{
+class Settings {
+
 
     use \OXI_FLIP_BOX_PLUGINS\Inc_Helper\CSS_JS_Loader;
 
@@ -28,17 +28,15 @@ class Settings
      *
      * @since 2.0.0
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->admin();
         $this->Render();
     }
 
-    public function admin()
-    {
+    public function admin() {
         global $wp_roles;
         $this->roles = $wp_roles->get_names();
-        $this->saved_role = get_option('oxi_addons_user_permission');
+        $this->saved_role = get_option( 'oxi_addons_user_permission' );
         $this->admin_ajax_load();
     }
 
@@ -46,18 +44,21 @@ class Settings
      * Admin Notice JS file loader
      * @return void
      */
-    public function admin_ajax_load()
-    {
+    public function admin_ajax_load() {
         $this->admin_css_loader();
-        wp_enqueue_script('oxi-flip-settings', OXI_FLIP_BOX_URL . 'asset/backend/js/settings.js', false, OXI_FLIP_BOX_PLUGIN_VERSION);
-        wp_localize_script('oxi-flip-settings', 'oxi_flip_box_settings', array('ajaxurl' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('oxi-flip-box-editor')));
+        wp_enqueue_script( 'oxi-flip-settings', OXI_FLIP_BOX_URL . 'asset/backend/js/settings.js', false, OXI_FLIP_BOX_PLUGIN_VERSION );
+        wp_localize_script(
+            'oxi-flip-settings', 'oxi_flip_box_settings', [
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'oxi-flip-box-editor' ),
+            ]
+        );
     }
-    public function Render()
-    {
-?>
+    public function Render() {
+		?>
         <div class="wrap">
             <?php
-            apply_filters('oxi-flip-box-plugin/admin_menu', TRUE);
+            apply_filters( 'oxi-flip-box-plugin/admin_menu', true );
             ?>
             <div class="oxi-addons-row oxi-addons-admin-settings">
                 <h2>General</h2>
@@ -72,9 +73,9 @@ class Settings
                                 <td>
                                     <fieldset>
                                         <select name="oxi_addons_user_permission" id="oxi_addons_user_permission">
-                                            <?php foreach ($this->roles as $key => $role) { ?>
-                                                <option value="<?php echo esc_attr($key); ?>" <?php selected($this->saved_role, $key); ?>>
-                                                    <?php echo esc_html($role); ?></option>
+                                            <?php foreach ( $this->roles as $key => $role ) { ?>
+                                                <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $this->saved_role, $key ); ?>>
+                                                    <?php echo esc_html( $role ); ?></option>
                                             <?php } ?>
                                         </select>
                                         <span class="oxi-addons-settings-connfirmation oxi_addons_user_permission"></span>
@@ -91,9 +92,9 @@ class Settings
                                 <td>
                                     <fieldset>
                                         <label for="oxi_addons_font_awesome[]">
-                                            <input type="radio" class="radio" id="oxi_addons_font_awesome[yes]" name="oxi_addons_font_awesome" value="" <?php checked('', get_option('oxi_addons_font_awesome'), true); ?>>Yes</label>
+                                            <input type="radio" class="radio" id="oxi_addons_font_awesome[yes]" name="oxi_addons_font_awesome" value="" <?php checked( '', get_option( 'oxi_addons_font_awesome' ), true ); ?>>Yes</label>
                                         <label for="oxi_addons_font_awesome[no]">
-                                            <input type="radio" class="radio" id="oxi_addons_font_awesome[no]" name="oxi_addons_font_awesome" value="no" <?php checked('no', get_option('oxi_addons_font_awesome'), true); ?>>No
+                                            <input type="radio" class="radio" id="oxi_addons_font_awesome[no]" name="oxi_addons_font_awesome" value="no" <?php checked( 'no', get_option( 'oxi_addons_font_awesome' ), true ); ?>>No
                                         </label>
                                         <span class="oxi-addons-settings-connfirmation oxi_addons_font_awesome"></span>
                                         <br>
@@ -109,9 +110,9 @@ class Settings
                                 <td>
                                     <fieldset>
                                         <label for="oxi_addons_google_font[yes]">
-                                            <input type="radio" class="radio" id="oxi_addons_google_font[yes]" name="oxi_addons_google_font" value="" <?php checked('', get_option('oxi_addons_google_font'), true); ?>>Yes</label>
+                                            <input type="radio" class="radio" id="oxi_addons_google_font[yes]" name="oxi_addons_google_font" value="" <?php checked( '', get_option( 'oxi_addons_google_font' ), true ); ?>>Yes</label>
                                         <label for="oxi_addons_google_font[no]">
-                                            <input type="radio" class="radio" id="oxi_addons_google_font[no]" name="oxi_addons_google_font" value="no" <?php checked('no', get_option('oxi_addons_google_font'), true); ?>>No
+                                            <input type="radio" class="radio" id="oxi_addons_google_font[no]" name="oxi_addons_google_font" value="no" <?php checked( 'no', get_option( 'oxi_addons_google_font' ), true ); ?>>No
                                         </label>
                                         <span class="oxi-addons-settings-connfirmation oxi_addons_google_font"></span>
                                         <br>
@@ -127,9 +128,9 @@ class Settings
                                 <td>
                                     <fieldset>
                                         <label for="oxi_flipbox_support_massage[yes]">
-                                            <input type="radio" class="radio" id="oxi_flipbox_support_massage[yes]" name="oxi_flipbox_support_massage" value="" <?php checked('', get_option('oxi_flipbox_support_massage'), true); ?>>Yes</label>
+                                            <input type="radio" class="radio" id="oxi_flipbox_support_massage[yes]" name="oxi_flipbox_support_massage" value="" <?php checked( '', get_option( 'oxi_flipbox_support_massage' ), true ); ?>>Yes</label>
                                         <label for="oxi_flipbox_support_massage[no]">
-                                            <input type="radio" class="radio" id="oxi_flipbox_support_massage[no]" name="oxi_flipbox_support_massage" value="no" <?php checked('no', get_option('oxi_flipbox_support_massage'), true); ?>>No
+                                            <input type="radio" class="radio" id="oxi_flipbox_support_massage[no]" name="oxi_flipbox_support_massage" value="no" <?php checked( 'no', get_option( 'oxi_flipbox_support_massage' ), true ); ?>>No
                                         </label>
                                         <span class="oxi-addons-settings-connfirmation oxi_flipbox_support_massage"></span>
                                         <br>
@@ -142,6 +143,6 @@ class Settings
                 </form>
             </div>
         </div>
-<?php
+		<?php
     }
 }

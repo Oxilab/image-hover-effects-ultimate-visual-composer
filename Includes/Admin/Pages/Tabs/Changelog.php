@@ -201,47 +201,47 @@ class Changelog {
         <div id="what-new" class="content-what-new">
             <div class="content-heading">
                 <h2>
-                    <?php echo __('Exploring the', 'oxi-flip-box-plugin'); ?> 
-                    <mark><?php echo __('Latest Updates', 'oxi-flip-box-plugin'); ?></mark>
+                    <?php echo __( 'Exploring the', 'oxi-flip-box-plugin' ); ?> 
+                    <mark><?php echo __( 'Latest Updates', 'oxi-flip-box-plugin' ); ?></mark>
                 </h2>
                 <p>
-                    <?php echo __('Dive into the recent changelog for fresh insights about new features and improvements.', 'oxi-flip-box-plugin'); ?>
+                    <?php echo __( 'Dive into the recent changelog for fresh insights about new features and improvements.', 'oxi-flip-box-plugin' ); ?>
                 </p>
             </div>
 
-            <?php foreach ($logs as $log) : ?>
+            <?php foreach ( $logs as $log ) : ?>
                 <div class="log">
                     <div class="log-header" style="cursor:pointer;">
-                        <span class="log-version"><?php echo esc_html($log['version']); ?></span>
-                        <span class="log-date">(<?php echo esc_html($log['date']); ?>)</span>
+                        <span class="log-version"><?php echo esc_html( $log['version'] ); ?></span>
+                        <span class="log-date">(<?php echo esc_html( $log['date'] ); ?>)</span>
                         <i class="dashicons dashicons-arrow-down-alt2"></i>
                     </div>
                     <div class="log-body" style="display:none;">
-                        <?php foreach ($log['sections'] as $section => $items) : ?>
-                            <div class="log-section <?php echo esc_attr($section); ?>">
+                        <?php foreach ( $log['sections'] as $section => $items ) : ?>
+                            <div class="log-section <?php echo esc_attr( $section ); ?>">
                                 <h3>
                                     <?php
                                         $section_titles = [
-                                            'new' => __('New Features', 'oxi-flip-box-plugin'),
-                                            'fix' => __('Bug Fixes', 'oxi-flip-box-plugin'),
-                                            'enhancement' => __('Improvements', 'oxi-flip-box-plugin'),
-                                            'remove' => __('Deprecations', 'oxi-flip-box-plugin')
+                                            'new' => __( 'New Features', 'oxi-flip-box-plugin' ),
+                                            'fix' => __( 'Bug Fixes', 'oxi-flip-box-plugin' ),
+                                            'enhancement' => __( 'Improvements', 'oxi-flip-box-plugin' ),
+                                            'remove' => __( 'Deprecations', 'oxi-flip-box-plugin' ),
                                         ];
-                                        echo $section_titles[$section];
-                                    ?>
+                                        echo $section_titles[ $section ];
+										?>
                                 </h3>
-                                <?php foreach ($items as $item) : ?>
-                                    <div class="log-item log-item-<?php echo esc_attr($section); ?>">
+                                <?php foreach ( $items as $item ) : ?>
+                                    <div class="log-item log-item-<?php echo esc_attr( $section ); ?>">
                                         <?php
                                             $section_icons = [
                                                 'new' => 'dashicons-plus-alt2',
                                                 'fix' => 'dashicons-saved',
                                                 'enhancement' => 'dashicons-star-filled',
-                                                'remove' => 'dashicons-trash'
+                                                'remove' => 'dashicons-trash',
                                             ];
-                                        ?>
-                                        <i class="dashicons <?php echo esc_attr($section_icons[$section]); ?>"></i>
-                                        <?php echo esc_html($item); ?>
+											?>
+                                        <i class="dashicons <?php echo esc_attr( $section_icons[ $section ] ); ?>"></i>
+                                        <?php echo esc_html( $item ); ?>
                                     </div>
                                 <?php endforeach; ?>
                             </div>

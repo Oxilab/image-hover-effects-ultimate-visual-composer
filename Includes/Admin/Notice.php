@@ -7,9 +7,8 @@ namespace OXI_FLIP_BOX_PLUGINS\Includes\Admin;
  *
  * @since 2.10.1
  */
-class Notice{
+class Notice {
 
 	public function __construct() {
-		
 	}
 }

@@ -31,7 +31,7 @@ class Assets {
 
 		if ( 'flipbox-getting-started' === $current_page ) {
 			//CSS
-			wp_enqueue_style('flip-box-admin-welcome', OXI_FLIP_BOX_URL . 'asset/backend/css/getting-started.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/getting-started.css' ) );
+			wp_enqueue_style( 'flip-box-admin-welcome', OXI_FLIP_BOX_URL . 'asset/backend/css/getting-started.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/getting-started.css' ) );
 			//JS
 			wp_enqueue_script( 'flip-box-admin-welcome-js', OXI_FLIP_BOX_URL . 'asset/backend/js/getting-started.js', [ 'jquery' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/js/getting-started.js' ), true );
 		}
@@ -43,8 +43,5 @@ class Assets {
 	 * @since 2.10.1
 	 */
 	public function public_enqueue_scripts() {
-		
 	}
-
-	
 }

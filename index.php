@@ -1,5 +1,5 @@
 <?php
- /**
+/**
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://wpkin.com
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
@@ -28,23 +28,25 @@ if ( ! function_exists( 'wpkin_fb_v' ) ) {
         global $wpkin_fb_v;
 
         if ( ! isset( $wpkin_fb_v ) ) {
-            $wpkin_fb_v = fs_dynamic_init( array(
-                'id'                  => '20098',
-                'slug'                => 'oxi-flip-box-ultimate',
-                'type'                => 'plugin',
-                'public_key'          => 'pk_1332bbabb9a9c9654b5703b6cd244',
-                'is_premium'          => false,
-                'has_premium_version' => false,
-                'has_addons'          => false,
-                'has_paid_plans'      => true,
-                'menu'                => array(
-                    'slug'       => 'oxi-flip-box-ultimate',
-    				'first-path' => 'admin.php?page=flipbox-getting-started',
-                    'contact'        => false,
-                    'support'        => false,
-					'pricing'        => false,
-                ),
-            ) );
+            $wpkin_fb_v = fs_dynamic_init(
+                [
+					'id'                  => '20098',
+					'slug'                => 'oxi-flip-box-ultimate',
+					'type'                => 'plugin',
+					'public_key'          => 'pk_1332bbabb9a9c9654b5703b6cd244',
+					'is_premium'          => false,
+					'has_premium_version' => false,
+					'has_addons'          => false,
+					'has_paid_plans'      => true,
+					'menu'                => [
+						'slug'       => 'oxi-flip-box-ultimate',
+						'first-path' => 'admin.php?page=flipbox-getting-started',
+						'contact'        => false,
+						'support'        => false,
+						'pricing'        => false,
+					],
+				]
+            );
         }
 
         return $wpkin_fb_v;
@@ -123,11 +125,11 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			$this->define_constance();
 			register_activation_hook( __FILE__, [ $this, 'activate' ] );
 			register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
-			add_action('upgrader_process_complete', [ $this, 'wpkin_upgrader_process_complete' ], 10, 2);
-			do_action('oxi-flip-box-plugin/before_init');
+			add_action( 'upgrader_process_complete', [ $this, 'wpkin_upgrader_process_complete' ], 10, 2 );
+			do_action( 'oxi-flip-box-plugin/before_init' );
 			// Load translation
-			add_action('init', array($this, 'i18n'));
-			add_action('admin_init', array($this, 'wpkin_fs_optin'));
+			add_action( 'init', [ $this, 'i18n' ] );
+			add_action( 'admin_init', [ $this, 'wpkin_fs_optin' ] );
 			add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scriptss' ] );
 		}
@@ -150,10 +152,10 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 
 		public function wpkin_fs_optin() {
 			// if ( isset($_GET['page']) && $_GET['page'] === 'flipbox-getting-started' ) {
-			// 	$fs = wpkin_fb_v();
-			// 	if ( ! $fs->is_tracking_allowed() && ! $fs->is_registered() ) {
-			// 		$fs->opt_in( true ); // Show modal immediately
-			// 	}
+			//  $fs = wpkin_fb_v();
+			//  if ( ! $fs->is_tracking_allowed() && ! $fs->is_registered() ) {
+			//      $fs->opt_in( true ); // Show modal immediately
+			//  }
 			// }
 		}
 
@@ -164,13 +166,13 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 */
 		public function define_constance() {
 
-			define('OXI_FLIP_BOX_FILE', __FILE__);
-			define('OXI_FLIP_BOX_BASENAME', plugin_basename(OXI_FLIP_BOX_FILE));
-			define('OXI_FLIP_BOX_PATH', plugin_dir_path(OXI_FLIP_BOX_FILE));
-			define('OXI_FLIP_BOX_URL', plugins_url('/', OXI_FLIP_BOX_FILE));
-			define('OXI_FLIP_BOX_PLUGIN_VERSION', self::VERSION );
-			define('OXI_FLIP_BOX_MINIMUM_PHP_VERSION', self::MIN_PHP_VERSION );
-			define('OXI_FLIP_BOX_MINIMUM_WP_VERSION', self::MIN_WP_VERSION );
+			define( 'OXI_FLIP_BOX_FILE', __FILE__ );
+			define( 'OXI_FLIP_BOX_BASENAME', plugin_basename( OXI_FLIP_BOX_FILE ) );
+			define( 'OXI_FLIP_BOX_PATH', plugin_dir_path( OXI_FLIP_BOX_FILE ) );
+			define( 'OXI_FLIP_BOX_URL', plugins_url( '/', OXI_FLIP_BOX_FILE ) );
+			define( 'OXI_FLIP_BOX_PLUGIN_VERSION', self::VERSION );
+			define( 'OXI_FLIP_BOX_MINIMUM_PHP_VERSION', self::MIN_PHP_VERSION );
+			define( 'OXI_FLIP_BOX_MINIMUM_WP_VERSION', self::MIN_WP_VERSION );
 		}
 
 		/**
@@ -216,7 +218,6 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 * @access public
 		 */
 		public function deactivate() {
-
 		}
 
 		/**
@@ -228,7 +229,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			new OXI_FLIP_BOX_PLUGINS\Includes\Assets();
 			$this->Shortcode_loader();
 			$this->Public_loader();
-			if (is_admin()) {
+			if ( is_admin() ) {
 				new OXI_FLIP_BOX_PLUGINS\Includes\Admin();
 				$this->Admin_Filters();
 				$this->User_Admin();
@@ -243,7 +244,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 */
 		public function wpkin_upgrader_process_complete( $upgrader_object, $options ) {
 			$Installation = new \OXI_FLIP_BOX_PLUGINS\Includes\Installation();
-			$Installation->plugin_upgrade_hook($upgrader_object, $options);
+			$Installation->plugin_upgrade_hook( $upgrader_object, $options );
 		}
 
 		/**
@@ -253,11 +254,11 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 * @access public
 		 */
 		protected function Shortcode_loader() {
-			add_shortcode('oxilab_flip_box', [$this, 'wp_shortcode']);
+			add_shortcode( 'oxilab_flip_box', [ $this, 'wp_shortcode' ] );
 			new \OXI_FLIP_BOX_PLUGINS\Modules\Visual_Composer();
 			$Flipbox_Widget = new \OXI_FLIP_BOX_PLUGINS\Modules\Widget();
-			add_filter('widget_text', 'do_shortcode');
-			add_action('widgets_init', array($Flipbox_Widget, 'flip_register_flipwidget'));
+			add_filter( 'widget_text', 'do_shortcode' );
+			add_action( 'widgets_init', [ $Flipbox_Widget, 'flip_register_flipwidget' ] );
 		}
 
 		public function Public_loader() {
@@ -269,7 +270,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		}
 
 		public function admin_enqueue_scriptss() {
-			wp_enqueue_style('oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
+			wp_enqueue_style( 'oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
 		}
 
 		/**
@@ -278,24 +279,24 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 * @since 3.1.0
 		 * @access public
 		 */
-		public function wp_shortcode($atts) {
-			extract(shortcode_atts(array('id' => ' ',), $atts));
+		public function wp_shortcode( $atts ) {
+			extract( shortcode_atts( [ 'id' => ' ' ], $atts ) );
 			$styleid = $atts['id'];
 			ob_start();
-			$this->shortcode_render($styleid, 'user');
+			$this->shortcode_render( $styleid, 'user' );
 			return ob_get_clean();
 		}
 
 		public function Admin_Filters() {
-			add_filter($this->fixed_data('6f78692d666c69702d626f782d737570706f72742d616e642d636f6d6d656e7473'), array($this, $this->fixed_data('537570706f7274416e64436f6d6d656e7473')));
-			add_filter($this->fixed_data('6f78692d666c69702d626f782d706c7567696e2f70726f5f76657273696f6e'), array($this, $this->fixed_data('636865636b5f63757272656e745f74616273')));
-			add_filter($this->fixed_data('6f78692d666c69702d626f782d706c7567696e2f61646d696e5f6d656e75'), array($this, $this->fixed_data('6f78696c61625f61646d696e5f6d656e75')));
+			add_filter( $this->fixed_data( '6f78692d666c69702d626f782d737570706f72742d616e642d636f6d6d656e7473' ), [ $this, $this->fixed_data( '537570706f7274416e64436f6d6d656e7473' ) ] );
+			add_filter( $this->fixed_data( '6f78692d666c69702d626f782d706c7567696e2f70726f5f76657273696f6e' ), [ $this, $this->fixed_data( '636865636b5f63757272656e745f74616273' ) ] );
+			add_filter( $this->fixed_data( '6f78692d666c69702d626f782d706c7567696e2f61646d696e5f6d656e75' ), [ $this, $this->fixed_data( '6f78696c61625f61646d696e5f6d656e75' ) ] );
 		}
 
 		public function User_Admin() {
-			add_action('admin_head', [$this, 'Admin_Icon']);
-			add_action('wp_ajax_oxi_flip_box_data', array($this, 'data_process'));
-			add_action('admin_head', [$this, 'welcome_remove_menus']);
+			add_action( 'admin_head', [ $this, 'Admin_Icon' ] );
+			add_action( 'wp_ajax_oxi_flip_box_data', [ $this, 'data_process' ] );
+			add_action( 'admin_head', [ $this, 'welcome_remove_menus' ] );
 		}
 	}
 

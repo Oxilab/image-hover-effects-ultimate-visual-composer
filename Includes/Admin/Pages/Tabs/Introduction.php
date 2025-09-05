@@ -42,13 +42,13 @@ class Introduction {
 					<p><?php echo esc_html__( 'Choose from a wide range of pre-built hover and flip animations to instantly enhance your website visuals. From subtle fades to bold 3D flips, Flipbox has the perfect effect for every project. All animations are smooth, lightweight, and optimized for performance, so your site stays fast and responsive. You can easily mix and match effects to create unique interactions that grab attention and keep visitors engaged.', 'oxi-flip-box-plugin' ); ?></p>
 				</div>
 				<div class="col-image">
-					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/50-hover-effects.png' ?>" alt=""/>
+					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/50-hover-effects.png'; ?>" alt=""/>
 				</div>
 			</section>
 
 			<section class="section-full">
 				<div class="col-image">
-					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/customization.png' ?>" alt=""/>
+					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/customization.png'; ?>" alt=""/>
 				</div>
 				<div class="col-description">
 					<h2><?php echo esc_html__( 'Full Customization Options', 'oxi-flip-box-plugin' ); ?></h2>
@@ -62,7 +62,7 @@ class Introduction {
 					<p><?php echo esc_html__( 'Every effect is built with mobile in mind. Flipboxes automatically adapt to all screen sizes, ensuring your site looks great on desktops, tablets, and phones. No extra coding or adjustments are required — everything works out of the box. With fully responsive layouts, you can deliver a seamless user experience that keeps your design consistent across every device.', 'oxi-flip-box-plugin' ); ?></p>
 				</div>
 				<div class="col-image">
-					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/responsive.png' ?>" alt=""/>
+					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/responsive.png'; ?>" alt=""/>
 				</div>
 			</section>
 
@@ -86,7 +86,7 @@ class Introduction {
 					</div>
 				</div>
 				<div class="col-image">
-					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/shortcode.png' ?>" alt=""/>
+					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/shortcode.png'; ?>" alt=""/>
 				</div>
 			</section>
 
@@ -105,7 +105,7 @@ class Introduction {
 						<p><?php echo esc_html__( 'Enhance your Flipboxes with custom icons and powerful call-to-action buttons that engage your audience and drive interaction. Whether you want to highlight key features, link to products, or guide visitors to the next step, Flipbox makes it simple to combine visuals with actionable elements.', 'oxi-flip-box-plugin' ); ?></p>
 					</div>
 				<div class="col-image">
-					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/custom-icon.png' ?>" alt=""/>
+					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/custom-icon.png'; ?>" alt=""/>
 				</div>
 			</section>
 
@@ -115,7 +115,7 @@ class Introduction {
 					<p><?php echo esc_html__( 'Take full control of your Flipboxes with the built-in Custom CSS option. Whether you need small tweaks or advanced styling, you can easily add your own code without touching the plugin’s core files. This gives developers and designers the freedom to create unique, tailored designs that perfectly match any website.', 'oxi-flip-box-plugin' ); ?></p>
 				</div>
 				<div class="col-image">
-					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/custom-css.png' ?>" alt=""/>
+					<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/Intruduction/custom-css.png'; ?>" alt=""/>
 				</div>
 			</section>
 			</div>
