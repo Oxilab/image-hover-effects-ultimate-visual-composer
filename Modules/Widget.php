@@ -4,10 +4,12 @@ namespace OXI_FLIP_BOX_PLUGINS\Modules;
 
 class Widget extends \WP_Widget {
 
+	use \OXI_FLIP_BOX_PLUGINS\Inc_Helper\Public_Helper;
+
     public function widget( $args, $instance ) {
         $title = apply_filters( 'widget_title', $instance['title'] );
         echo $args['before_widget'];
-        echo \OXI_FLIP_BOX_PLUGINS\Classes\Bootstrap::instance()->shortcode_render( $title, 'user' );
+        echo $this->shortcode_render( $title, 'user' );
         echo $args['after_widget'];
     }
 

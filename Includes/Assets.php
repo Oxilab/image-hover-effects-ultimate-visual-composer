@@ -29,6 +29,8 @@ class Assets {
 		$current_screen = get_current_screen()->id;
 		$current_page   = isset( $_GET['page'] ) && $_GET['page'] ? $_GET['page'] : '';
 
+		wp_enqueue_style( 'oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
+
 		if ( 'flipbox-getting-started' === $current_page ) {
 			//CSS
 			wp_enqueue_style( 'flip-box-admin-welcome', OXI_FLIP_BOX_URL . 'asset/backend/css/getting-started.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/getting-started.css' ) );

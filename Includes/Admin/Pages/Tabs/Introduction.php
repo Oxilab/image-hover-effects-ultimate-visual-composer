@@ -126,7 +126,7 @@ class Introduction {
 					<p><?php echo esc_html__( 'Flipbox gives you everything you need to create beautiful, interactive image effects that boost engagement and make your site stand out. Start building with Flipbox today!', 'oxi-flip-box-plugin' ); ?></p>
 				</div>
 				<div>
-					<a href="admin.php?page=oxi-flip-box-plugin" class="wpkin-btn btn-primary get-pro-btn">
+					<a href="admin.php?page=oxi-flip-box-ultimate-new" class="wpkin-btn btn-primary get-pro-btn">
 						<?php echo esc_html__( 'Configure Flipbox Now', 'oxi-flip-box-plugin' ); ?>
 					</a>
 				</div>

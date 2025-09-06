@@ -8,6 +8,16 @@ class Changelog {
 
         // Full changelog array
         $logs = [
+			[
+                'version' => '2.10.3',
+                'date' => '07-09-2025',
+                'sections' => [
+                    'fix' => [
+                        'Fixed Visual composer fatal error issue.',
+                        'Fixed Widget fatal error issue.',
+                    ],
+                ],
+            ],
             [
                 'version' => '2.10.2',
                 'date' => '05-09-2025',

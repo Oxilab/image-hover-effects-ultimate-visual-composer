@@ -9,12 +9,12 @@ namespace OXI_FLIP_BOX_PLUGINS\Modules;
  */
 class Visual_Composer {
 
+	use \OXI_FLIP_BOX_PLUGINS\Inc_Helper\Public_Helper;
+
     public function __construct() {
         add_action( 'vc_before_init', [ $this, 'VC_extension' ] );
         add_shortcode( 'oxilab_flip_box_VC', [ $this, 'VC_Shortcode' ] );
     }
-
-
 
     public function VC_extension() {
         vc_map(
@@ -44,7 +44,7 @@ class Visual_Composer {
         );
         $styleid = $atts['id'];
         ob_start();
-        \OXI_FLIP_BOX_PLUGINS\Classes\Bootstrap::instance()->shortcode_render( $styleid, 'user' );
+        $this->shortcode_render( $styleid, 'user' );
         return ob_get_clean();
     }
 }

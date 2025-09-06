@@ -3,7 +3,7 @@
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://wpkin.com
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           2.10.2
+ * Version:           2.10.3
  * Author:            WPKIN
  * Author URI:        https://wpkin.com
  * Text Domain:       oxi-flip-box-plugin
@@ -75,7 +75,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-		const VERSION = '2.10.2';
+		const VERSION = '2.10.3';
 
 		/**
 		 * Php Version
@@ -129,9 +129,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			do_action( 'oxi-flip-box-plugin/before_init' );
 			// Load translation
 			add_action( 'init', [ $this, 'i18n' ] );
-			add_action( 'admin_init', [ $this, 'wpkin_fs_optin' ] );
 			add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
-			add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scriptss' ] );
 		}
 
 		/**
@@ -148,15 +146,6 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			}
 
 			return $instance;
-		}
-
-		public function wpkin_fs_optin() {
-			// if ( isset($_GET['page']) && $_GET['page'] === 'flipbox-getting-started' ) {
-			//  $fs = wpkin_fb_v();
-			//  if ( ! $fs->is_tracking_allowed() && ! $fs->is_registered() ) {
-			//      $fs->opt_in( true ); // Show modal immediately
-			//  }
-			// }
 		}
 
 		/**
@@ -267,10 +256,6 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			$this->parent_table = $this->wpdb->prefix . 'oxi_div_style';
 			$this->child_table = $this->wpdb->prefix . 'oxi_div_list';
 			$this->import_table = $this->wpdb->prefix . 'oxi_div_import';
-		}
-
-		public function admin_enqueue_scriptss() {
-			wp_enqueue_style( 'oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
 		}
 
 		/**
