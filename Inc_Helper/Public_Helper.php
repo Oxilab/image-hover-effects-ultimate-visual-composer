@@ -8,6 +8,43 @@ namespace OXI_FLIP_BOX_PLUGINS\Inc_Helper;
  */
 trait Public_Helper {
 
+	/**
+	 * Define $wpdb
+	 *
+	 * @since 3.1.0
+	 */
+	public $wpdb;
+
+	/**
+	 * Database Parent Table
+	 *
+	 * @since 3.1.0
+	 */
+	public $parent_table;
+
+	/**
+	 * Database Import Table
+	 *
+	 * @since 3.1.0
+	 */
+	public $import_table;
+
+	/**
+	 * Database Import Table
+	 *
+	 * @since 3.1.0
+	 */
+	public $child_table;
+
+
+	public function Public_loader() {
+		global $wpdb;
+		$this->wpdb = $wpdb;
+		$this->parent_table = $this->wpdb->prefix . 'oxi_div_style';
+		$this->child_table = $this->wpdb->prefix . 'oxi_div_list';
+		$this->import_table = $this->wpdb->prefix . 'oxi_div_import';
+	}
+
 
     public function html_special_charecter( $data ) {
         $data = html_entity_decode( $data );

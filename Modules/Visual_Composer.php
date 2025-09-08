@@ -17,6 +17,7 @@ class Visual_Composer {
     }
 
     public function VC_extension() {
+		$this->Public_loader();
         vc_map(
             [
 				'name' => __( 'Flip Boxes and Image Overlay' ),

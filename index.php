@@ -3,7 +3,7 @@
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://wpkin.com
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           2.10.3
+ * Version:           2.10.4
  * Author:            WPKIN
  * Author URI:        https://wpkin.com
  * Text Domain:       oxi-flip-box-plugin
@@ -75,7 +75,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-		const VERSION = '2.10.3';
+		const VERSION = '2.10.4';
 
 		/**
 		 * Php Version
@@ -87,33 +87,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 */
 		const MIN_WP_VERSION = '6.2';
 
-		/**
-		 * Define $wpdb
-		 *
-		 * @since 3.1.0
-		 */
-		public $wpdb;
 
-		/**
-		 * Database Parent Table
-		 *
-		 * @since 3.1.0
-		 */
-		public $parent_table;
-
-		/**
-		 * Database Import Table
-		 *
-		 * @since 3.1.0
-		 */
-		public $import_table;
-
-		/**
-		 * Database Import Table
-		 *
-		 * @since 3.1.0
-		 */
-		public $child_table;
 
 		const ADMINMENU = 'get_oxilab_addons_menu';
 
@@ -248,14 +222,6 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			$Flipbox_Widget = new \OXI_FLIP_BOX_PLUGINS\Modules\Widget();
 			add_filter( 'widget_text', 'do_shortcode' );
 			add_action( 'widgets_init', [ $Flipbox_Widget, 'flip_register_flipwidget' ] );
-		}
-
-		public function Public_loader() {
-			global $wpdb;
-			$this->wpdb = $wpdb;
-			$this->parent_table = $this->wpdb->prefix . 'oxi_div_style';
-			$this->child_table = $this->wpdb->prefix . 'oxi_div_list';
-			$this->import_table = $this->wpdb->prefix . 'oxi_div_import';
 		}
 
 		/**

@@ -3,7 +3,7 @@ Contributors: wpkin, richardmallick
 Donate link: https://www.wpkin.com
 Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 6.2
-Stable tag: 2.10.3
+Stable tag: 2.10.4
 Tested up to: 6.8
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -172,6 +172,9 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 2.10.4 = 
+*Fixed Visual composer fatal error issue get_row().
 
 = 2.10.3 = 
 *Fixed Visual composer fatal error issue.
