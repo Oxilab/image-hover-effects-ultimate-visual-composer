@@ -3,7 +3,7 @@
         'name' => 'wpkin/flipbox',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'b45c4e6f458467b87c23de0aff0bde4e38b48f4b',
+        'reference' => '6c89f8cba7af79bb7e4fc17013fc8f56c4324641',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'freemius/wordpress-sdk' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'fedeba08eb3e62af5f84bd6d602f98636467cffc',
+            'reference' => '241fbfc91151f85d8ebeb75343caf29bda1d3208',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(
@@ -24,7 +24,7 @@
         'wpkin/flipbox' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'b45c4e6f458467b87c23de0aff0bde4e38b48f4b',
+            'reference' => '6c89f8cba7af79bb7e4fc17013fc8f56c4324641',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
