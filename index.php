@@ -3,7 +3,7 @@
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://wpkin.com
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           2.10.4
+ * Version:           2.10.5
  * Author:            WPKIN
  * Author URI:        https://wpkin.com
  * Text Domain:       oxi-flip-box-plugin
@@ -75,7 +75,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-		const VERSION = '2.10.4';
+		const VERSION = '2.10.5';
 
 		/**
 		 * Php Version
@@ -164,10 +164,13 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 *
 		 * @access public
 		 */
-		public function activate() {
-			$Installation = new \OXI_FLIP_BOX_PLUGINS\Includes\Installation();
-			$Installation->plugin_activation_hook();
+	public function activate() {
+		if ( ! class_exists( '\OXI_FLIP_BOX_PLUGINS\Includes\Installation' ) ) {
+			require_once __DIR__ . '/Includes/Installation.php';
 		}
+		$Installation = new \OXI_FLIP_BOX_PLUGINS\Includes\Installation();
+		$Installation->plugin_activation_hook();
+	}
 
 		/**
 		 * After Deactivate Plugin
@@ -205,10 +208,13 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 *
 		 * @since 2.3.0
 		 */
-		public function wpkin_upgrader_process_complete( $upgrader_object, $options ) {
-			$Installation = new \OXI_FLIP_BOX_PLUGINS\Includes\Installation();
-			$Installation->plugin_upgrade_hook( $upgrader_object, $options );
+	public function wpkin_upgrader_process_complete( $upgrader_object, $options ) {
+		if ( ! class_exists( '\OXI_FLIP_BOX_PLUGINS\Includes\Installation' ) ) {
+			require_once __DIR__ . '/Includes/Installation.php';
 		}
+		$Installation = new \OXI_FLIP_BOX_PLUGINS\Includes\Installation();
+		$Installation->plugin_upgrade_hook( $upgrader_object, $options );
+	}
 
 		/**
 		 * Shortcode loader
