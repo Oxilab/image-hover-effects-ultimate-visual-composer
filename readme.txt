@@ -1,9 +1,9 @@
-﻿=== Flipbox - Awesomes Flip Boxes Image Overlay ===
+=== Flipbox - Awesomes Flip Boxes Image Overlay ===
 Contributors: wpkin, richardmallick
 Donate link: https://www.wpkin.com
 Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 6.2
-Stable tag: 2.10.5
+Stable tag: 2.10.6
 Tested up to: 6.8
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -172,6 +172,13 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 2.10.6 = 
+* Version bump and maintenance release.
+* Updated plugin version to 2.10.6 across codebase.
+* Added changelog entry in readme.
+* Removed admin Support and Comments panel.
+* Removed related filter registration to avoid missing callbacks.
 
 = 2.10.5 = 
 *Fixed critical error: Call to a member function get_row() on null in Public_Helper.php.
@@ -421,4 +428,4 @@ Customize Flipbox
 
 = 1.1 =
 Add user capabilities
-More theme capabilities 
+More theme capabilities
