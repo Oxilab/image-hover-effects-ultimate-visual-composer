@@ -156,6 +156,17 @@ class Create {
                 <p> Select Flipbox layouts, Gives your Flipbox name and create new Flipbox. </p>
             </div>
         </div>
+		<div class="oxi-addons-row">
+			<div class="oxi-addons-wrapper" style="margin:50px 0px">
+				<div style="display: flex; align-items: center; justify-content: space-between;">
+					<span style="font-size:24px;font-weight:600;margin-right:12px;">Create New</span>
+					<a class="btn btn-primary oxi-import-button" href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-import' ) ); ?>">
+						<i class="fas fa-plus-circle oxi-icons"></i>
+						Import More Templates
+					</a>
+				</div>
+			</div>
+		</div>
 		<?php
     }
 
@@ -163,7 +174,7 @@ class Create {
 		?>
         <div class="oxi-addons-row">
             <div class="text-center" style="width:100%;">
-                <a class="btn btn-primary btn-lg oxi-import-button" href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-import' ) ); ?>">
+                <a class="btn btn-primary btn-lg oxi-import-solid-button" href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-import' ) ); ?>">
                     <i class="fas fa-plus-circle oxi-icons"></i>
                     Import More Templates
                 </a>

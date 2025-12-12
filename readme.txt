@@ -174,11 +174,13 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 == Changelog ==
 
 = 2.10.6 = 
-* Version bump and maintenance release.
-* Updated plugin version to 2.10.6 across codebase.
-* Added changelog entry in readme.
 * Removed admin Support and Comments panel.
 * Removed related filter registration to avoid missing callbacks.
+* Improved Create page UX: centered Import Templates button and removed box.
+* Added top-right Import More Templates button in Create header.
+* Flip Box list: added Shortcode label with Add New and Import buttons above table.
+* Flip Box list: Import button now opens JSON import modal; removed bottom import box.
+* Flip Box list: replaced Shortcode/PHP inputs with copyable Shortcode chip UI.
 
 = 2.10.5 = 
 *Fixed critical error: Call to a member function get_row() on null in Public_Helper.php.
