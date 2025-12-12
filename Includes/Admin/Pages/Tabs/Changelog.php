@@ -8,12 +8,47 @@ class Changelog {
 
         // Full changelog array
         $logs = [
-			[
+            [
+                'version' => '2.10.6',
+                'date' => '13-12-2025',
+                'sections' => [
+                    'remove' => [
+                        'Removed admin Support and Comments panel.',
+                        'Removed related filter registration to avoid missing callbacks.',
+                        'Flip Box list: Removed bottom import box.',
+                    ],
+                    'enhancement' => [
+                        'Improved Create page UX: centered Import Templates button and removed box.',
+                        'Added top-right Import More Templates button in Create header.',
+                        'Flip Box list: Added Shortcode label with Add New and Import buttons above table.',
+                        'Flip Box list: Replaced Shortcode/PHP inputs with copyable Shortcode chip UI.',
+                        'Flip Box list: Import button now opens JSON import modal.',
+                    ],
+                    'new' => [
+                        'Elementor: Added Flipbox widget under General with ID control.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '2.10.5',
+                'date' => '05-10-2025',
+                'sections' => [
+                    'fix' => [
+                        'Fixed critical error: Call to a member function get_row() on null in Public_Helper.php.',
+                        'Fixed critical error: Installation class not found during plugin activation and upgrades.',
+                    ],
+                    'enhancement' => [
+                        'Added safety checks for database initialization in shortcode rendering.',
+                        'Improved plugin stability and error handling.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.10.4',
                 'date' => '08-09-2025',
                 'sections' => [
                     'fix' => [
-                        '*Fixed Visual composer fatal error issue get_row().',
+                        'Fixed Visual composer fatal error issue get_row().',
                     ],
                 ],
             ],
