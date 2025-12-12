@@ -162,19 +162,11 @@ class Create {
     public function create_new() {
 		?>
         <div class="oxi-addons-row">
-            <div class="oxi-addons-col-1 oxi-import">
-                <div class="oxi-addons-style-preview">
-                    <div class="oxilab-admin-style-preview-top">
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-import' ) ); ?>">
-                            <div class="oxilab-admin-add-new-item">
-                                <span>
-                                    <i class="fas fa-plus-circle oxi-icons"></i>
-                                    Import Templates
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <div class="text-center" style="width:100%;">
+                <a class="btn btn-primary btn-lg oxi-import-button" href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-import' ) ); ?>">
+                    <i class="fas fa-plus-circle oxi-icons"></i>
+                    Import More Templates
+                </a>
             </div>
         </div>
 
