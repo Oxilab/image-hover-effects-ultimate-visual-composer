@@ -39,6 +39,7 @@ class Style1 extends Public_Render {
                         sa-data-animation-delay="0ms"
                         sa-data-animation-duration=" <?php echo esc_attr( ( $styledata[57] * 1000 ) ); ?>ms"
                         >
+
                         <div class="<?php echo ( $this->admin == 'admin' ) ? 'oxilab-ab-id' : ''; ?>  oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?>-<?php echo esc_attr( $value['id'] ); ?>">
                             <?php
                             if ( $filesdata[9] == '' && $filesdata[11] != '' ) {
@@ -84,7 +85,7 @@ class Style1 extends Public_Render {
                                                             if ( $filesdata[9] != '' && $filesdata[11] != '' ) {
                                                                 ?>
                                                                 <div class="oxilab-button">
-                                                                    <a href="<?php echo esc_url( esc_url( $filesdata[11] ) ); ?>" target="<?php echo esc_attr( esc_attr( $styledata[53] ) ); ?>">
+                                                                    <a href="<?php echo esc_url( $filesdata[11] ); ?>" target="<?php echo esc_attr( $styledata[53] ); ?>">
                                                                         <span class="oxilab-button-data">
                                                                             <?php $this->text_render( $filesdata[9] ); ?>
                                                                         </span>
