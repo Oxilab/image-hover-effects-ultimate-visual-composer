@@ -1,9 +1,9 @@
 === Flipbox - Awesomes Flip Boxes Image Overlay ===
-Contributors: wpkin, richardmallick
+Contributors: oxilab, wpkin, richardmallick
 Donate link: https://www.wpkin.com
 Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 6.2
-Stable tag: 2.10.6
+Stable tag: 2.10.7
 Tested up to: 6.9
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -172,6 +172,10 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 2.10.7 =
+* Fixed elementor addon issue.
+* Fixed image loading issue.
 
 = 2.10.6 = 
 * Removed admin Support and Comments panel.

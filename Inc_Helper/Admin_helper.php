@@ -85,16 +85,6 @@ trait Admin_helper {
     }
 
 
-	/**
-     * Admin Notice Check
-     *
-     * @since 2.0.0
-     */
-    public function admin_recommended_status() {
-        $data = get_option( 'oxilab_flip_box_recommended' );
-        return $data;
-    }
-
 	public function admin_recommended() {
         if ( ! empty( $this->admin_recommended_status() ) ) :
             return;
@@ -105,6 +95,15 @@ trait Admin_helper {
         new \OXI_FLIP_BOX_PLUGINS\Classes\Support_Recommended();
     }
 
+	/**
+     * Admin Notice Check
+     *
+     * @since 2.0.0
+     */
+    public function admin_recommended_status() {
+        $data = get_option( 'oxilab_flip_box_recommended' );
+        return $data;
+    }
 
     /**
      * Plugin Admin Top Menu
@@ -191,20 +190,6 @@ trait Admin_helper {
         return bin2hex( $str );
     }
 
-    /**
-     * Plugin check Current Tabs
-     *
-     * @since 2.0.0
-     */
-    public function check_current_tabs( $agr ) {
-        $vs = get_option( $this->fixed_data( '6f78696c61625f666c69705f626f785f6c6963656e73655f737461747573' ) );
-        if ( $vs == $this->fixed_data( '76616c6964' ) || wpkin_fb_v()->can_use_premium_code() ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function admin_url_convert( $agr ) {
         return admin_url( strpos( $agr, 'edit' ) !== false ? $agr : 'admin.php?page=' . $agr );
     }
@@ -217,5 +202,19 @@ trait Admin_helper {
             }
         </style>
 		<?php
+    }
+
+	 /**
+     * Plugin check Current Tabs
+     *
+     * @since 2.0.0
+     */
+    public function check_current_tabs( $agr ) {
+        $vs = get_option( $this->fixed_data( '6f78696c61625f666c69705f626f785f6c6963656e73655f737461747573' ) );
+        if ( $vs == $this->fixed_data( '76616c6964' ) || wpkin_fb_v()->can_use_premium_code() ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

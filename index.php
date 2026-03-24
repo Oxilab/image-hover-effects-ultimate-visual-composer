@@ -3,7 +3,7 @@
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://wpkin.com
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           2.10.6
+ * Version:           2.10.7
  * Author:            WPKIN
  * Author URI:        https://wpkin.com
  * Text Domain:       oxi-flip-box-plugin
@@ -75,7 +75,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-        const VERSION = '2.10.6';
+        const VERSION = '2.10.7';
 
 		/**
 		 * Php Version

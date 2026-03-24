@@ -8,6 +8,16 @@ class Changelog {
 
         // Full changelog array
         $logs = [
+			[
+                'version' => '2.10.7',
+                'date' => '24-03-2026',
+                'sections' => [
+                    'fix' => [
+                        'Fixed elementor addon issue.',
+                        'Fixed image loading issue.',
+                    ],
+                ],
+            ],
             [
                 'version' => '2.10.6',
                 'date' => '13-12-2025',
