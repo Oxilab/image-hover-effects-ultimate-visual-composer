@@ -23,9 +23,9 @@ use OXI_FLIP_BOX_PLUGINS\Page\Public_Render;
 class Style1 extends Public_Render {
 
     public function default_render() {
-        $styleid = esc_attr( $this->oxiid );
-        $styledata = array_map( 'esc_attr', explode( '|', $this->dbdata['css'] ) );
-        $listdata = $this->child;
+        $styleid   = esc_attr( $this->oxiid );
+        $styledata = $this->parse_styledata( $this->dbdata['css'] );
+        $listdata  = $this->child;
         ?>
         <div class="oxilab-flip-box-wrapper">
             <?php
