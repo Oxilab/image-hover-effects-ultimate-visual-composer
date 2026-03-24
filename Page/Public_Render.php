@@ -85,6 +85,35 @@ class Public_Render {
         echo '';
     }
 
+    /**
+     * Parse the raw CSS string from the database into a typed $styledata array.
+     *
+     * Replaces the old pattern used in every style file:
+     *   $styledata = array_map( 'esc_attr', explode( '|', $this->dbdata['css'] ) );
+     *
+     * What this does differently:
+     *   - Still runs esc_attr() on every value (XSS safety unchanged).
+     *   - Auto-casts numeric strings to float so PHP 8 arithmetic works correctly.
+     *     e.g. "10" → 10.0, "20.5" → 20.5
+     *   - Non-numeric values (colors, font names, CSS classes) stay as strings.
+     *     e.g. "rgba(0,0,0,0.5)" → "rgba(0,0,0,0.5)"  (is_numeric = false)
+     *   - Empty strings stay as "" (not converted to 0).
+     *
+     * Compatible with PHP 5.6+.
+     *
+     * @param  string $css_string Raw CSS string from $this->dbdata['css'].
+     * @return array
+     */
+    protected function parse_styledata( $css_string ) {
+        return array_map(
+            function ( $v ) {
+                $v = esc_attr( $v );
+                return is_numeric( $v ) ? (float) $v : $v;
+            },
+            explode( '|', $css_string )
+        );
+    }
+
     public function font_familly( $data = '' ) {
 
         $check = get_option( 'oxi_addons_google_font' );

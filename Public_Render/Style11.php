@@ -25,7 +25,7 @@ class Style11 extends Public_Render {
     public function default_render() {
         $styleid = $this->oxiid;
 
-        $styledata = array_map( 'esc_attr', explode( '|', $this->dbdata['css'] ) );
+        $styledata = $this->parse_styledata( $this->dbdata['css'] );
         $listdata = $this->child;
         ?>
         <div class="oxilab-flip-box-wrapper">
