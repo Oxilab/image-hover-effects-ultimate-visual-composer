@@ -1,10 +1,10 @@
-﻿=== Flipbox - Awesomes Flip Boxes Image Overlay ===
-Contributors: wpkin, richardmallick
+=== Flipbox - Awesomes Flip Boxes Image Overlay ===
+Contributors: oxilab, wpkin, richardmallick
 Donate link: https://www.wpkin.com
 Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 6.2
-Stable tag: 2.10.5
-Tested up to: 6.8
+Stable tag: 2.10.7
+Tested up to: 6.9
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -172,6 +172,20 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 2.10.7 =
+* Fixed elementor addon issue.
+* Fixed image loading issue.
+
+= 2.10.6 = 
+* Removed admin Support and Comments panel.
+* Removed related filter registration to avoid missing callbacks.
+* Improved Create page UX: centered Import Templates button and removed box.
+* Added top-right Import More Templates button in Create header.
+* Flip Box list: Added Shortcode label with Add New and Import buttons above table.
+* Flip Box list: Import button now opens JSON import modal; removed bottom import box.
+* Flip Box list: Replaced Shortcode/PHP inputs with copyable Shortcode chip UI.
+* Elementor: Added Flipbox widget under General with ID control.
 
 = 2.10.5 = 
 *Fixed critical error: Call to a member function get_row() on null in Public_Helper.php.
@@ -421,4 +435,4 @@ Customize Flipbox
 
 = 1.1 =
 Add user capabilities
-More theme capabilities 
+More theme capabilities

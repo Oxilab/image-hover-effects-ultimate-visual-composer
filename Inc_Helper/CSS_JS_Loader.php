@@ -8,16 +8,11 @@ namespace OXI_FLIP_BOX_PLUGINS\Inc_Helper;
  */
 trait CSS_JS_Loader {
 
-
-
-
     public function loader_font_familly_validation( $data = [] ) {
         foreach ( $data as $value ) {
             wp_enqueue_style( '' . $value . '', 'https://fonts.googleapis.com/css?family=' . $value . '' );
         }
     }
-
-
 
     public function admin_home() {
         wp_enqueue_script( 'jquery' );
@@ -45,7 +40,7 @@ trait CSS_JS_Loader {
         $this->loader_font_familly_validation( [ 'Bree+Serif', 'Source+Sans+Pro' ] );
         wp_enqueue_style( 'oxilab-flip-box-bootstrap', OXI_FLIP_BOX_URL . 'asset/backend/css/bootstrap.min.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
         wp_enqueue_style( 'font-awsome.min', OXI_FLIP_BOX_URL . 'asset/frontend/css/font-awsome.min.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
-        wp_enqueue_style( 'oxilab-admin-css', OXI_FLIP_BOX_URL . 'asset/backend/css/admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
+        wp_enqueue_style( 'oxilab-flipbox-admin-css', OXI_FLIP_BOX_URL . 'asset/backend/css/admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
     }
 
 

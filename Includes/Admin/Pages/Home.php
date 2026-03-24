@@ -130,6 +130,13 @@ class Home {
     public function created_shortcode() {
 		?>
         <div class="oxi-addons-row">
+            <div class="oxi-addons-wrapper" style="margin:50px 20px">
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <span style="font-size:24px;font-weight:600;margin-right:12px;">Shortcode</span>
+                    <a class="btn btn-primary" style="margin-right:6px; background-color: transparent; border: 1px solid #2271b1; color: #2271b1; padding: 4px 10px;" href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-new' ) ); ?>">Create New</a>
+                    <a class="btn btn-secondary" style="background-color: transparent; border: 1px solid #2271b1; color: #2271b1; padding: 4px 10px;" href="#" id="oxi-import-style">Import</a>
+                </div>
+            </div>
             <div class="oxi-addons-row table-responsive abop" style="margin-bottom: 20px; opacity: 0; height: 0px">
                 <table class="table table-hover widefat oxi_addons_table_data" style="background-color: #fff; border: 1px solid #ccc">
                     <thead>
@@ -150,8 +157,13 @@ class Home {
                                 <td><?php echo esc_html( $id ); ?></td>
                                 <td><?php echo esc_html( $this->name_converter( $value['name'] ) ); ?></td>
                                 <td><?php echo esc_html( $this->name_converter( $value['style_name'] ) ); ?></td>
-                                <td><span>Shortcode &nbsp;&nbsp;<input type="text" onclick="this.setSelectionRange(0, this.value.length)" value="[oxilab_flip_box id=&quot;<?php echo esc_attr( $id ); ?>&quot;]"></span> <br>
-                                    <span>Php Code &nbsp;&nbsp; <input type="text" onclick="this.setSelectionRange(0, this.value.length)" value="&lt;?php echo do_shortcode(&#039;[oxilab_flip_box  id=&quot;<?php echo esc_attr( $id ); ?>&quot;]&#039;); ?&gt;"></span>
+                                <td>
+                                    <div class="oxi-shortcode-wrapper">
+                                        <span class="oxi-shortcode-chip">[oxilab_flip_box id="<?php echo esc_attr( $id ); ?>"]</span>
+                                        <button type="button" class="btn oxi-copy-shortcode" data-shortcode="[oxilab_flip_box id=&quot;<?php echo esc_attr( $id ); ?>&quot;]" title="Copy Shortcode">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+                                    </div>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-success oxi-addons-style-clone" style="float:left" oxiaddonsdataid="<?php echo esc_attr( $id ); ?>">Clone</button>
@@ -226,22 +238,7 @@ class Home {
 
     public function create_new() {
 		?>
-        <div class="oxi-addons-row">
-            <div class="oxi-addons-col-1 oxi-import">
-                <div class="oxi-addons-style-preview">
-                    <div class="oxilab-admin-style-preview-top">
-                        <a href="#" id="oxi-import-style">
-                            <div class="oxilab-admin-add-new-item">
-                                <span>
-                                    <i class="fas fa-plus-circle oxi-icons"></i>
-                                    Import Flipbox JSON
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <div class="modal fade" id="oxi-addons-style-create-modal">
             <form method="post" id="oxi-addons-style-modal-form">

@@ -84,47 +84,6 @@ trait Admin_helper {
         return $data;
     }
 
-    public function SupportAndComments( $agr ) {
-
-        if ( get_option( 'oxi_flipbox_support_massage' ) == 'no' ) :
-            return;
-        endif;
-		?>
-        <div class="oxi-addons-admin-notifications">
-            <h3>
-                <span class="dashicons dashicons-flag"></span>
-                Trouble or Need Support?
-            </h3>
-            <p></p>
-            <div class="oxi-addons-admin-notifications-holder">
-                <div class="oxi-addons-admin-notifications-alert">
-                    <p>Unable to create your desire design or need any help? <a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer#new-post">Ask any question</a> and get reply from our expert members. We will be glad to answer any question you may have about our plugin.</p>
-                    <?php
-                    if ( apply_filters( 'oxi-flip-box-plugin/pro_version', false ) == false ) :
-						?>
-                        <p>By the way, did you know we also have a <a href="https://wpkindemos.com/flipbox/pricing/">Premium Version</a>? It offers lots of options with automatic update. It also comes with 16/5 personal support.</p>
-                        <p>Thanks Again!</p>
-						<?php
-                    endif;
-                    ?>
-
-                    <p></p>
-                </div>
-            </div>
-            <p></p>
-        </div>
-		<?php
-    }
-
-	/**
-     * Admin Notice Check
-     *
-     * @since 2.0.0
-     */
-    public function admin_recommended_status() {
-        $data = get_option( 'oxilab_flip_box_recommended' );
-        return $data;
-    }
 
 	public function admin_recommended() {
         if ( ! empty( $this->admin_recommended_status() ) ) :
@@ -136,6 +95,15 @@ trait Admin_helper {
         new \OXI_FLIP_BOX_PLUGINS\Classes\Support_Recommended();
     }
 
+	/**
+     * Admin Notice Check
+     *
+     * @since 2.0.0
+     */
+    public function admin_recommended_status() {
+        $data = get_option( 'oxilab_flip_box_recommended' );
+        return $data;
+    }
 
     /**
      * Plugin Admin Top Menu
@@ -222,20 +190,6 @@ trait Admin_helper {
         return bin2hex( $str );
     }
 
-    /**
-     * Plugin check Current Tabs
-     *
-     * @since 2.0.0
-     */
-    public function check_current_tabs( $agr ) {
-        $vs = get_option( $this->fixed_data( '6f78696c61625f666c69705f626f785f6c6963656e73655f737461747573' ) );
-        if ( $vs == $this->fixed_data( '76616c6964' ) || wpkin_fb_v()->can_use_premium_code() ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function admin_url_convert( $agr ) {
         return admin_url( strpos( $agr, 'edit' ) !== false ? $agr : 'admin.php?page=' . $agr );
     }
@@ -248,5 +202,19 @@ trait Admin_helper {
             }
         </style>
 		<?php
+    }
+
+	 /**
+     * Plugin check Current Tabs
+     *
+     * @since 2.0.0
+     */
+    public function check_current_tabs( $agr ) {
+        $vs = get_option( $this->fixed_data( '6f78696c61625f666c69705f626f785f6c6963656e73655f737461747573' ) );
+        if ( $vs == $this->fixed_data( '76616c6964' ) || wpkin_fb_v()->can_use_premium_code() ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

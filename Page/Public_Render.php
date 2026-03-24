@@ -147,10 +147,16 @@ class Public_Render {
         if ( $this->inline_js != '' ) :
             $jquery = '(function ($) {' . $this->inline_js . '})(jQuery);';
             wp_add_inline_script( $this->JSHANDLE, $jquery );
+            if ( class_exists( '\\Elementor\\Plugin' ) && isset( \Elementor\Plugin::$instance ) && isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+                echo '<script>' . $jquery . '</script>';
+            }
         endif;
 
         if ( $this->inline_css != '' ) :
             wp_add_inline_style( 'flip-box-addons-style', wp_kses_decode_entities( stripslashes( $inlinecss ) ) );
+            if ( class_exists( '\\Elementor\\Plugin' ) && isset( \Elementor\Plugin::$instance ) && isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+                echo '<style>' . wp_kses_decode_entities( stripslashes( $inlinecss ) ) . '</style>';
+            }
         endif;
     }
 
