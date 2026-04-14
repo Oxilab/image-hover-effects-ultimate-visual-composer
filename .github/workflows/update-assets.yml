@@ -2,7 +2,7 @@ name: Plugin asset/readme update
 on:
   push:
     branches:
-    - trunk
+    - master
 jobs:
   trunk:
     name: Push to trunk
@@ -18,4 +18,4 @@ jobs:
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-        SLUG: product-layouts # optional, remove if GitHub repo name matches SVN slug, including capitalization
+        SLUG: image-hover-effects-ultimate-visual-composer
