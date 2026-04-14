@@ -16,3 +16,11 @@ li#toplevel_page_oxi-flip-box-ultimate .wp-submenu  a[href="admin.php?page=wc-th
     padding-top: 8px;
     padding-right: 0;
 }
+
+/* Admin Menu */
+
+#adminmenu #toplevel_page_oxi-flip-box-ultimate div.wp-menu-image img {
+    width: 22px !important;
+    height: auto !important;
+    padding-top: 6px !important;
+}

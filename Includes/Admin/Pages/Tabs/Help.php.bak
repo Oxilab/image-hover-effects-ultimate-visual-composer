@@ -6,7 +6,7 @@ class Help {
 
 	public function render() {
 		?>
-		<div id="help" class="oxilab-help getting-started-content active">
+		<div id="help" class="wpkin-help getting-started-content active">
 			<div class="content-heading heading-questions">
 				<h2>
 					<?php _e( 'Frequently Asked', 'oxi-flip-box-plugin' ); ?>
@@ -27,7 +27,7 @@ class Help {
 					<div class="faq-body" style="display:none;">
 						<p>
 							<?php _e( 'For any pre-sale inquiries, please contact us directly by submitting a form here:', 'oxi-flip-box-plugin' ); ?>
-							<a href="https://oxilab.dev/flipbox" target="_blank" rel="noopener noreferrer">
+							<a href="https://wpkin.com/contact-us/" target="_blank" rel="noopener noreferrer">
 								<?php _e( 'Contact Us', 'oxi-flip-box-plugin' ); ?>
 							</a>
 						</p>
@@ -45,7 +45,7 @@ class Help {
 					<div class="faq-body" style="display:none;">
 						<p>
 							<?php _e( "Go to Plugins → Add New → Upload Plugin, choose the Flipbox .zip file, install and activate. You can also install it directly from the WordPress plugin directory by searching for 'Flipbox – Awesomes Image Overlay'.", 'oxi-flip-box-plugin' ); ?>
-							<a href="https://oxilab.dev/docs/flipbox" target="_blank" rel="noopener noreferrer">
+							<a href="https://wpkindemos.com/flipbox/docs/installations/how-to-install-the-plugin/" target="_blank" rel="noopener noreferrer">
 								<?php _e( 'Read Installation Guide', 'oxi-flip-box-plugin' ); ?>
 							</a>
 						</p>
@@ -110,7 +110,7 @@ class Help {
 					<div class="faq-body" style="display:none;">
 						<p>
 							<?php _e( 'For free users, you can ask questions in the WordPress.org support forum. For Pro users, premium email support is available. You can also contact us directly:', 'oxi-flip-box-plugin' ); ?>
-							<a href="https://oxilab.dev/flipbox" target="_blank" rel="noopener noreferrer">
+							<a href="https://wpkin.com/contact-us/" target="_blank" rel="noopener noreferrer">
 								<?php _e( 'Contact Support', 'oxi-flip-box-plugin' ); ?>
 							</a>
 						</p>
@@ -137,7 +137,7 @@ class Help {
 					</p>
 				</div>
 				<div class="cta-btn">
-					<a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/" class="oxilab-btn btn-primary" target="_blank" rel="noopener noreferrer">
+					<a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/" class="wpkin-btn btn-primary" target="_blank" rel="noopener noreferrer">
 						<i class="dashicons dashicons-sos"></i>
 						<?php _e( 'Get Support', 'oxi-flip-box-plugin' ); ?>
 					</a>

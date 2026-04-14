@@ -86,13 +86,8 @@ trait Admin_helper {
 
 
 	public function admin_recommended() {
-        if ( ! empty( $this->admin_recommended_status() ) ) :
-            return;
-        endif;
-        if ( strtotime( '-1 day' ) < $this->installation_date() ) :
-            return;
-        endif;
-        new \OXI_FLIP_BOX_PLUGINS\Classes\Support_Recommended();
+        // Recommended plugin feature removed — oxilab.org API no longer in use.
+        return;
     }
 
 	/**
@@ -126,7 +121,7 @@ trait Admin_helper {
             ],
         ];
 
-        $bgimage = OXI_FLIP_BOX_URL . 'image/sa-logo.png';
+        $bgimage = OXI_FLIP_BOX_URL . 'image/flipbox-logo.svg';
         $sub = '';
 		?>
         <div class="oxi-addons-wrapper">
@@ -158,12 +153,12 @@ trait Admin_helper {
                         <?php
                         if ( apply_filters( 'oxi-flip-box-plugin/pro_version', false ) == false ) :
 							?>
-                            <li class="fazil-class"><a target="_blank" href="https://wpkindemos.com/flipbox/pricing/">Upgrade</a></li>
+                            <li class="fazil-class"><a target="_blank" href="https://oxilab.dev/flipbox/pricing">Upgrade</a></li>
 							<?php
                         endif;
                         ?>
 
-                        <li class="saadmin-doc"><a target="_black" href="https://wpkindemos.com/flipbox/docs/installations/how-to-install-the-plugin/">Docs</a></li>
+                        <li class="saadmin-doc"><a target="_black" href="https://oxilab.dev/docs/flipbox">Docs</a></li>
                         <li class="saadmin-doc"><a target="_black" href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/">Support</a></li>
                         <li class="saadmin-set"><a href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-settings' ) ); ?>"><span class="dashicons dashicons-admin-generic"></span></a></li>
                     </ul>
@@ -192,16 +187,6 @@ trait Admin_helper {
 
     public function admin_url_convert( $agr ) {
         return admin_url( strpos( $agr, 'edit' ) !== false ? $agr : 'admin.php?page=' . $agr );
-    }
-
-    public function Admin_Icon() {
-		?>
-        <style type='text/css' media='screen'>
-            #adminmenu #toplevel_page_oxi-flip-box-ultimate div.wp-menu-image:before {
-                content: "\f169";
-            }
-        </style>
-		<?php
     }
 
 	 /**

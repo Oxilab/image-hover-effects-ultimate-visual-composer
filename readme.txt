@@ -1,438 +1,313 @@
-=== Flipbox - Awesomes Flip Boxes Image Overlay ===
-Contributors: oxilab, wpkin, richardmallick
-Donate link: https://www.wpkin.com
-Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
+=== Flipbox – Awesome Flip Boxes & Image Overlay for WordPress ===
+Contributors: oxilab, richardmallick
+Tags: flipbox, flip box, image overlay, hover effects, flip card
 Requires at least: 6.2
-Stable tag: 2.10.7
 Tested up to: 6.9
 Requires PHP: 7.4
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Showcase team members or any list with Flipbox - Awesome Flip Boxes Image Overlay. A clean, responsive, and professional way to display your team.
+Create stunning CSS3 flip boxes in WordPress. 29 styles (10 free), 4 flip directions, 50+ scroll animations, no coding needed. Works with Elementor & WPBakery.
 
 == Description ==
-<strong>Flipbox - Awesomes Flip Boxes Image Overlay</strong>  is a responsive WordPress plugin that lets you add a box to the screen that will flip through the items within the box.
 
-<blockquote>
-   <strong>Best Flip Box Plugins for WordPress</strong>
-   <br>
-</blockquote>
+**Flipbox** is the most complete flip box plugin for WordPress. Whether you want a slick team member card, a bold service showcase, or a product highlight with a call-to-action on the back — Flipbox gives you 29 professionally designed styles (10 free, 19 Pro), 4 flip directions, and 50+ scroll animations to make it happen.
 
-Flipbox - Awesomes Flip Boxes Image Overlay combines the power of “Info Box” & “Call to Action” block altogether. On the front, it would look like a normal Info Box but as visitor hovers on the block, it flips with a cool CSS3 effect and shows a Call to Action section, provoking him to take a call. Add Flip Box in the Any page builder at WordPress, give user more flexibility in the back box, like icon list, image, web link and text info, etc. Flip box offer incredible elements that leads you to create a beautiful site. You can choose from several different flip animations and add two or more items with many different options for cycling through the items.  The Flipbox - Awesomes Flip Boxes Image Overlay’s content are completely customizable. Include images, videos, icons, buttons, maps, etc. make an amazing flip effect on the image. Besides, by beautiful and unrepeatable effects, your image gives a more professional look to your website. It has 28 unique templates with more than 120 effects in, each with Unlimited Backgrounds Colors. Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin help to create images with hover effects and scrolling animation. You can create images in a circle and square shapes customly. Fully responsive and Pure Css3 Set animation speed. You can represent your data in very beautiful and descriptive way at once!
+✨ No coding. Pure CSS3. Smooth, responsive flip cards that work everywhere.
 
-<h3>Quick Links</h3>
-<ul>
-	<li><a href="https://wpkindemos.com/flipbox/">Demo (Features)</a></li>	
-	<li><a href="">How to Use (Video)</a></li>
-	<li><a href="https://wpkindemos.com/flipbox/docs/installations/how-to-install-the-plugin/">How to Use (Documentation)</a></li>
-	<li><a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/">Help and Support</a></li>
-	<li><a href="https://wpkindemos.com/flipbox/pricing">Upgrade to Pro</a></li>
-</ul>
+🎬 **[Live Demos](https://demos.oxilab.dev/flipbox/template/)** | ⭐ **[Upgrade to Pro](https://oxilab.dev/flipbox/pricing/)** | 📖 **[Documentation](https://oxilab.dev/docs/flipbox/)** | 🆘 **[Support](https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/#new-post)**
 
-Flipbox - Awesomes Flip Boxes Image Overlay are one of the best in responsive Flip Box image plugins which allow you to decorate your product or information page beautifully of the website. It is very powerful and lightweight flip box and image overlay plugin. You can present your product info on your website at a quality and professional way by using this plugin.  Flipbox - Awesomes Flip Boxes Image Overlay is the best way to promote your product by creating amazing sliders with beautiful transition effects. The plugin has the effective tool for adding responsive slider to your website. The WordPress flip box plugin can be added both as a widget and plugin, as well as be included in the theme for displaying the images within the theme using PHP function.  You can choose from a different box types and use the provided shortcode or a template or Visual Composer ID includes to easily embedding Flip box in your Website.
+---
 
-<strong>Drag & Drop with unlimited style</strong>
+The idea behind a flip box is simple: show something on the front, reveal something more on the back. But how you execute that makes all the difference. Flipbox gives you total control over both sides — icons, images, headings, descriptions, buttons, colors, borders, shadows, and animation speed — all from a clean visual admin panel.
 
-Flipbox - Awesomes Flip Boxes Image Overlay permit you to add Image Overlay and Flip Box in any Page Builder. Give user the flexibility to display card related content, card content support text, image, icon and so on. 
+Every flip animation is built in pure CSS3, so your pages stay fast.
 
-This plugin is very simple to use, but have a bunch of features that exists on a first class quality plugin. We develop our plugin in concern of both beginner and expert WordPress plugin users. So you can find both user-friendly interface and quality features of flip box image with unlimited effects here with Flipbox - Awesomes Flip Boxes Image Overlay.  Flipbox - Awesomes Flip Boxes Image Overlay is very simple to create an image flip and slider on your WordPress website. You can add images (PNG, JPG and GIF format), as well as, add posts, pages in template files. Flip Box allows adding titles, descriptions and links to unlimited photos on both front and back side of an image. The plugin has a Shortcode built in. Every new created item has his own ID number. It makes it easier for plugin installation in any site. You can also use visual composer page builder in Flip Box plugin. This will add extra convenience to the advance users.
+---
 
-<strong>Advantages of the Plugin </strong>
+== 🚀 Key Features ==
 
-Flipbox - Awesomes Flip Boxes Image Overlay are the best solution for those who want to demonstrate images in a superb way on their site! You can reach this result due to the Flip box plugin. When creating the flip box or image overlay items with image hover effect, we took into consideration not only the design but the functionality as well. So let’s enjoy the Flip Box which has been made by following the latest design tendency. Our Flipbox - Awesomes Flip Boxes Image Overlay plugin allow you to modify all settings, such as colors, fonts and sizes, which are corresponding, to the standards of the flip box. This plugin has that all features in one that you can expect from different free flip box image plugin. You can create an unlimited flip box and images to have lots of effects on it.
+* 🎨 **29 unique flip box styles** — from clean minimal cards to bold image overlay designs
+* 🔄 **4 flip directions** — left-to-right, right-to-left, top-to-bottom, bottom-to-top
+* ✨ **3 smooth easing effects** — choose the transition feel that fits your design
+* 🎞️ **50+ scroll entry animations** — bounce, fade, zoom, slide, rotate, and more (powered by Animate.css)
+* 🖼️ **Full front & back customization** — icon, image, heading, description, and CTA button on each side
+* 🎨 **Complete color control** — background, text, icon, border, button, and hover states for both sides
+* 🔤 **Google Fonts support** — choose any Google Font for headings, descriptions, and buttons
+* 📐 **Typography control** — font size, weight, style, alignment, and padding per element
+* 💫 **Box shadow** — color, blur, spread, and offset controls
+* 🧱 **Responsive grid** — set 1 to 12 columns for any screen
+* ⚡ **Animation speed control** — set duration per flip box in seconds
+* 🔗 **CTA button with link** — add a button with URL on the back side of each item
+* 🏷️ **Font Awesome icons** — use any Font Awesome icon on the front side
+* 🛠️ **Custom CSS per style** — add your own CSS for pixel-perfect control
+* 🧩 **Elementor & WPBakery** — native widget and shortcode integration
+* 📋 **Shortcode support** — embed anywhere with `[oxilab_flip_box id="1"]`
+* ♿ **Accessibility** — proper alt text support for all images
+* 📦 **Import/Export** — JSON-based template import and export
 
-<strong>Awesome Functionality</strong>- Flip boxes with animation effects are simply awesome. They are great for grabbing the users attention and adding some interaction with your content. Our flip boxes and image overlay plugin has fully customizable content on the front and back side. They are fully integrated with the Font Awesome icon set and icon options like spin, rotate or flip. You can put a title on the front and back side, add buttons with link in it to your content and the box height will extend based on the amount of content you use. Customize the border size, border radius and have full control over the front and backside colors and you can animate them with awesome CSS3.
+---
 
-<strong>Column and Row Sizes</strong>- Flip boxes have their own column and row option to set which allows the content box to fill the column width from 1-4 columns. They can also be used inside of our regular column shortcode to control their placement on the page. You can select the amount of the item that will fill a single row. This option will allow you to have full control of flip boxe placement in your webpage!
+== ✨ Free Version Features ==
 
-<strong>Built in Visual Composer</strong>- Flipbox - Awesomes Flip Boxes Image Overlay has every feature what you can expect from a free flip box or image hover plugin. It has a complete, easy-to-use flip box and image overlay effect builder with different layers with visual composer built in. Oxilab Developers make this plugin easier to Visual Composer Users by adding an awesome panel for Visual Composer. Just add Your Element in Visual Composer from “Flipbox - Awesomes Flip Boxes Image Overlay” Content bar menu. Besides Visual Composer, others page builder is also working With Short Codes.
+The free version is genuinely capable. Here is everything included at no cost:
 
-<strong>Pagination and Attractive Interface</strong>- Flipbox - Awesomes Flip Boxes Image Overlay is a responsive flip box creator plugin with slider and animation. Awesome pagination icon and button is available with this plugin. You can simply choose your preferred one at the awesome user interface. The interface is so much cleaner that anyone will able to work here without having any trouble at using. You can display your product on the website very informative and attractive way. You can also display stuff profile or testimonial with this plugin.  Here you can find different sets of parameters for each category. Styles and Colors section of Flipbox - Awesomes Flip Boxes Image Overlay is very much able to customize the color scheme and overall appearance of the contacts. It is very simple and easy. Anybody who is not even a developer can make this change to their webpage with Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin.
+* ✅ 10 flip box styles (Style 1–10)
+* ✅ 4 flip directions (left, right, top, bottom)
+* ✅ 3 easing transition effects
+* ✅ 50+ scroll entry animations
+* ✅ Front side: image, Font Awesome icon, title/heading
+* ✅ Back side: description, CTA button, background image, link
+* ✅ Full color control (background, text, icon, border, button, hover)
+* ✅ Google Fonts for headings, descriptions, and buttons
+* ✅ Typography controls (size, weight, style, alignment, padding)
+* ✅ Box shadow settings (color, blur, spread, offset)
+* ✅ Responsive column grid (1–12 columns)
+* ✅ Animation speed control
+* ✅ Custom CSS editor per style
+* ✅ Shortcode-based — works in any post, page, or widget
+* ✅ Elementor native widget
+* ✅ WPBakery Visual Composer integration
+* ✅ WordPress sidebar widget support
+* ✅ Works via shortcode in Gutenberg, Divi, Beaver Builder, and any other builder
+* ✅ JSON template import and export
+* ✅ User role-based access control
+* ✅ SEO-friendly HTML with alt tag support
 
-<strong>Unique Design</strong> - Flipbox - Awesomes Flip Boxes Image Overlay is a unique plugin for Wordpress that is very much customizable and responsive. Our super-fast and attractive user interface can impress any WP developer in no time. Flipbox - Awesomes Flip Boxes Image Overlay have very beautiful and orderly decorated admin panel. It is very user-friendly and simple to work with.  
+---
 
-<strong>Fully live design and custom interface</strong>- Never again work on the backend and guess what the front-end will look like. With Flipbox - Awesomes Flip Boxes Image Overlay, every time you edit the page and simultaneously see exactly how it looks like at the same editing page. Flipbox - Awesomes Flip Boxes Image Overlay features live editing, with no need to press update, or go to preview mode. This plugin developed with a strong and customizable interface and you can use the provided template to easily embed with Flipbox - Awesomes Flip Boxes Image Overlay in your Website. With this plugin you can create unlimited Flip boxes and Image sliders using unlimited shortcode. So you can display your created Flip box and slider on multiple page and post by using shortcode.
+== 🔥 Pro Version Features ==
 
-<strong>Mobile Editing and Canvas</strong>- Flip box’s responsive framework allows your content looks great on all screen sizes. Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin comes with an exclusive tool set that let you create truly a responsive website in a whole new and visual way. From different font size per device, this is the most powerful solution for creating perfect mobile pages. You can develop your webpage with our plugin simply using your mobile device. Flipbox - Awesomes Flip Boxes Image Overlay are 100% responsive and compatible with mobile, tablets, desktop computers and all modern web browsers which include iPhones, iPad, Android, Chrome, Safari, Firefox, Opera, Internet Explorer 7/8/9/10/11 and also Microsoft Edge.
+Pro unlocks full creative control and priority support:
 
-<strong>Built for Developers</strong>- Flipbox - Awesomes Flip Boxes Image Overlay was designed to be the most developer-friendly Flip box building plugin available for WordPress. It was also built on top of a solid extension framework, which means different functionality is separated out into different areas in the codebase. It also means the core plugin is lightweight, but still allowing for the most flexibility. This plugin is built in visual composer. With the visual composer page builder on it developers can find the easy way to work with the popular builder they used to. Visual composer is one of the popular and effective page builders within others. So the visual composer's facility will bring our plugin more user-friendly and convenient to the developers.  
+* 🔓 **19 additional flip box styles** (Style 11–29) — unlock the full design library
+* 🔓 **Unlimited flip items** per shortcode
+* 🎨 **Advanced color pickers** — fine-tune every color on both sides per item
+* 🔤 **Per-element font control** — independent Google Font for heading, description, and button
+* ✏️ **Custom font sizes** — separate size controls for every text element
+* 🖼️ **Border and radius control** — fine-tune border width, style, and border radius
+* 🔗 **Per-item link settings** — open links in a new tab on a per-item basis
+* 📹 **Video tutorials** for every feature
+* 🎧 **Priority support** with fast response times
 
-<strong>Custom CSS</strong>- Wordpress professional developers can get advanced tools and freedom of creativity with our plugin. They can use their custom styling within Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin with visual composer. Advanced developers can add their custom css into the plugin very easily. There’s a section we’ve left for this task. Here like other plugins of oxilab’s also with Flipbox - Awesomes Flip Boxes Image Overlay, the expert developers can find their comfort as we support custom css with our plugin. Developers can develop their custom css and add them to the plugin so that they can get what they exactly want in Flipbox - Awesomes Flip Boxes Image Overlay plugin. This is very much convenient for a developer to have an option to customize the css codes.
+👉 **[See All Free vs Pro Features](https://oxilab.dev/flipbox/pricing/)**
 
-<blockquote>
+---
 
-IMPORTANT: If you think you found a bug in Flipbox - Awesomes Flip Boxes Image Overlay  or have any problem or question concerning Flipbox - Awesomes Flip Boxes Image Overlay Builder plugin, do not hesitate to contact us at www.oxilab.org.
+== 🎯 Perfect For ==
 
-</blockquote>
+* 👥 **Team pages** — show a photo and name on the front, bio and social links on the back
+* 🛍️ **eCommerce** — display product image on the front, key features and buy button on the back
+* 🏢 **Services sections** — icon and service name on the front, full description and CTA on the back
+* 🎨 **Portfolios and agencies** — present project thumbnails with a stylish flip reveal
+* 📸 **Photographers** — gallery images on the front, captions and links on the back
+* 🏠 **Landing pages** — interactive flip cards draw attention to key content sections
+* 📰 **Blogs and magazines** — make article feature cards more engaging with hover animations
 
-<strong>Here you can see some of the features of our plugin</strong>
+---
 
-<ul>
-	<li>Highly custom and incredibly flexible Flip Boxes</li>	
-	<li>Responsive layout (28+)</li>
-	<li>1-click automatic updates</li>
-	<li>Optional title and content.</li>
-	<li>Optional display text with icon or image.</li>
-        <li>Different sets of parameters for each</li>
-	<li>Stunning buttons with over 60 animation effects</li>
-	<li>Easily Customizable flip boxes</li>
-        <li>Built by the Bootstrap web builder</li>
-	<li>Valid on pure HTML5 and CSS3 </li>
-	<li>Ultra Responsive and 100% Mobile-friendly</li>
-        <li>Sleek, clean and modern design</li>
-	<li>Animated sliding Panel </li>
-        <li>Looks great on desktop & mobile</li>
-</ul>
+== 📈 Why Use This Plugin ==
 
-While using Flipbox - Awesomes Flip Boxes Image Overlay please make sure that thumbnail images are linked directly to their larger counterpart, not to a dynamic WordPress page that includes the larger image. That means when you add an image in your new flip settings, you need to select File URL at the Link option instead of Page URL. That is for the direct image file, not any other file that is not consists of images. You’ll have to manually edit your old posts if you have always inserted images with Page URL before, Flip Box or any other plugin like that cannot import images from the outer link for you.
+There are other flip box plugins out there, but Flipbox is the one that gives you real depth without requiring a developer.
 
-You’ll need to make sure that you have all the needed media and their Auto-detect options activated on your Settings > Media library page. If you are using images in other formats like JPG, GIF or PNG, you need to add the extensions with the image link to the Auto-detect the field for Images. Please note that the image file names must actaully end with that image file extension. This means that if you have an image file that (for example) has no extension (does not end with .jpg or any other) even if is in JPEG compressed format, the Flip Box and Image Overlay will not be able to detect is as an image. And as a result you’ll get no image at all on your flip box. You will need to manually give those.
+Here is why thousands of users choose it:
 
-<strong>Flip Boxes Key Features<strong>
+* 📦 **29 styles, all included** — no packs, no bundles, all styles available from day one
+* 🖱️ **No coding required** — every setting is in the visual admin panel
+* ⚡ **Lightweight** — pure CSS3 output, no heavy JavaScript libraries
+* 🧩 **Page builder ready** — native Elementor widget, WPBakery integration, and shortcode for everything else
+* 🔒 **Actively maintained** — PHP 8 compatible, regularly updated, security hardened
+* 👨‍💻 **Developer-friendly** — custom CSS support, PSR-4 namespacing, clean codebase
 
-Flipbox - Awesomes Flip Boxes Image Overlay aims to make your website more attractive and good-looking than ever. The Flip Box Plugin has many functions. So you can create flipped image not only with title and social description, but also Customize with CSS form like font-size, color, background color, border-radius, box-shadow, padding, margin and more. Lot of slider effects we’ve left with the plugin. Let’s see, which features the plugin offers-
-
-<strong>Awesome Interface</strong>- Flipbox - Awesomes Flip Boxes Image Overlay designed with a simple, easy to use interface – perfect for individual users, developers & clients!
-
-<strong>Color Control</strong>- Control all the colors of each element you can see with this plugin! Flip boxes and Image Overlay WP plugin allow you to control the color of the backgrounds, title text, body text, icons, icon circles and borders. You can set colors individually in the shortcode, or globally in our theme options panel. Take full control of your colors and make the flip box an awesome way to present your item with ease.
-
-<strong>One-Click Presets</strong>- To provide the easiest way to customize the display of your content without editing any code. You can use the default Responsive styles or one of the included one-click presets as a starting point for customization. It also enables you to easily add social button and link to your content flip box image.
-
-<strong>Awesome Admin Panel</strong>- the Admin panel of the plugin is way more better from the others similar plugin. Users will find more comfort and interest while working with the plugin.
-
-<strong>Instant Customizing Option</strong>- With the instant customizing facility users can edit/delete/update the flip box image Content at any time they want.
+---
 
 == Installation ==
 
-<p>Installation of <strong>Flipbox - Awesomes Flip Boxes Image Overlay</strong> is very simple.</p> 
-<blockquote>
+**⬇️ Option 1 — Install from WordPress.org (Recommended)**
 
+1. 🔑 Log into your WordPress admin panel
+2. 🔍 Go to **Plugins > Add New** and search for **Flipbox Awesome Flip Boxes**
+3. 🖱️ Click **Install Now**, then **Activate**
 
-<strong>Option 1</strong>
+**📦 Option 2 — Manual Upload**
 
-<li> Download the plugin image-hover-effects-ultimate-visual-composer.zip from Wordpress Plugin Directory.</li>
-<li> Unzip file into image-hover-effects-ultimate-visual-composer folder.</li>
-<li> Drop the image-hover-effects-ultimate-visual-composer plugin folder into your wp-content/plugins folder.</li>
-<li> Refresh your Wordpress Administration panels, click on Plugins from the menu.</li>
-<li> You will see Flipbox - Awesomes Flip Boxes Image Overlay plugin under Inactive plug-in tab.</li>
-<li> To turn on Flipbox - Awesomes Flip Boxes Image Overlay , click  on activate.</li>
+1. ⬇️ Download the plugin zip from WordPress.org
+2. 📂 Go to **Plugins > Add New > Upload Plugin**
+3. 📤 Upload the zip file and click **Install Now**
+4. ✅ Click **Activate Plugin**
 
-</blockquote>
+**🚀 Getting Started**
 
-<blockquote>
+1. 🗂️ Go to **Flipbox** in your WordPress admin sidebar
+2. 🎛️ Click **Create New** and choose one of the 29 styles
+3. ✏️ Give your flip box a name and click **Save**
+4. ➕ Click **Add New Item**, upload a front image, add your title, description, and back button
+5. 📋 Copy the generated shortcode — for example `[oxilab_flip_box id="1"]`
+6. 📄 Paste it into any post, page, or widget
 
-
-<strong>Option 2</strong>
-
-<li> Download the plugin image-hover-effects-ultimate-visual-composer.zip from Wordpress Plugin Directory.</li>
-<li> click on add new  under plugins menu.</li>
-<li> Upload the available Flipbox - Awesomes Flip Boxes Image Overlay Plugin file and click install now</li>
-<li> After installed click on active to tern on.</li>
-
-</blockquote>
+---
 
 == Frequently Asked Questions ==
 
-WordPress Flipbox - Awesomes Flip Boxes Image Overlay Plugin
+= 🔌 Does this plugin work with Elementor? =
 
-= Whether, is the Flipbox - Awesomes Flip Boxes Image Overlay support basic HTML Elements? =
+Yes. A native Elementor widget is included. Go to the Elementor editor, search for "Flipbox" in the widget panel, drag it onto your page, and select your flip box ID. You can also paste the shortcode into an Elementor Shortcode widget.
 
-Yes. Basic Html has a support possibility.Such as you can add </br>,  <strong> .
+= 🧱 Does it work with WPBakery Visual Composer? =
 
-= Is the Flipbox - Awesomes Flip Boxes Image Overlay Responsive? =
+Yes. A native WPBakery element is included. Add the Flipbox element from the WPBakery content bar and select your flip box ID.
 
-Yes, reacts and displays resizing images, videos, titles and descriptions for mobile devices and tablets.
+= 🟦 Does it work with Gutenberg, Divi, or other page builders? =
 
-= I bought Flipbox - Awesomes Flip Boxes Image Overlay Plugin, I have not received it yet. Please suggest, how can I activate it or get the Pro version? =
+Yes, via shortcode. Use the core Shortcode block in Gutenberg, or a text/code module in Divi, Beaver Builder, or any other builder. Paste `[oxilab_flip_box id="1"]` and your flip box will display correctly.
 
-If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not received it, please just contact with our Support Team. Send a letter with purchase Flipbox - Awesomes Flip Boxes Image Overlay Order Number.
+= 💻 Do I need to write any code? =
 
-= I use free version of Flipbox - Awesomes Flip Boxes Image Overlay and placing Pro version arise a problem, what to do? =
+No. Everything is configured through the visual admin panel. Developers who want more control can also add custom CSS per style, but it is completely optional.
 
-- Please delete the free version until installing the Pro version.
+= 📱 Are the flip boxes mobile-friendly? =
 
-- Download Flipbox - Awesomes Flip Boxes Image Overlay Pro version. If You still see the old version press Ctrl+F5 for refresh the page.
+Yes. Every layout is fully responsive. Flip animations work smoothly on iOS and Android touch devices.
 
-- If you can not do that, please contact with us, we will solve this little problem.
+= 🎨 How many styles are available? =
 
-= How to enable the Flipbox - Awesomes Flip Boxes Image Overlay to in a post or page? =
+29 unique flip box styles are included — each with full customization for colors, typography, icons, images, and animations.
 
-[oxi_oxilab_flip_box_show id="1"]
-= How to enable the Flipbox - Awesomes Flip Boxes Image Overlay to in a page or Template? =
+= 🔄 What flip directions are available? =
 
-&lt;?php echo do_shortcode(&#039;[oxi_oxilab_flip_box_show  id=&quot;1&quot;]&#039;); ?&gt;
+4 directions: left-to-right, right-to-left, top-to-bottom, and bottom-to-top. Each can be combined with 3 easing effects and an optional scroll entry animation.
+
+= 📋 How do I add a flip box to a page? =
+
+After creating a flip box in the admin panel, copy its shortcode (e.g. `[oxilab_flip_box id="1"]`) and paste it into any post, page, widget, or page builder block.
+
+= 🆓 What is the difference between free and Pro? =
+
+The free version includes all 29 styles, all flip directions, scroll animations, full color and typography controls, and page builder integrations. Pro unlocks unlimited items per shortcode, per-item advanced controls, video tutorials, and priority support. See the 🔥 Pro section above for the full list.
+
+= 🔧 Is the plugin compatible with PHP 8? =
+
+Yes. Version 2.10.8 includes full PHP 8 compatibility — type-safe CSS value casting across all 29 styles and improved error handling throughout the plugin.
+
+---
 
 == Screenshots ==
 
-1. Flipbox - Awesomes Flip Boxes Image Overlay Template Demo
-2. Admin Panel.
-3. Live Preview. 
-3. Popup Data Input form.
+1. 🗂️ Flipbox dashboard showing all saved flip box shortcodes.
+2. 🖼️ Style selector — choose from 29 professionally designed flip box layouts.
+3. 🎛️ Admin panel with front side settings — color, icon, image, typography.
+4. 🔄 Back side settings — description, button, colors, and typography.
+5. 🎨 Color picker controls for backgrounds, text, icons, and borders.
+6. 🎞️ Animation settings — flip direction, easing, scroll entry animation, and speed.
+7. 📐 Layout settings — column grid, width, height, padding, and box shadow.
+8. 📋 Shortcode list with one-click copy for easy embedding.
+9. 📦 JSON import/export for template sharing and backup.
 
+---
 
 == Changelog ==
 
+= 3.0.0 =
+* 🐛 Fix: Resolved dimension calculation issue for PHP 8
+* 🐛 Fix: Fixed PHP 8 fatal TypeError — WP backend crash when remote API was unreachable
+* 🗑️ Removed: Recommended plugin feature and external API calls
+* ✨ Improvement: PHP 8 compatibility — numeric CSS values auto-cast to float across all 29 styles
+* 🔄 Update: Rebranded to Oxilab — updated author info, URLs, and CSS classes with backward compatibility
+* 🔄 Update: Demo images now load from Cloudflare R2 CDN for faster delivery
+
 = 2.10.7 =
-* Fixed elementor addon issue.
-* Fixed image loading issue.
+* 🐛 Fix: Resolved Elementor addon compatibility issue
+* 🐛 Fix: Fixed demo image loading issue
 
-= 2.10.6 = 
-* Removed admin Support and Comments panel.
-* Removed related filter registration to avoid missing callbacks.
-* Improved Create page UX: centered Import Templates button and removed box.
-* Added top-right Import More Templates button in Create header.
-* Flip Box list: Added Shortcode label with Add New and Import buttons above table.
-* Flip Box list: Import button now opens JSON import modal; removed bottom import box.
-* Flip Box list: Replaced Shortcode/PHP inputs with copyable Shortcode chip UI.
-* Elementor: Added Flipbox widget under General with ID control.
+= 2.10.6 =
+* 🗑️ Removed: Admin support and comments panel
+* 🐛 Fix: Removed orphaned filter registrations
+* 🆕 New: Elementor widget added under General panel with ID control
+* ✨ Improvement: Shortcode list — copyable Shortcode chip UI
+* ✨ Improvement: Import button opens JSON import modal
 
-= 2.10.5 = 
-*Fixed critical error: Call to a member function get_row() on null in Public_Helper.php.
-*Fixed critical error: Installation class not found during plugin activation and upgrades.
-*Added safety checks for database initialization in shortcode rendering.
-*Improved plugin stability and error handling.
+= 2.10.5 =
+* 🐛 Fix: Resolved fatal error — get_row() on null in Public_Helper.php
+* 🐛 Fix: Resolved fatal error — Installation class not found during activation
+* ✨ Improvement: Added safety checks for database initialization
 
-= 2.10.4 = 
-*Fixed Visual composer fatal error issue get_row().
+= 2.10.4 =
+* 🐛 Fix: Resolved Visual Composer fatal error with get_row()
 
-= 2.10.3 = 
-*Fixed Visual composer fatal error issue.
-*Fixed Widget fatal error issue.
+= 2.10.3 =
+* 🐛 Fix: Resolved Visual Composer and Widget fatal errors
 
-= 2.10.2 = 
-*Fixed 1596 characters of unexpected output during activation issue.
+= 2.10.1 =
+* ✨ Improvement: Updated Getting Started page
+* 🔒 Fix: Resolved security issue
 
-= 2.10.1 = 
-*Updated Getting started page.
-*Fixed security issue.
+= 2.10.0 =
+* 🆕 New: Added Getting Started page
+* 🆕 New: Integrated Freemius SDK for license management
 
-= 2.10.0 = 
-*Added Getting started page.
-*Added Freemius for License.
+= 2.9.8 =
+* ✅ Compatible with WordPress 6.8
+* 🐛 Fix: Resolved shortcode list display issue
 
-= 2.9.8 = 
-*Compatible with 6.8
-*Fixed Shortcode list issue
+= 2.9.7 =
+* ✅ Compatible with WordPress 6.7
+* 🐛 Fix: Fixed data table search
 
-= 2.9.7 = 
-*Compatible with 6.7
-*Fixed Data table search issue
+= 2.9.6 =
+* ✅ Compatible with WordPress 6.6.2
+* 🐛 Fix: Resolved AJAX bugs
 
-= 2.9.6 = 
-*Compatible with 6.6.2
-*Fixed Ajax Bugs
+= 2.9.5 =
+* ✅ Compatible with WordPress 6.4.3
+* 🐛 Fix: Resolved AJAX bugs
 
-= 2.9.5 = 
-*Compatible with 6.4.3
-*Fixed Ajax Bugs
+= 2.9.3 =
+* ✅ Compatible with WordPress 6.3.0
+* 🐛 Fix: Resolved AJAX bugs
 
-= 2.9.3 = 
-*Compatible with 6.3.0
-*Fixed Ajax Bugs
+= 2.9.2 =
+* ✅ Compatible with WordPress 6.2.2
 
-= 2.9.2 = 
-*Compatible with 6.2.2
-*Fixed some Settings
+= 2.9.0 =
+* ✅ Compatible with WordPress 6.1.1
+* 🐛 Fix: Resolved output echo bugs
 
-= 2.9.1 = 
-*Compatible with 6.2.0
-*Fixed Ajax Bugs
+= 2.8.3 =
+* ✅ Compatible with WordPress 6.0.0
+* 🆕 New: Added alt tag support for all images
 
-= 2.9.0 = 
-*Compatible with 6.1.1
-*Fixed echo bugs
+= 2.8.0 =
+* 🆕 New: HTML tag support in content fields
 
-= 2.8.5 = 
-*Compatible with 6.0.3
-*Fixed some Settings
+= 2.7.0 =
+* 🆕 New: Updated flip box modules
 
-= 2.8.4 = 
-*Compatible with 6.0.1
-*Fixed some Settings
+= 2.3 =
+* 🆕 New: Added new layouts and theme capabilities
 
-= 2.8.3 = 
-*Compatible with 6.0.0
-*Add alt tag
-
-= 2.8.2 = 
-*Solve html issues
-
-= 2.8.0 = 
-*Support html tag
-
-= 2.7.1 = 
-*Add new Flipbox Issues
-
-= 2.7.0 = 
-*Update Flipbox Modules
-
-
-= 2.5.2 = 
-*Update Flipbox Loading
-
-= 2.5.1 = 
-*Update Export Export Options
-
-= 2.5.0 = 
-*Update Admin Bugs
-
-= 2.4.5 = 
-*Update Media Query
-
-= 2.4.4 = 
-*Solved Admin Issues
-
-= 2.4.3 = 
-*Solved Admin Bugs
-
-= 2.4.2 = 
-*Solved Style 29 Bugs
-
-= 2.4.1 = 
-*Resolved Admin Bugs with Style
-
-= 2.4 = 
-*Admin Bugs Solved
-
-= 2.2 = 
-*Fixed Single Quotation Mark
-
-= 2.1 = 
-*Fixed Bugs with Page Builders
-
-= 2.0 = 
-*Update Admin panel
-
-= 1.9 = 
-*Fixed with Gutenberg
-
-= 1.8 =
-*Fixed Export Bugs
-
-= 1.7 =
-*Fixed Some Bugs
-
-= 1.6 =
-*Fixed Some Bugs
+= 1.9 =
+* 🐛 Fix: Resolved Gutenberg shortcode compatibility
 
 = 1.5 =
-*Added Font Awesome Version
-*Fixed Bugs
-
-= 1.3 =
-*Mobile Issue Solved
-
-= 1.3 =
-*New Layouts
-*More theme capabilities 
+* 🆕 New: Added Font Awesome support
+* 🐛 Fix: Various bug fixes
 
 = 1.0 =
-* Initial Release
-* Added 23+ responsive layout
+* 🎉 Initial release with 23+ responsive flip box layouts
+
+---
 
 == Upgrade Notice ==
-= 2.9.5 = 
-Compatible with 6.4.3
-Fixed Ajax Bugs
 
-= 2.9.3 = 
-Compatible with 6.3.0
-Fixed Ajax Bugs
+= 3.0.0 =
+✅ Recommended for all users. Fixes a PHP 8 fatal error that blocked the WordPress backend, improves CSS math compatibility across all 29 styles, and updates demo images to Cloudflare CDN.
 
-= 2.9.2 = 
-Compatible with 6.2.0
-Fixed some Settings
+= 2.10.6 =
+✨ Adds native Elementor widget, improved Shortcode UI, and JSON import modal. Upgrade recommended.
 
-= 2.9.1 = 
-Compatible with 6.2.0
-Fixed Ajax Bugs
+= 2.10.5 =
+🚨 Critical stability release. Resolves fatal errors during activation and shortcode rendering. All users should upgrade immediately.
 
-= 2.9.0 = 
-Compatible with 6.1.1
-Fixed echo bugs
-
-= 2.8.5 = 
-Compatible with 6.0.3
-Fixed some Settings
-
-= 2.8.4 = 
-Compatible with 6.0.1
-Fixed some Settings
-
-= 2.8.3 = 
-Compatible with 6.0.0
-Add alt tag
-
-= 2.8.2 = 
-Solve html issues
-
-= 2.8.0 = 
-Support html tag
-
-= 2.7.1 = 
-Update Add new Flipbox
-
-= 2.7.0 = 
-Update Flipbox Modules
-
-= 2.5.2 = 
-Update Flipbox Loading
-
-= 2.5.1 = 
-Update Export Export Options
-
-= 2.5.0 = 
-Update Admin Bugs
-
-= 2.4.5 = 
-Update Media Query
-
-= 2.4.4 = 
-Solved Admin Issues
-
-= 2.4.3 = 
-Solved Admin Bugs
-
-= 2.4.2 = 
-Solved Style 29 Bugs
-
-= 2.4.1 = 
-Resolved Admin Bugs with Style
-
-= 2.4 = 
-Admin Bugs Solved
-
-= 2.2 = 
-Fixed Single Quotation Mark
-
-= 2.1 = 
-Fixed Bugs with Page Builders
-
-= 2.0 = 
-Update Admin panel
-
-= 1.9 = 
-Fixed with Gutenberg
-
-= 1.8 =
-Fixed Export Bugs
-
-= 1.7 =
-Fixed Some Bugs
-
-= 1.6 =
-Fixed Some Bugs
-
-= 1.5 =
-Added Font Awesome Version
-Fixed Bugs
-
-= 1.4 =
-Mobile Issue Solved
-= 1.3 =
-Customize Flipbox
-
-= 1.1 =
-Add user capabilities
-More theme capabilities
+= 2.10.0 =
+🆕 Adds Getting Started page and Freemius license management. Upgrade recommended for all users.
