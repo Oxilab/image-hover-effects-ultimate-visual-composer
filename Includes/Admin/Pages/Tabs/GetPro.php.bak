@@ -133,7 +133,7 @@ class GetPro {
                     <?php echo __( 'with Flipbox PRO', 'oxi-flip-box-plugin' ); ?>
                 </h2>
                 <p><?php echo __( 'Unlock premium Flipbox designs, advanced animations, and customization options to create stunning hover effects that engage your visitors.', 'oxi-flip-box-plugin' ); ?></p>
-                <a href="https://oxilab.dev/flipbox/pricing" class="oxilab-btn btn-primary get-pro-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://wpkindemos.com/flipbox/pricing/" class="wpkin-btn btn-primary get-pro-btn" target="_blank" rel="noopener noreferrer">
                     <i class="dashicons dashicons-awards"></i> <?php echo __( 'Get PRO Now', 'oxi-flip-box-plugin' ); ?>
                 </a>
             </div>
@@ -181,7 +181,7 @@ class GetPro {
                     <p><?php echo __( 'Upgrade to PRO and unlock 70+ premium styles, advanced customization, and premium support to transform your website visuals.', 'oxi-flip-box-plugin' ); ?></p>
                 </div>
                 <div class="cta-btn">
-                    <a href="https://oxilab.dev/flipbox/pricing" class="oxilab-btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wpkindemos.com/flipbox/pricing/" class="wpkin-btn btn-primary" target="_blank" rel="noopener noreferrer">
                         <i class="dashicons dashicons-cart"></i> <?php echo __( 'Upgrade Now', 'oxi-flip-box-plugin' ); ?>
                     </a>
                 </div>

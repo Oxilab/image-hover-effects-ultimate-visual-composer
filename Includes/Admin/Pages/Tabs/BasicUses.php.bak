@@ -6,7 +6,7 @@ class BasicUses {
 
 	public function render() {
 		?>
-		<div id="help" class="oxilab-help getting-started-content active">
+		<div id="help" class="wpkin-help getting-started-content active">
 			<div class="content-heading heading-questions">
 				<h2>
 					<?php _e( 'Using Flipbox', 'oxi-flip-box-plugin' ); ?>
