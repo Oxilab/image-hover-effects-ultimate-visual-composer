@@ -8,7 +8,7 @@ Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create stunning CSS3 flip boxes in WordPress. 29 styles (10 free), 4 directions, 50+ animations, no coding. Works with Elementor & WPBakery.
+Create stunning CSS3 flip boxes in WordPress. 29 styles, 50+ animations, no coding. Works with any page builder (Elementor, WPBakery, Gutenberg, etc).
 
 == Description ==
 
