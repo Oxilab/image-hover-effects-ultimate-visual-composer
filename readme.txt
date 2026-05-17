@@ -26,7 +26,7 @@ Every flip animation is built in pure CSS3, so your pages stay fast.
 
 ---
 
-== 🚀 Key Features ==
+== Key Features ==
 
 * 🎨 **29 unique flip box styles** — from clean minimal cards to bold image overlay designs
 * 🔄 **4 flip directions** — left-to-right, right-to-left, top-to-bottom, bottom-to-top
@@ -49,7 +49,7 @@ Every flip animation is built in pure CSS3, so your pages stay fast.
 
 ---
 
-== ✨ Free Version Features ==
+== Free Version Features ==
 
 The free version is genuinely capable. Here is everything included at no cost:
 
@@ -77,7 +77,7 @@ The free version is genuinely capable. Here is everything included at no cost:
 
 ---
 
-== 🔥 Pro Version Features ==
+== Pro Version Features ==
 
 Pro unlocks full creative control and priority support:
 
@@ -95,7 +95,7 @@ Pro unlocks full creative control and priority support:
 
 ---
 
-== 🎯 Perfect For ==
+== Perfect For ==
 
 * 👥 **Team pages** — show a photo and name on the front, bio and social links on the back
 * 🛍️ **eCommerce** — display product image on the front, key features and buy button on the back
@@ -107,7 +107,7 @@ Pro unlocks full creative control and priority support:
 
 ---
 
-== 📈 Why Use This Plugin ==
+== Why Use This Plugin ==
 
 There are other flip box plugins out there, but Flipbox is the one that gives you real depth without requiring a developer.
 
@@ -150,43 +150,43 @@ Here is why thousands of users choose it:
 
 == Frequently Asked Questions ==
 
-= 🔌 Does this plugin work with Elementor? =
+= Does this plugin work with Elementor? =
 
 Yes. A native Elementor widget is included. Go to the Elementor editor, search for "Flipbox" in the widget panel, drag it onto your page, and select your flip box ID. You can also paste the shortcode into an Elementor Shortcode widget.
 
-= 🧱 Does it work with WPBakery Visual Composer? =
+= Does it work with WPBakery Visual Composer? =
 
 Yes. A native WPBakery element is included. Add the Flipbox element from the WPBakery content bar and select your flip box ID.
 
-= 🟦 Does it work with Gutenberg, Divi, or other page builders? =
+= Does it work with Gutenberg, Divi, or other page builders? =
 
 Yes, via shortcode. Use the core Shortcode block in Gutenberg, or a text/code module in Divi, Beaver Builder, or any other builder. Paste `[oxilab_flip_box id="1"]` and your flip box will display correctly.
 
-= 💻 Do I need to write any code? =
+= Do I need to write any code? =
 
 No. Everything is configured through the visual admin panel. Developers who want more control can also add custom CSS per style, but it is completely optional.
 
-= 📱 Are the flip boxes mobile-friendly? =
+= Are the flip boxes mobile-friendly? =
 
 Yes. Every layout is fully responsive. Flip animations work smoothly on iOS and Android touch devices.
 
-= 🎨 How many styles are available? =
+= How many styles are available? =
 
 29 unique flip box styles are included — each with full customization for colors, typography, icons, images, and animations.
 
-= 🔄 What flip directions are available? =
+= What flip directions are available? =
 
 4 directions: left-to-right, right-to-left, top-to-bottom, and bottom-to-top. Each can be combined with 3 easing effects and an optional scroll entry animation.
 
-= 📋 How do I add a flip box to a page? =
+= How do I add a flip box to a page? =
 
 After creating a flip box in the admin panel, copy its shortcode (e.g. `[oxilab_flip_box id="1"]`) and paste it into any post, page, widget, or page builder block.
 
-= 🆓 What is the difference between free and Pro? =
+= What is the difference between free and Pro? =
 
 The free version includes all 29 styles, all flip directions, scroll animations, full color and typography controls, and page builder integrations. Pro unlocks unlimited items per shortcode, per-item advanced controls, video tutorials, and priority support. See the 🔥 Pro section above for the full list.
 
-= 🔧 Is the plugin compatible with PHP 8? =
+= Is the plugin compatible with PHP 8? =
 
 Yes. Version 2.10.8 includes full PHP 8 compatibility — type-safe CSS value casting across all 29 styles and improved error handling throughout the plugin.
 
