@@ -114,6 +114,15 @@ background: linear-gradient(' . $styledata[5] . ', ' . $styledata[5] . '), url("
 -moz-background-size: 100% 100%;
 -o-background-size: 100% 100%;
 background-size: 100% 100%;
+}
+@media (max-width: 767px) {
+.oxilab-flip-box-body-' . $styleid . '-' . $value['id'] . ' .oxilab-flip-box-' . $styleid . '{
+-moz-background-size: contain;
+-o-background-size: contain;
+background-size: contain;
+background-position: center center;
+background-repeat: no-repeat;
+}
 }';
                         }
                         ?>
@@ -124,6 +133,14 @@ background: linear-gradient(' . $styledata[15] . ', ' . $styledata[15] . '), url
 -moz-background-size: 100% 100%;
 -o-background-size: 100% 100%;
 background-size: 100% 100%;
+}
+@media (max-width: 767px) {
+.oxilab-flip-box-body-' . $styleid . '-' . $value['id'] . ' .oxilab-flip-box-back-' . $styleid . '{
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-position: center center;
+}
 }';
                         }
                         ?>
@@ -307,6 +324,27 @@ background-size: 100% 100%;
                     color:  ' . $styledata[25] . ';
                 }
                 ' . $styledata[199];
+            $this->inline_css .= '@media (max-width: 767px) {
+                .oxilab-flip-box-body-' . $styleid . ':after {
+                    padding-bottom: 0;
+                    min-height: ' . $styledata[47] . 'px;
+                }
+                .oxilab-flip-box-back-' . $styleid . ' {
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+                .oxilab-flip-box-back-' . $styleid . '-data {
+                    position: relative;
+                    top: auto;
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    -moz-transform: translateY(0);
+                    -o-transform: translateY(0);
+                    transform: translateY(0);
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+            }';
             ?>
         </div>
         <?php
