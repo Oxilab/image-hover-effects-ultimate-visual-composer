@@ -8,7 +8,7 @@ Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Flipbox plugin for WordPress with 29 flip box styles, 50+ animations, and no coding required. Works with Elementor, WPBakery, Gutenberg, and all page builders.
+Flipbox plugin for WordPress: 29 flip box styles, 50+ animations, no coding. Works with Elementor, WPBakery, Gutenberg, and all page builders.
 
 == Description ==
 
