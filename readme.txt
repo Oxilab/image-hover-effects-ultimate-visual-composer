@@ -5,7 +5,7 @@ Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 4.4
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,6 +173,13 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 == Changelog ==
 
+= 3.0.2 =
+*Added Divi Builder module for Flipbox
+*Added Flipbox shortcode support inside Divi (Text/Code modules and the native module)
+*Fixed Flipbox styles not loading inside the Divi Visual Builder
+*Added the plugin icon to the Elementor widget
+*Improved page builder compatibility (Divi 5)
+
 = 3.0.1 =
 *Compatible with WordPress 6.8
 *Fixed Style 4 back side content clipped on mobile
@@ -330,64 +337,3 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 = 1.0 =
 * Initial Release
 * Added 23+ responsive layout
-
-== Upgrade Notice ==
-= 3.0.1 =
-Compatible with WordPress 6.8 and mobile fixes for Style 4.
-
-= 3.0.0 =
-Recommended for all users. Fixes a PHP 8 fatal error, improves CSS compatibility across all 29 styles, and updates demo images to CDN.
-
-= 2.10.6 =
-Adds native Elementor widget, improved Shortcode UI, and JSON import modal.
-
-= 2.10.5 =
-Critical stability release. Resolves fatal errors during activation and shortcode rendering. All users should upgrade.
-
-= 2.10.0 =
-Adds Getting Started page and Freemius license management.
-
-= 2.9.5 =
-Compatible with 6.4.3
-Fixed Ajax Bugs
-
-= 2.9.3 =
-Compatible with 6.3.0
-Fixed Ajax Bugs
-
-= 2.9.0 =
-Compatible with 6.1.1
-Fixed echo bugs
-
-= 2.8.3 =
-Compatible with 6.0.0
-Add alt tag
-
-= 2.8.0 =
-Support html tag
-
-= 2.7.0 =
-Update Flipbox Modules
-
-= 2.5.0 =
-Update Admin Bugs
-
-= 2.4 =
-Admin Bugs Solved
-
-= 2.0 =
-Update Admin panel
-
-= 1.9 =
-Fixed with Gutenberg
-
-= 1.5 =
-Added Font Awesome Version
-Fixed Bugs
-
-= 1.3 =
-Customize Flipbox
-
-= 1.1 =
-Add user capabilities
-More theme capabilities

@@ -173,20 +173,65 @@ class Public_Render {
         $this->public_loader();
         $inlinecss = $this->inline_css;
 
+        // Page builders (Elementor editor, Divi Visual Builder / its preview iframe)
+        // render a module, then extract ONLY that module's outerHTML and inject it
+        // into the editor canvas. Anything enqueued separately — the per-instance
+        // CSS/JS added via wp_add_inline_style()/wp_add_inline_script() — prints in
+        // a different node and is left behind, so the module appears unstyled in the
+        // builder. In those contexts we instead emit the CSS/JS INLINE, inside the
+        // rendered output, so it travels with the extracted module.
+        $is_builder_ctx = $this->is_builder_context();
+
         if ( $this->inline_js != '' ) :
             $jquery = '(function ($) {' . $this->inline_js . '})(jQuery);';
             wp_add_inline_script( $this->JSHANDLE, $jquery );
-            if ( class_exists( '\\Elementor\\Plugin' ) && isset( \Elementor\Plugin::$instance ) && isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+            if ( $is_builder_ctx ) {
                 echo '<script>' . $jquery . '</script>';
             }
         endif;
 
         if ( $this->inline_css != '' ) :
-            wp_add_inline_style( 'flip-box-addons-style', wp_kses_decode_entities( stripslashes( $inlinecss ) ) );
-            if ( class_exists( '\\Elementor\\Plugin' ) && isset( \Elementor\Plugin::$instance ) && isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-                echo '<style>' . wp_kses_decode_entities( stripslashes( $inlinecss ) ) . '</style>';
+            $css = wp_kses_decode_entities( stripslashes( $inlinecss ) );
+            if ( $is_builder_ctx ) {
+                echo '<style>' . $css . '</style>';
+            } else {
+                wp_add_inline_style( 'flip-box-addons-style', $css );
             }
         endif;
+    }
+
+    /**
+     * Whether we are rendering inside a page-builder editor / preview, where the
+     * builder extracts a module's outerHTML and re-injects it into its own canvas
+     * (so separately-enqueued inline CSS/JS would be lost).
+     *
+     * @since 3.0.2
+     * @return bool
+     */
+    protected function is_builder_context() {
+        // Elementor editor.
+        if ( class_exists( '\\Elementor\\Plugin' ) && isset( \Elementor\Plugin::$instance ) && isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+            return true;
+        }
+        // Divi 5 Visual Builder preview iframe (`?preview=true&et_vb_preview_id=N`).
+        if ( isset( $_GET['et_vb_preview_id'] ) ) {
+            return true;
+        }
+        // Divi 5 module-data REST render.
+        if ( function_exists( 'et_builder_is_rest_api_request' ) && false !== et_builder_is_rest_api_request( '/module-data/shortcode-module' ) ) {
+            return true;
+        }
+        // Divi Visual Builder / classic preview.
+        if ( function_exists( 'et_core_is_fb_enabled' ) && et_core_is_fb_enabled() ) {
+            return true;
+        }
+        if ( function_exists( 'is_et_pb_preview' ) && is_et_pb_preview() ) {
+            return true;
+        }
+        if ( function_exists( 'et_fb_is_enabled' ) && et_fb_is_enabled() ) {
+            return true;
+        }
+        return false;
     }
 
 

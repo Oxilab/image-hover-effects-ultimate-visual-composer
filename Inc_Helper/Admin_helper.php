@@ -158,6 +158,7 @@ trait Admin_helper {
                         endif;
                         ?>
 
+                        <li class="saadmin-doc"><a target="_blank" rel="noopener noreferrer" href="https://demos.oxilab.dev/flipbox/template/">Demos</a></li>
                         <li class="saadmin-doc"><a target="_black" href="https://oxilab.dev/docs/flipbox">Docs</a></li>
                         <li class="saadmin-doc"><a target="_black" href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/">Support</a></li>
                         <li class="saadmin-set"><a href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate-settings' ) ); ?>"><span class="dashicons dashicons-admin-generic"></span></a></li>
