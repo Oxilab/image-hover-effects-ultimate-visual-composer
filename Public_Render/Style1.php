@@ -84,7 +84,7 @@ class Style1 extends Public_Render {
                                                             if ( $filesdata[9] != '' && $filesdata[11] != '' ) {
                                                                 ?>
                                                                 <div class="oxilab-button">
-                                                                    <a href="<?php echo esc_url( esc_url( $filesdata[11] ) ); ?>" target="<?php echo esc_attr( esc_attr( $styledata[53] ) ); ?>">
+                                                                    <a href="<?php echo esc_url( $filesdata[11] ); ?>" target="<?php echo esc_attr( $styledata[53] ); ?>">
                                                                         <span class="oxilab-button-data">
                                                                             <?php $this->text_render( $filesdata[9] ); ?>
                                                                         </span>
