@@ -73,22 +73,6 @@ trait Public_Helper {
         return $files;
     }
 
-    public function shortcode_render( $styleid, $user ) {
-        if ( ! empty( (int) $styleid ) && ! empty( $user ) ) :
-            // Initialize wpdb if not already done
-            if ( $this->wpdb === null ) {
-                $this->Public_loader();
-            }
-            $style = $this->wpdb->get_row( $this->wpdb->prepare( 'SELECT * FROM ' . $this->parent_table . ' WHERE id = %d ', $styleid ), ARRAY_A );
-            $style_name = ucfirst( $style['style_name'] );
-            $child = $this->wpdb->get_results( $this->wpdb->prepare( "SELECT * FROM $this->child_table WHERE styleid = %d ORDER by id ASC", $styleid ), ARRAY_A );
-            $C = 'OXI_FLIP_BOX_PLUGINS\Public_Render\\' . $style_name;
-            if ( class_exists( $C ) ) :
-                new $C( $style, $child, $user );
-            endif;
-        endif;
-    }
-
 	public function font_familly_charecter( $data ) {
 
         $check = get_option( 'oxi_addons_google_font' );
@@ -112,6 +96,22 @@ trait Public_Helper {
         $data = '"' . $data . '"';
 
         return $data;
+    }
+
+    public function shortcode_render( $styleid, $user ) {
+        if ( ! empty( (int) $styleid ) && ! empty( $user ) ) :
+            // Initialize wpdb if not already done
+            if ( $this->wpdb === null ) {
+                $this->Public_loader();
+            }
+            $style = $this->wpdb->get_row( $this->wpdb->prepare( 'SELECT * FROM ' . $this->parent_table . ' WHERE id = %d ', $styleid ), ARRAY_A );
+            $style_name = ucfirst( $style['style_name'] );
+            $child = $this->wpdb->get_results( $this->wpdb->prepare( "SELECT * FROM $this->child_table WHERE styleid = %d ORDER by id ASC", $styleid ), ARRAY_A );
+            $C = 'OXI_FLIP_BOX_PLUGINS\Public_Render\\' . $style_name;
+            if ( class_exists( $C ) ) :
+                new $C( $style, $child, $user );
+            endif;
+        endif;
     }
 
     /**

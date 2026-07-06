@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
- * Plugin URI:        https://wpkin.com
+ * Plugin URI:        https://oxilab.dev/flipbox
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           2.10.5
- * Author:            WPKIN
- * Author URI:        https://wpkin.com
+ * Version:           3.0.2
+ * Author:            Oxilab
+ * Author URI:        https://oxilab.dev
  * Text Domain:       oxi-flip-box-plugin
  * License:           GPLv2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -55,11 +55,11 @@ if ( ! function_exists( 'wpkin_fb_v' ) ) {
     // Init Freemius.
     wpkin_fb_v();
     // Signal that SDK was initiated.
-    do_action( 'wpkin_fb_v_loaded' );
+    do_action( 'oxilab_flipbox_loaded' );
 }
 
-/** If class `WPKin_Flipbox` doesn't exists yet. */
-if ( ! class_exists( 'WPKin_Flipbox' ) ) {
+/** If class `Oxilab_Flipbox` doesn't exists yet. */
+if ( ! class_exists( 'Oxilab_Flipbox' ) ) {
 
 	/**
 	 * Sets up and initializes the plugin.
@@ -67,7 +67,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	final class WPKin_Flipbox {
+	final class Oxilab_Flipbox {
 
 		use \OXI_FLIP_BOX_PLUGINS\Inc_Helper\Public_Helper;
     	use \OXI_FLIP_BOX_PLUGINS\Inc_Helper\Admin_helper;
@@ -75,7 +75,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-		const VERSION = '2.10.5';
+        const VERSION = '3.0.2';
 
 		/**
 		 * Php Version
@@ -99,7 +99,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 			$this->define_constance();
 			register_activation_hook( __FILE__, [ $this, 'activate' ] );
 			register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
-			add_action( 'upgrader_process_complete', [ $this, 'wpkin_upgrader_process_complete' ], 10, 2 );
+			add_action( 'upgrader_process_complete', [ $this, 'oxilab_upgrader_process_complete' ], 10, 2 );
 			do_action( 'oxi-flip-box-plugin/before_init' );
 			// Load translation
 			add_action( 'init', [ $this, 'i18n' ] );
@@ -208,7 +208,7 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		 *
 		 * @since 2.3.0
 		 */
-	public function wpkin_upgrader_process_complete( $upgrader_object, $options ) {
+	public function oxilab_upgrader_process_complete( $upgrader_object, $options ) {
 		if ( ! class_exists( '\OXI_FLIP_BOX_PLUGINS\Includes\Installation' ) ) {
 			require_once __DIR__ . '/Includes/Installation.php';
 		}
@@ -225,6 +225,8 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		protected function Shortcode_loader() {
 			add_shortcode( 'oxilab_flip_box', [ $this, 'wp_shortcode' ] );
 			new \OXI_FLIP_BOX_PLUGINS\Modules\Visual_Composer();
+			new \OXI_FLIP_BOX_PLUGINS\Modules\Elementor();
+			// new \OXI_FLIP_BOX_PLUGINS\Modules\Divi();
 			$Flipbox_Widget = new \OXI_FLIP_BOX_PLUGINS\Modules\Widget();
 			add_filter( 'widget_text', 'do_shortcode' );
 			add_action( 'widgets_init', [ $Flipbox_Widget, 'flip_register_flipwidget' ] );
@@ -245,13 +247,11 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 		}
 
 		public function Admin_Filters() {
-			add_filter( $this->fixed_data( '6f78692d666c69702d626f782d737570706f72742d616e642d636f6d6d656e7473' ), [ $this, $this->fixed_data( '537570706f7274416e64436f6d6d656e7473' ) ] );
 			add_filter( $this->fixed_data( '6f78692d666c69702d626f782d706c7567696e2f70726f5f76657273696f6e' ), [ $this, $this->fixed_data( '636865636b5f63757272656e745f74616273' ) ] );
 			add_filter( $this->fixed_data( '6f78692d666c69702d626f782d706c7567696e2f61646d696e5f6d656e75' ), [ $this, $this->fixed_data( '6f78696c61625f61646d696e5f6d656e75' ) ] );
 		}
 
 		public function User_Admin() {
-			add_action( 'admin_head', [ $this, 'Admin_Icon' ] );
 			add_action( 'wp_ajax_oxi_flip_box_data', [ $this, 'data_process' ] );
 			add_action( 'admin_head', [ $this, 'welcome_remove_menus' ] );
 		}
@@ -262,12 +262,12 @@ if ( ! class_exists( 'WPKin_Flipbox' ) ) {
 /**
  * Initilize the main plugin
  *
- * @return /WPKin_Flipbox
+ * @return /Oxilab_Flipbox
  */
-function wpkin_flipbox() {
+function oxilab_flipbox() {
 
-	if ( class_exists( 'WPKin_Flipbox' ) ) {
-		return WPKin_Flipbox::init();
+	if ( class_exists( 'Oxilab_Flipbox' ) ) {
+		return Oxilab_Flipbox::init();
 	}
 
 	return false;
@@ -276,4 +276,15 @@ function wpkin_flipbox() {
 /**
  * Kick-off the plugin
  */
-wpkin_flipbox();
+oxilab_flipbox();
+
+// Backward compatibility aliases — prevents breakage if 3rd-party code
+// still references the old WPKIN class or function names.
+if ( ! function_exists( 'wpkin_flipbox' ) ) {
+    function wpkin_flipbox() {
+        return oxilab_flipbox();
+    }
+}
+if ( ! class_exists( 'WPKin_Flipbox' ) ) {
+    class_alias( 'Oxilab_Flipbox', 'WPKin_Flipbox' );
+}

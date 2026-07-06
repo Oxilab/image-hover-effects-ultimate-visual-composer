@@ -823,7 +823,7 @@ trait Sanitization {
 		?>
         <div class="ihewc-admin-style-settings-div-css">
             <div class="col-xs-12">
-                <a href="https://wpkindemos.com/flipbox/docs/installations/how-to-install-the-plugin/" target="_blank">
+                <a href="https://oxilab.dev/docs/flipbox" target="_blank">
                     <div class="col-xs-support-ihewc">
                         <div class="ihewc-admin-support-icon">
                             <i class="fas fa-file oxi-icons"></i>

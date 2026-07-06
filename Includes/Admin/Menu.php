@@ -48,11 +48,11 @@ class Menu {
         } else {
             $first_key = 'manage_options';
         }
-        add_menu_page( 'Flip Box', 'Flip Box', $first_key, 'oxi-flip-box-ultimate', [ $this, 'Flip_Home' ] );
+        add_menu_page( 'Flip Box', 'Flip Box', $first_key, 'oxi-flip-box-ultimate', [ $this, 'Flip_Home' ], OXI_FLIP_BOX_URL . 'image/admin-icon.svg' );
         add_submenu_page( 'oxi-flip-box-ultimate', 'Flip Box', 'Flip Box', $first_key, 'oxi-flip-box-ultimate', [ $this, 'Flip_Home' ] );
         add_submenu_page( 'oxi-flip-box-ultimate', 'Create New', 'Create New', $first_key, 'oxi-flip-box-ultimate-new', [ $this, 'Flip_Create' ] );
         add_submenu_page( 'oxi-flip-box-ultimate', 'Import Templates', 'Import Templates', $first_key, 'oxi-flip-box-ultimate-import', [ $this, 'Flip_Import' ] );
-        add_submenu_page( 'oxi-flip-box-ultimate', 'Getting Started', 'Getting Started', $first_key, 'flipbox-getting-started', [ $this, 'wpkin_flipbox_getting_started' ] );
+        add_submenu_page( 'oxi-flip-box-ultimate', 'Getting Started', 'Getting Started', $first_key, 'flipbox-getting-started', [ $this, 'oxilab_flipbox_getting_started' ] );
         add_submenu_page( 'oxi-flip-box-ultimate', 'Settings', 'Settings', $first_key, 'oxi-flip-box-ultimate-settings', [ $this, 'Flip_Settings' ] );
         // add_submenu_page('oxi-flip-box-ultimate', 'Oxilab Addons', 'Oxilab Addons', $first_key, 'oxi-flip-box-ultimate-addons', [$this, 'Flip_Addons']);
 	}
@@ -80,7 +80,7 @@ class Menu {
 		new Pages\Import();
     }
 
-	public function wpkin_flipbox_getting_started() {
+	public function oxilab_flipbox_getting_started() {
 		new Pages\GettingStarted();
     }
 

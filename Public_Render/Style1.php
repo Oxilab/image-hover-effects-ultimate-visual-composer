@@ -23,9 +23,9 @@ use OXI_FLIP_BOX_PLUGINS\Page\Public_Render;
 class Style1 extends Public_Render {
 
     public function default_render() {
-        $styleid = esc_attr( $this->oxiid );
-        $styledata = array_map( 'esc_attr', explode( '|', $this->dbdata['css'] ) );
-        $listdata = $this->child;
+        $styleid   = esc_attr( $this->oxiid );
+        $styledata = $this->parse_styledata( $this->dbdata['css'] );
+        $listdata  = $this->child;
         ?>
         <div class="oxilab-flip-box-wrapper">
             <?php
@@ -39,7 +39,6 @@ class Style1 extends Public_Render {
                         sa-data-animation-delay="0ms"
                         sa-data-animation-duration=" <?php echo esc_attr( ( $styledata[57] * 1000 ) ); ?>ms"
                         >
-
                         <div class="<?php echo ( $this->admin == 'admin' ) ? 'oxilab-ab-id' : ''; ?>  oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?>-<?php echo esc_attr( $value['id'] ); ?>">
                             <?php
                             if ( $filesdata[9] == '' && $filesdata[11] != '' ) {

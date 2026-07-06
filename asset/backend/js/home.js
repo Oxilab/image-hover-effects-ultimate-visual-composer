@@ -87,4 +87,27 @@ jQuery.noConflict();
             return true;
         }
     });
+
+    jQuery(document).on('click', '.oxi-copy-shortcode', function () {
+        var sc = jQuery(this).data('shortcode');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(sc).then(function(){
+                alert('Shortcode copied');
+            }).catch(function(){
+                var $temp = jQuery('<input>');
+                jQuery('body').append($temp);
+                $temp.val(sc).select();
+                document.execCommand('copy');
+                $temp.remove();
+                alert('Shortcode copied');
+            });
+        } else {
+            var $temp = jQuery('<input>');
+            jQuery('body').append($temp);
+            $temp.val(sc).select();
+            document.execCommand('copy');
+            $temp.remove();
+            alert('Shortcode copied');
+        }
+    });
 })(jQuery)
