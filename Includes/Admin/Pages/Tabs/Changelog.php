@@ -8,6 +8,66 @@ class Changelog {
 
         // Full changelog array
         $logs = [
+            [
+                'version' => '3.0.3',
+                'date' => '04-09-2026',
+                'sections' => [
+                    'new' => [
+                        'Added a "How to use?" documentation menu to the plugin header with quick links for the shortcode, Elementor, WPBakery and the WordPress widget.',
+                    ],
+                    'enhancement' => [
+                        'Any notice now appears below the plugin\'s own menu bar instead of above it.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.0.2',
+                'date' => '21-06-2026',
+                'sections' => [
+                    'new' => [
+                        'Added Divi Builder module for Flipbox.',
+                        'Added Flipbox shortcode support inside Divi (Text/Code modules and the native module).',
+                        'Added the plugin icon to the Elementor widget.',
+                    ],
+                    'fix' => [
+                        'Fixed Flipbox styles not loading inside the Divi Visual Builder.',
+                    ],
+                    'enhancement' => [
+                        'Improved page builder compatibility (Divi 5).',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.0.1',
+                'date' => '25-05-2026',
+                'sections' => [
+                    'fix' => [
+                        'Fixed Style 4 back side content clipped on mobile.',
+                        'Fixed Style 4 background image distortion on mobile.',
+                    ],
+                    'enhancement' => [
+                        'Compatible with WordPress 6.8.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.0.0',
+                'date' => '14-04-2026',
+                'sections' => [
+                    'fix' => [
+                        'Fixed dimension calculation issue for PHP 8.',
+                        'Fixed PHP 8 fatal TypeError on backend.',
+                    ],
+                    'enhancement' => [
+                        'PHP 8 compatibility across all 29 styles.',
+                        'Rebranded to Oxilab with backward compatibility.',
+                        'Demo images now load from CDN.',
+                    ],
+                    'remove' => [
+                        'Removed external API calls.',
+                    ],
+                ],
+            ],
 			[
                 'version' => '2.10.7',
                 'date' => '24-03-2026',

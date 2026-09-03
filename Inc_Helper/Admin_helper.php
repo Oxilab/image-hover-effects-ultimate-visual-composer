@@ -47,17 +47,98 @@ trait Admin_helper {
 
     public function User_Reviews() {
         $this->admin_recommended();
-        $this->admin_notice();
+        // Only ever one of these two at a time, so the screen is never stacked
+        // with plugin notices.
+        if ( ! $this->admin_notice() ) :
+            $this->admin_upgrade_notice();
+        endif;
     }
 
 	public function admin_notice() {
         if ( ! empty( $this->admin_notice_status() ) ) :
-            return;
+            return false;
         endif;
         if ( strtotime( '-7 day' ) < $this->installation_date() ) :
-            return;
+            return false;
         endif;
         new \OXI_FLIP_BOX_PLUGINS\Classes\Support_Reviews();
+        return true;
+    }
+
+    /**
+     * Pro upgrade notice gate.
+     *
+     * Free users only, after 10 days of use, until dismissed for good.
+     *
+     * @since 3.0.3
+     */
+    public function admin_upgrade_notice() {
+        if ( $this->has_pro_access() ) :
+            return false;
+        endif;
+        if ( ! empty( get_option( 'oxilab_flip_box_upgrade_nobug' ) ) ) :
+            return false;
+        endif;
+        if ( strtotime( '-10 days' ) > $this->upgrade_notice_date() ) :
+            new \OXI_FLIP_BOX_PLUGINS\Classes\Support_Upgrade();
+            return true;
+        endif;
+        return false;
+    }
+
+    /**
+     * Whether this install has a valid licence or premium code available.
+     *
+     * Wrapped defensively: a missing Freemius bootstrap must never be able to
+     * fatal the admin.
+     *
+     * @since 3.0.3
+     */
+    public function has_pro_access() {
+        $has_pro = false;
+        try {
+            $license = get_option( $this->fixed_data( '6f78696c61625f666c69705f626f785f6c6963656e73655f737461747573' ) );
+            if ( $license === $this->fixed_data( '76616c6964' ) ) :
+                $has_pro = true;
+            elseif ( function_exists( 'wpkin_fb_v' ) && wpkin_fb_v()->can_use_premium_code() ) :
+                $has_pro = true;
+            endif;
+        } catch ( \Throwable $e ) {
+            // Treat an unavailable licence layer as "unknown", and stay quiet
+            // rather than risk showing an upgrade prompt to a paying customer.
+            $has_pro = true;
+        }
+
+        /**
+         * Filters whether this install counts as having Pro access.
+         *
+         * Only governs whether the upgrade notice is shown, it unlocks nothing.
+         * Useful for QA, where a licenced dev site needs to preview the free
+         * user experience.
+         *
+         * @since 3.0.3
+         *
+         * @param bool $has_pro
+         */
+        return (bool) apply_filters( 'oxilab_flip_box_has_pro_access', $has_pro );
+    }
+
+    /**
+     * Clock for the upgrade notice.
+     *
+     * Seeded from the real installation date so existing sites are credited for
+     * the time they have already used the plugin, then kept separate from it, so
+     * snoozing the review notice cannot move this one.
+     *
+     * @since 3.0.3
+     */
+    public function upgrade_notice_date() {
+        $data = get_option( 'oxilab_flip_box_upgrade_date' );
+        if ( empty( $data ) ) :
+            $data = $this->installation_date();
+            update_option( 'oxilab_flip_box_upgrade_date', $data );
+        endif;
+        return $data;
     }
 
     /**
@@ -146,6 +227,8 @@ trait Admin_helper {
                                 ><a href="<?php echo esc_url( $this->admin_url_convert( $value['homepage'] ) ); ?>"><?php echo esc_html( $this->name_converter( $value['name'] ) ); ?></a></li>
 							<?php
                         }
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in Docs.
+                        echo \OXI_FLIP_BOX_PLUGINS\Classes\Docs::nav_item();
                         ?>
 
                     </ul>

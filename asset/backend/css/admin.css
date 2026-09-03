@@ -3997,3 +3997,117 @@ span.oxi-confirmation-success:after {
 .oxi-shortcode-chip{display:inline-block;background:#f6f7f7;border:1px solid #dcdcde;border-radius:6px;padding:6px 10px;color:#d63638;font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
 .oxi-copy-shortcode{background:#eef6ff;border:1px solid #cce4ff;color:#2271b1;padding:6px 8px;border-radius:6px}
 .oxi-copy-shortcode:hover{background:#e1f0ff;color:#1d4e8a}
+/* ==========================================================================
+   "How to use?" documentation dropdown — plugin menu bar
+   Markup: Classes/Docs.php::nav_item(). Sits in the LEFT nav next to the page
+   tabs. Opens on hover and on keyboard focus, so it is reachable without a
+   pointer.
+   ========================================================================== */
+
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item {
+    position: relative;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a {
+    color: #1A73E8;
+    font-weight: 600;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:hover > a,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:focus-within > a {
+    color: #1557B0;
+    background: #E8F0FE;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    /* Dashicons draw low in their em box (core compensates with vertical-align:
+       top, which does nothing on a flex item), so centre the glyph in its own
+       box and lift it onto the label's optical centre. */
+    line-height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -1px;
+    margin-right: 6px;
+    color: inherit;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a .dashicons:before {
+    line-height: 1;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a:after {
+    content: '\f347';
+    font-family: dashicons;
+    font-size: 15px;
+    line-height: 1;
+    margin-left: 7px;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:hover > a:after,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:focus-within > a:after {
+    transform: rotate(180deg);
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a:focus {
+    background: #E8F0FE;
+}
+
+.oxi-howto-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 30;
+    min-width: 268px;
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #e0e5e9;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 6px 18px rgba(29, 35, 39, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+.oxi-howto-item:hover > .oxi-howto-menu,
+.oxi-howto-item:focus-within > .oxi-howto-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.oxi-howto-menu li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none !important;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item .oxi-howto-menu li a {
+    display: block;
+    height: auto;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    color: #3c434a;
+    background: transparent;
+    white-space: nowrap;
+}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item .oxi-howto-menu li a:hover,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item .oxi-howto-menu li a:focus {
+    color: #fff;
+    background: #1A73E8;
+}
+.oxi-howto-menu li:last-child {
+    margin-top: 5px;
+    border-top: 1px solid #eef0f2 !important;
+    padding-top: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .oxi-howto-menu,
+    .oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a:after {
+        transition: none;
+    }
+}

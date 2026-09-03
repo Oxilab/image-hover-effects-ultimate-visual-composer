@@ -3,9 +3,9 @@ Contributors: oxilab, richardmallick
 Donate link: https://oxilab.dev/flipbox/pricing/
 Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 4.4
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,11 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 3.0.3 =
+*Added a "How to use?" documentation menu to the plugin header with quick links for the shortcode, Elementor, WPBakery and the WordPress widget
+*Any notice now appears below the plugin's own menu bar instead of above it.
+
 
 = 3.0.2 =
 *Added Divi Builder module for Flipbox
