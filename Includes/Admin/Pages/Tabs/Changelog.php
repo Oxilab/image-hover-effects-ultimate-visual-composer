@@ -13,12 +13,14 @@ class Changelog {
                 'date' => '08-10-2026',
                 'sections' => [
                     'new' => [
+                        'Added a Clone button next to Edit on every flip box item in the editor preview: it copies the item to the end of the list without reloading the page.',
                         'Added a Danger zone to the Settings page: delete all flip boxes, items and settings at once after typing DELETE to confirm, or choose to remove all Flipbox data when the plugin is deleted.',
                     ],
                     'fix' => [
                         'Removing a template from the Create New list now only removes Flipbox\'s own entry.',
                     ],
                     'enhancement' => [
+                        'The flip box editor now saves without reloading the page: Save changes, saving an item, Rename and Delete update the preview in place and confirm with a short message.',
                         'Editing a flip box item now opens its dialog instantly, without reloading the page first.',
                         'Deleting a flip box item now asks in a clear confirmation dialog that names the item, instead of the browser\'s plain alert.',
                         'Refreshed the flip box editor: a header showing which flip box you are editing with a quick way back, cleaner tabs and settings panels, clearer "Add a flip box" and "Reorder flip boxes" buttons, "Save changes" and "Rename" buttons, accordion arrows on every panel, and tidier dialogs.',

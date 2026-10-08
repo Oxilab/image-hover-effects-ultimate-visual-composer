@@ -357,6 +357,17 @@ class Admin_Render {
                                 </div>
                             </div>
                             <?php $this->child_edit_templates(); ?>
+                            <div class="oxi-flip-ed-toast" id="oxi-flip-ed-toast" role="status" aria-live="polite" hidden
+                                data-saved="<?php esc_attr_e( 'Changes saved', 'oxi-flip-box-plugin' ); ?>"
+                                data-item="<?php esc_attr_e( 'Flip box saved', 'oxi-flip-box-plugin' ); ?>"
+                                data-renamed="<?php esc_attr_e( 'Name updated', 'oxi-flip-box-plugin' ); ?>"
+                                data-deleted="<?php esc_attr_e( 'Flip box deleted', 'oxi-flip-box-plugin' ); ?>"
+                                data-cloned="<?php esc_attr_e( 'Flip box cloned, the copy is added at the end', 'oxi-flip-box-plugin' ); ?>"
+                                data-error="<?php esc_attr_e( 'Could not save. Check your connection, or reload the page if you were logged out, then try again.', 'oxi-flip-box-plugin' ); ?>">
+                                <span class="oxi-flip-ed-toast-icon dashicons" aria-hidden="true"></span>
+                                <span class="oxi-flip-ed-toast-text"></span>
+                                <button type="button" class="oxi-flip-ed-toast-close" aria-label="<?php esc_attr_e( 'Dismiss', 'oxi-flip-box-plugin' ); ?>"><span class="dashicons dashicons-no-alt" aria-hidden="true"></span></button>
+                            </div>
                             <div class="oxi-flip-ed-dialog" id="oxi-flip-ed-delete-dialog" hidden>
                                 <div class="oxi-flip-ed-dialog-backdrop" data-oxi-flip-ed-close></div>
                                 <div class="oxi-flip-ed-dialog-box" role="alertdialog" aria-modal="true" aria-labelledby="oxi-flip-ed-delete-title" aria-describedby="oxi-flip-ed-delete-desc">
@@ -447,6 +458,26 @@ class Admin_Render {
         }
         echo '</div>';
         $this->child_editable = $current;
+    }
+
+    /**
+     * Clone one item of this flip box. The copy is added at the end, the
+     * item must belong to the flip box being edited.
+     *
+     * @since 3.1.0
+     */
+    public function Clone_child_data() {
+        if ( ! empty( $_POST['clone'] ) && isset( $_POST['item-id'] ) && is_numeric( $_POST['item-id'] ) ) {
+            if ( ! wp_verify_nonce( $this->nonce, 'oxiflipclonedata' ) ) {
+                die( 'You do not have sufficient permissions to access this page.' );
+            } else {
+                $item_id = (int) $_POST['item-id'];
+                $child = $this->wpdb->get_row( $this->wpdb->prepare( "SELECT * FROM {$this->child_table} WHERE id = %d AND styleid = %d", $item_id, $this->oxiid ), ARRAY_A );
+                if ( $child ) {
+                    $this->wpdb->query( $this->wpdb->prepare( "INSERT INTO {$this->child_table} (styleid, type, files, css) VALUES (%d, %s, %s, %s)", [ $this->oxiid, (string) $child['type'], (string) $child['files'], (string) $child['css'] ] ) );
+                }
+            }
+        }
     }
 
     public function Delete_child_data() {
@@ -902,6 +933,7 @@ class Admin_Render {
         $this->child_save();
         $this->child_edit();
         $this->rename_shortcode();
+        $this->Clone_child_data();
         $this->Delete_child_data();
     }
 }

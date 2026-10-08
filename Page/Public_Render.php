@@ -272,6 +272,13 @@ class Public_Render {
                         <?php echo wp_nonce_field( 'oxiflipeditdata' ); ?>
                     </form>
                 </div>
+                <div class="oxilab-style-absulate-clone">
+                    <form method="post">
+                        <input type="hidden" name="item-id" value="<?php echo esc_attr( $id ); ?>">
+                        <button class="btn btn-light" type="submit" value="clone" name="clone" title="<?php esc_attr_e( 'Clone', 'oxi-flip-box-plugin' ); ?>"><?php esc_html_e( 'Clone', 'oxi-flip-box-plugin' ); ?></button>
+                        <?php wp_nonce_field( 'oxiflipclonedata' ); ?>
+                    </form>
+                </div>
                 <div class="oxilab-style-absulate-delete">
                     <form method="post" class="oxilab-style-absulate-delete-confirmation">
                         <input type="hidden" name="item-id" value="<?php echo esc_attr( $id ); ?>">

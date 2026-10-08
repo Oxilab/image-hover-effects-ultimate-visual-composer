@@ -1,125 +1,335 @@
 /**
- * Flip box editor: delete confirmation dialog.
+ * Flip box editor: save without reloading, item dialog, delete dialog.
  *
- * Replaces the browser confirm() that vendor.js puts on each preview item's
- * Delete form. The form still posts exactly as before once confirmed. If this
- * file does not load, vendor.js's confirm() stays in place.
+ * Saving posts the very same form to the very same page in the background,
+ * so the server runs exactly the code it ran before (same fields, nonce and
+ * checks). That response is the freshly rendered editor; the parts that show
+ * saved data (preview, its CSS, item templates, reorder list, name) are
+ * copied from it. Whatever the user is editing in the settings stays as is.
+ * If this file does not load, every form still posts and reloads as before.
  */
 jQuery(function ($) {
     'use strict';
 
-    var $dialog = $('#oxi-flip-ed-delete-dialog');
-    if (!$dialog.length) {
-        return;
-    }
-    // Out of the editor layout so position: fixed is always the viewport.
-    $dialog.appendTo(document.body);
+    var canAjax = !!(window.fetch && window.FormData && window.DOMParser);
+    var $modal = $('#oxi-addons-list-data-modal');
+    var itemForm = document.getElementById('oxi-flip-template-modal-form');
+    var $toast = $('#oxi-flip-ed-toast').appendTo(document.body);
+    var toastTimer = null;
 
-    var $title = $('#oxi-flip-ed-delete-title');
-    var $submit = $('#oxi-flip-ed-delete-submit');
-    var submitLabel = $submit.text();
-    var pending = null;
-    var lastFocus = null;
+    /* Toast */
 
-    // The item's front title, read from its edit template when it has one.
-    function itemTitle(id) {
-        var tpl = document.getElementById('oxi-flip-edit-tpl-' + id);
-        var field = tpl && tpl.content ? tpl.content.querySelector('[name="flip-box-front-title"]') : null;
-        // DOMParser documents are inert: markup in a saved title never runs.
-        var text = field ? $.trim(new DOMParser().parseFromString(field.getAttribute('value') || '', 'text/html').body.textContent || '') : '';
-        return text.length > 60 ? text.slice(0, 57) + '...' : text;
-    }
-
-    function open(form, trigger) {
-        pending = form;
-        lastFocus = trigger || document.activeElement;
-        var name = itemTitle(parseInt($(form).find('input[name="item-id"]').val(), 10));
-        $title.text(name ? $title.attr('data-template').replace('%s', name) : $title.attr('data-default'));
-        $submit.prop('disabled', false).text(submitLabel);
-        $dialog.prop('hidden', false);
-        $('body').addClass('oxi-flip-ed-dialog-open');
-        $dialog.find('[data-oxi-flip-ed-close].oxi-flip-ed-dialog-btn').trigger('focus');
-    }
-
-    function close() {
-        if ($submit.prop('disabled')) {
+    function toast(key, isError) {
+        if (!$toast.length) {
             return;
         }
-        pending = null;
-        $dialog.prop('hidden', true);
-        $('body').removeClass('oxi-flip-ed-dialog-open');
-        if (lastFocus && document.body.contains(lastFocus)) {
-            lastFocus.focus();
-        }
+        clearTimeout(toastTimer);
+        $toast.toggleClass('is-error', !!isError)
+            .find('.oxi-flip-ed-toast-text').text($toast.attr('data-' + key));
+        $toast.prop('hidden', false).removeClass('is-in');
+        $toast[0].offsetWidth; // restart the slide in
+        $toast.addClass('is-in');
+        toastTimer = setTimeout(function () {
+            $toast.removeClass('is-in');
+            toastTimer = setTimeout(function () {
+                $toast.prop('hidden', true);
+            }, 250);
+        }, isError ? 6000 : 2600);
     }
 
-    // Drop vendor.js's confirm() and ask with the dialog instead.
-    $('.oxilab-style-absulate-delete-confirmation').off('submit');
-    $(document).on('submit', '.oxilab-style-absulate-delete-confirmation', function (e) {
-        e.preventDefault();
-        open(this, e.originalEvent && e.originalEvent.submitter);
+    $toast.on('click', '.oxi-flip-ed-toast-close', function () {
+        clearTimeout(toastTimer);
+        $toast.removeClass('is-in').prop('hidden', true);
     });
 
-    $dialog.on('click', '[data-oxi-flip-ed-close]', close);
-    $(document).on('keydown', function (e) {
-        if ($dialog.prop('hidden')) {
-            return;
+    /* Background save */
+
+    function send(form, name, value) {
+        var data = new FormData(form);
+        if (name) {
+            data.append(name, value);
         }
-        if (e.key === 'Escape') {
-            close();
-        } else if (e.key === 'Tab') {
-            // Keep focus inside the dialog.
-            var $buttons = $dialog.find('button:enabled');
-            var first = $buttons.first()[0], last = $buttons.last()[0];
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
+        return fetch(window.location.href.split('#')[0], {
+            method: 'POST',
+            body: data,
+            credentials: 'same-origin'
+        }).then(function (response) {
+            if (!response.ok) {
+                throw new Error('HTTP ' + response.status);
+            }
+            return response.text();
+        }).then(function (html) {
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            // A failed nonce prints a plain message, an expired login the
+            // login page: neither has the editor in it.
+            if (!doc.getElementById('oxi-addons-preview-data')) {
+                throw new Error('No editor in the response');
+            }
+            refresh(doc);
+            return doc;
+        });
+    }
+
+    function refresh(doc) {
+        // Preview. Its edit and delete forms use delegated handlers below.
+        $('#oxi-addons-preview-data')[0].innerHTML = doc.getElementById('oxi-addons-preview-data').innerHTML;
+
+        // The preview's CSS (printed with the flip box stylesheet).
+        var css = doc.getElementById('flip-box-addons-style-inline-css');
+        var current = document.getElementById('flip-box-addons-style-inline-css');
+        if (css && current) {
+            current.textContent = css.textContent;
+        } else if (css) {
+            document.head.appendChild(document.importNode(css, true));
+        } else if (current) {
+            current.textContent = '';
+        }
+
+        // Stylesheets the new data needs, such as a newly chosen Google font.
+        $(doc).find('link[rel="stylesheet"][id]').each(function () {
+            var mine = document.getElementById(this.id);
+            if (!mine) {
+                document.head.appendChild(document.importNode(this, true));
+            } else if (mine.tagName === 'LINK' && mine.href !== this.href) {
+                mine.href = this.href;
+            }
+        });
+
+        // Item edit templates (a new item gets its id here).
+        var tpls = doc.querySelector('.oxi-flip-edit-templates');
+        if (tpls) {
+            $('.oxi-flip-edit-templates').replaceWith(document.importNode(tpls, true));
+        }
+
+        // Reorder list.
+        var list = doc.getElementById('oxi-addons-modal-rearrange');
+        var $list = $('#oxi-addons-modal-rearrange');
+        if (list && $list.length) {
+            $list[0].innerHTML = list.innerHTML;
+            if ($list.data('ui-sortable')) {
+                $list.sortable('refresh');
             }
         }
-    });
 
-    $submit.on('click', function () {
-        if (!pending) {
-            return;
+        // Name in the header.
+        var name = doc.querySelector('.oxi-flip-ed-title h1');
+        if (name) {
+            $('.oxi-flip-ed-title h1').text(name.textContent);
         }
-        $submit.prop('disabled', true).text($submit.attr('data-busy'));
-        // A native submit skips the button, so send its delete=delete pair.
-        $('<input type="hidden" name="delete" value="delete">').appendTo(pending);
-        HTMLFormElement.prototype.submit.call(pending);
-    });
+    }
 
-    // Back button from the next page: show the editor, not a busy dialog.
-    $(window).on('pageshow', function (e) {
-        if (e.originalEvent && e.originalEvent.persisted) {
-            $submit.prop('disabled', false);
-            $(pending).find('input[type="hidden"][name="delete"]').remove();
-            close();
-        }
-    });
-});
+    function busy($button, on) {
+        $button.prop('disabled', on).toggleClass('oxi-flip-ed-saving', on).attr('aria-busy', on ? 'true' : null);
+    }
 
-/**
- * Flip box editor: open the item dialog without reloading the page.
- *
- * Admin_Render::child_edit_templates() renders every item's fields into an
- * inert <template>. Edit copies those values into the dialog that is already
- * on the page (so the icon picker and image upload keep working) and opens
- * it. An item without a template falls back to the old reload flow.
- */
-(function ($) {
-    'use strict';
+    // The button that submitted, or the form's own save button for Enter.
+    function submitter(e, form, fallback) {
+        var b = e.originalEvent && e.originalEvent.submitter;
+        return b && b.name ? b : form.querySelector(fallback);
+    }
 
-    var $modal = $('#oxi-addons-list-data-modal');
-    var form = document.getElementById('oxi-flip-template-modal-form');
-    if (!$modal.length || !form || !('content' in document.createElement('template'))) {
+    if (canAjax) {
+        // Save changes. Delegated, so it runs after the form's own submit
+        // handlers (the free version resets its locked options in one).
+        $(document).on('submit', '#oxi-addons-form-submit', function (e) {
+            var button = submitter(e, this, 'button[name="oxi-addons-flip-templates-submit"]');
+            if (!button) {
+                return;
+            }
+            e.preventDefault();
+            var $button = $(button);
+            if ($button.prop('disabled')) {
+                return;
+            }
+            busy($button, true);
+            send(this, button.name, button.value).then(function () {
+                toast('saved');
+            }, function () {
+                toast('error', true);
+            }).then(function () {
+                busy($button, false);
+            });
+        });
+
+        // Item dialog Save.
+        $(document).on('submit', '#oxi-flip-template-modal-form', function (e) {
+            var button = submitter(e, this, '#oxi-flip-template-modal-submit');
+            if (!button) {
+                return;
+            }
+            e.preventDefault();
+            var $button = $(button);
+            if ($button.prop('disabled')) {
+                return;
+            }
+            busy($button, true);
+            send(this, button.name, button.value).then(function () {
+                $modal.modal('hide');
+                toast('item');
+            }, function () {
+                // The dialog stays open, so nothing typed is lost.
+                toast('error', true);
+            }).then(function () {
+                busy($button, false);
+            });
+        });
+
+        // Clone on a preview item: the copy is added at the end.
+        $(document).on('submit', '.oxilab-style-absulate-clone form', function (e) {
+            var button = submitter(e, this, 'button[name="clone"]');
+            if (!button) {
+                return;
+            }
+            e.preventDefault();
+            var $button = $(button);
+            if ($button.prop('disabled')) {
+                return;
+            }
+            busy($button, true);
+            send(this, button.name, button.value).then(function () {
+                toast('cloned');
+            }, function () {
+                toast('error', true);
+            }).then(function () {
+                busy($button, false);
+            });
+        });
+
+        // Rename.
+        $(document).on('submit', '.oxi-addons-shortcode-body form', function (e) {
+            var button = submitter(e, this, 'button[name="addonsstylenamechange"]');
+            if (!button || button.name !== 'addonsstylenamechange') {
+                return;
+            }
+            e.preventDefault();
+            var $button = $(button);
+            if ($button.prop('disabled')) {
+                return;
+            }
+            busy($button, true);
+            send(this, button.name, button.value).then(function () {
+                toast('renamed');
+            }, function () {
+                toast('error', true);
+            }).then(function () {
+                busy($button, false);
+            });
+        });
+    }
+
+    /* Delete confirmation dialog (replaces vendor.js's confirm()) */
+
+    var $dialog = $('#oxi-flip-ed-delete-dialog');
+    if ($dialog.length) {
+        // Out of the editor layout so position: fixed is always the viewport.
+        $dialog.appendTo(document.body);
+
+        var $title = $('#oxi-flip-ed-delete-title');
+        var $submit = $('#oxi-flip-ed-delete-submit');
+        var submitLabel = $submit.text();
+        var pending = null;
+        var lastFocus = null;
+
+        // The item's front title, read from its edit template when it has one.
+        var itemTitle = function (id) {
+            var tpl = document.getElementById('oxi-flip-edit-tpl-' + id);
+            var field = tpl && tpl.content ? tpl.content.querySelector('[name="flip-box-front-title"]') : null;
+            // DOMParser documents are inert: markup in a saved title never runs.
+            var text = field ? $.trim(new DOMParser().parseFromString(field.getAttribute('value') || '', 'text/html').body.textContent || '') : '';
+            return text.length > 60 ? text.slice(0, 57) + '...' : text;
+        };
+
+        var openDialog = function (form, trigger) {
+            pending = form;
+            lastFocus = trigger || document.activeElement;
+            var name = itemTitle(parseInt($(form).find('input[name="item-id"]').val(), 10));
+            $title.text(name ? $title.attr('data-template').replace('%s', name) : $title.attr('data-default'));
+            $submit.prop('disabled', false).text(submitLabel);
+            $dialog.prop('hidden', false);
+            $('body').addClass('oxi-flip-ed-dialog-open');
+            $dialog.find('.oxi-flip-ed-dialog-btn[data-oxi-flip-ed-close]').trigger('focus');
+        };
+
+        var closeDialog = function () {
+            if ($submit.prop('disabled')) {
+                return;
+            }
+            pending = null;
+            $dialog.prop('hidden', true);
+            $('body').removeClass('oxi-flip-ed-dialog-open');
+            if (lastFocus && document.body.contains(lastFocus)) {
+                lastFocus.focus();
+            }
+        };
+
+        $('.oxilab-style-absulate-delete-confirmation').off('submit');
+        $(document).on('submit', '.oxilab-style-absulate-delete-confirmation', function (e) {
+            e.preventDefault();
+            openDialog(this, e.originalEvent && e.originalEvent.submitter);
+        });
+
+        $dialog.on('click', '[data-oxi-flip-ed-close]', closeDialog);
+        $(document).on('keydown', function (e) {
+            if ($dialog.prop('hidden')) {
+                return;
+            }
+            if (e.key === 'Escape') {
+                closeDialog();
+            } else if (e.key === 'Tab') {
+                // Keep focus inside the dialog.
+                var $buttons = $dialog.find('button:enabled');
+                var first = $buttons.first()[0], last = $buttons.last()[0];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        $submit.on('click', function () {
+            if (!pending) {
+                return;
+            }
+            var form = pending;
+            $submit.prop('disabled', true).text($submit.attr('data-busy'));
+            if (!canAjax) {
+                // A native submit skips the button, so send its delete=delete pair.
+                $('<input type="hidden" name="delete" value="delete">').appendTo(form);
+                HTMLFormElement.prototype.submit.call(form);
+                return;
+            }
+            send(form, 'delete', 'delete').then(function () {
+                toast('deleted');
+            }, function () {
+                toast('error', true);
+            }).then(function () {
+                $submit.prop('disabled', false);
+                lastFocus = null;
+                closeDialog();
+            });
+        });
+
+        // Back button from the next page: show the editor, not a busy dialog.
+        $(window).on('pageshow', function (e) {
+            if (e.originalEvent && e.originalEvent.persisted) {
+                $submit.prop('disabled', false);
+                $(pending).find('input[type="hidden"][name="delete"]').remove();
+                closeDialog();
+            }
+        });
+    }
+
+    /* Item dialog: open Edit without reloading */
+
+    if (!$modal.length || !itemForm || !('content' in document.createElement('template'))) {
         return;
     }
 
     function liveFields(name) {
-        return $(form.elements).filter(function () {
+        return $(itemForm.elements).filter(function () {
             return this.name === name;
         });
     }
@@ -132,7 +342,9 @@ jQuery(function ($) {
         });
     }
 
-    // Edit on a preview item.
+    // Edit on a preview item. Admin_Render::child_edit_templates() renders
+    // every item's fields into an inert <template>; an item without one falls
+    // back to the old reload flow.
     $(document).on('submit', '.oxilab-style-absulate-edit form', function (e) {
         var id = parseInt($(this).find('input[name="item-id"]').val(), 10);
         var tpl = document.getElementById('oxi-flip-edit-tpl-' + id);
@@ -145,7 +357,8 @@ jQuery(function ($) {
         $modal.modal('show');
     });
 
-    // Add a flip box: vendor.js resets the form, this also resets the pickers.
+    // Add a flip box: vendor.js resets the form, this also clears the values
+    // a previous Edit filled in.
     $('#oxi-addons-list-data-modal-open').on('click', function () {
         var tpl = document.getElementById('oxi-flip-edit-tpl-new');
         if (tpl) {
@@ -153,4 +366,4 @@ jQuery(function ($) {
             $('#item-id').val('');
         }
     });
-})(jQuery);
+});

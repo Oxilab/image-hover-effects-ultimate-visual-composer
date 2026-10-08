@@ -622,6 +622,89 @@ body.oxi-flip-editor-page .modal .list-group-item {
     border-radius: 8px;
 }
 
+/* Edit, Clone and Delete toolbar on a preview item (shown on hover) */
+
+body.oxi-flip-editor-page .oxilab-admin-absulote {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--flip-line);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px -6px rgba(16, 24, 40, 0.25);
+}
+
+body.oxi-flip-editor-page .oxilab-admin-absulote form {
+    margin: 0;
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-edit,
+body.oxi-flip-editor-page .oxilab-style-absulate-clone,
+body.oxi-flip-editor-page .oxilab-style-absulate-delete {
+    display: block;
+    margin: 0;
+}
+
+body.oxi-flip-editor-page .oxilab-admin-absulote .btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-edit .btn {
+    color: #ffffff;
+    background: var(--flip-brand-strong);
+    border-color: var(--flip-brand-strong);
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-edit .btn:hover {
+    background: #0a6b67;
+    border-color: #0a6b67;
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-clone .btn {
+    color: var(--flip-ink);
+    background: #ffffff;
+    border-color: var(--flip-line-2);
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-clone .btn:hover {
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+    border-color: var(--flip-brand);
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-delete .btn {
+    color: var(--flip-danger);
+    background: #fef3f2;
+    border-color: #fecdca;
+}
+
+body.oxi-flip-editor-page .oxilab-style-absulate-delete .btn:hover {
+    color: #ffffff;
+    background: #d92d20;
+    border-color: #d92d20;
+}
+
+body.oxi-flip-editor-page .oxilab-admin-absulote .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--flip-brand-ring);
+}
+
+/* Keyboard users can reach the toolbar without hovering. */
+body.oxi-flip-editor-page .oxilab-admin-absulote:focus-within {
+    opacity: 1;
+}
+
 /* Delete confirmation dialog (same look as the Flip Box page dialogs) */
 
 body.oxi-flip-editor-page .oxi-flip-ed-dialog[hidden] {
@@ -789,9 +872,146 @@ body.oxi-flip-ed-dialog-open {
     }
 }
 
+/* Saving: a small spinner on the button that is saving */
+
+body.oxi-flip-editor-page .oxi-flip-ed-saving {
+    position: relative;
+    cursor: progress !important;
+    opacity: 0.85;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-saving::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 8px;
+    vertical-align: -2px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: oxi-flip-ed-spin 0.7s linear infinite;
+}
+
+@keyframes oxi-flip-ed-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Toast after a save */
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast[hidden] {
+    display: none !important;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 100060;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: min(380px, calc(100vw - 32px));
+    padding: 12px 12px 12px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--flip-ink);
+    background: #ffffff;
+    border: 1px solid var(--flip-line);
+    border-left: 4px solid var(--flip-brand);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px -8px rgba(16, 24, 40, 0.25);
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast-icon {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+    border-radius: 50%;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast-icon::before {
+    content: "\f147";
+    font-size: 18px;
+    line-height: 22px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast-text {
+    flex: 1 1 auto;
+    padding-top: 1px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast-close {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    color: var(--flip-ink-3);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast-close:hover,
+body.oxi-flip-editor-page .oxi-flip-ed-toast-close:focus {
+    color: var(--flip-ink);
+    background: #f2f4f7;
+    outline: none;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-error {
+    border-left-color: #d92d20;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-error .oxi-flip-ed-toast-icon {
+    color: var(--flip-danger);
+    background: #fef3f2;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-error .oxi-flip-ed-toast-icon::before {
+    content: "\f534";
+    font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.oxi-flip-editor-page .oxi-flip-ed-toast {
+        transition: none;
+    }
+
+    body.oxi-flip-editor-page .oxi-flip-ed-saving::after {
+        animation-duration: 2s;
+    }
+}
+
 /* Responsive */
 
 @media (max-width: 782px) {
+    body.oxi-flip-editor-page .oxi-flip-ed-toast {
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        max-width: none;
+    }
+
     body.oxi-flip-editor-page .oxi-flip-ed-header {
         flex-direction: column;
         align-items: flex-start;
