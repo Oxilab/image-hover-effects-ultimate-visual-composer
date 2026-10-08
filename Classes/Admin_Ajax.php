@@ -310,7 +310,8 @@ class Admin_Ajax {
         parse_str( $data, $params );
         $styleid = (int) $params['oxideletestyle'];
         if ( $styleid ) :
-            $this->wpdb->query( $this->wpdb->prepare( "DELETE FROM {$this->import_table} WHERE name = %d", $styleid ) );
+            // Only Flipbox's own row: other rows in this table may share the same name.
+            $this->wpdb->query( $this->wpdb->prepare( "DELETE FROM {$this->import_table} WHERE type = %s AND name = %d", 'flip', $styleid ) );
             echo 'done';
         else :
             echo 'Silence is Golden';

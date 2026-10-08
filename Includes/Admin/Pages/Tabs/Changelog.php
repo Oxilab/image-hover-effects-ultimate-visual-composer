@@ -15,7 +15,12 @@ class Changelog {
                     'new' => [
                         'Added a Danger zone to the Settings page: delete all flip boxes, items and settings at once after typing DELETE to confirm, or choose to remove all Flipbox data when the plugin is deleted.',
                     ],
+                    'fix' => [
+                        'Removing a template from the Create New list now only removes Flipbox\'s own entry.',
+                    ],
                     'enhancement' => [
+                        'Redesigned the Import Templates page as a template library: live previews of every design and one click "Add to Create New".',
+                        'Redesigned the Create New page: live previews of every design with a "Use this design" button, so you name the flip box and start editing in one step.',
                         'Redesigned the Flip Box page: one click copy for the shortcode and PHP code, newest flip boxes first, quick search, item counts, and clear dialogs for import, clone and delete.',
                         'Redesigned the Settings page with grouped cards, on/off switches, a live save status for every option, a License card and quick links to docs and support.',
                         'Redesigned the Account page with the plugin header menu, a clear license overview, a plan badge, tidy billing details and an easy to read payments list.',

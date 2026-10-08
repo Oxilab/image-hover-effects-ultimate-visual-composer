@@ -1,42 +1,54 @@
 jQuery.noConflict();
 (function ($) {
-    var styleid = '';
-    var childid = '';
-    function Oxi_Flip_Admin_Home(functionname, rawdata, styleid, childid, callback) {
-        if (functionname !== "") {
+    $(function () {
+        var $root = $('.oxi-flip-import');
+        if (!$root.length) {
+            return;
+        }
+
+        // Add a template to the Create New list. shortcode_active answers with
+        // the Create New link for that template, which we then open.
+        $root.on('submit', '.oxi-flip-tpl-add', function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $button = $form.find('button');
+            var $text = $form.find('.oxi-flip-tpl-add-text');
+            var original = $text.text();
+            if ($form.data('busy')) {
+                return;
+            }
+            $form.data('busy', true);
+            $button.prop('disabled', true);
+            $text.text($root.attr('data-adding'));
+
+            function failed() {
+                $form.data('busy', false);
+                $button.prop('disabled', false);
+                $text.text($root.attr('data-add-error'));
+                setTimeout(function () {
+                    $text.text(original);
+                }, 2500);
+            }
+
             $.ajax({
                 url: oxi_flip_box_editor.ajaxurl,
-                type: "post",
+                type: 'post',
                 data: {
-                    action: "oxi_flip_box_data",
+                    action: 'oxi_flip_box_data',
                     _wpnonce: oxi_flip_box_editor.nonce,
-                    functionname: functionname,
-                    styleid: styleid,
-                    childid: childid,
-                    rawdata: rawdata
-                },
-                success: function (response) {
-                    callback(response);
+                    functionname: 'shortcode_active',
+                    styleid: '',
+                    childid: '',
+                    rawdata: $form.serialize()
                 }
-            });
-        }
-    }
-    jQuery(".shortcode-addons-template-import").submit(function (e) {
-        e.preventDefault();
-        var rawdata = $(this).serialize();
-        var functionname = "shortcode_active";
-        $(this).prepend('<span class="spinner sa-spinner-open-left"></span>');
-        Oxi_Flip_Admin_Home(functionname, rawdata, styleid, childid, function (callback) {
-            console.log(callback);
-            setTimeout(function () {
-                document.location.href = callback;
-            }, 1000);
+            }).done(function (result) {
+                var url = $.trim(String(result));
+                if (url.indexOf('http') === 0) {
+                    document.location.href = url;
+                    return;
+                }
+                failed();
+            }).fail(failed);
         });
-        return false;
     });
-    jQuery(".shortcode-addons-template-pro-only").submit(function (e) {
-        e.preventDefault();
-        return false;
-    });
-
-})(jQuery)
+})(jQuery);

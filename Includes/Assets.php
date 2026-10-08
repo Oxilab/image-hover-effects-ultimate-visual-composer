@@ -43,6 +43,13 @@ class Assets {
 			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
 		}
 
+		// Template pages: the Create New picker (the same page with a styleid is
+		// the editor, so leave that alone) and Import Templates.
+		if ( ( 'oxi-flip-box-ultimate-new' === $current_page && empty( $_GET['styleid'] ) ) || 'oxi-flip-box-ultimate-import' === $current_page ) {
+			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
+			wp_enqueue_style( 'oxi-flip-templates-css', OXI_FLIP_BOX_URL . 'asset/backend/css/templates.css', [ 'oxi-flip-settings-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/templates.css' ) );
+		}
+
 		if ( 'oxi-flip-box-ultimate' === $current_page ) {
 			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
 			wp_enqueue_style( 'oxi-flip-home-css', OXI_FLIP_BOX_URL . 'asset/backend/css/home.css', [ 'oxi-flip-settings-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/home.css' ) );
