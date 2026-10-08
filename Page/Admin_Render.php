@@ -52,6 +52,13 @@ class Admin_Render {
     public $child_editable;
 
     /**
+     * Empty item fields, used for a new item
+     *
+     * @since 3.1.0
+     */
+    public $blank_child_editable = [];
+
+    /**
      * Database Parent Table
      *
      * @since 2.0.0
@@ -349,6 +356,7 @@ class Admin_Render {
                                     </form>
                                 </div>
                             </div>
+                            <?php $this->child_edit_templates(); ?>
                         </div>
                         <div class="oxi-addons-Preview" id="oxipreviewreload">
                             <div class="oxi-addons-wrapper">
@@ -392,6 +400,37 @@ class Admin_Render {
                 echo '<script type="text/javascript"> jQuery(document).ready(function () {setTimeout(function() { jQuery("#oxi-addons-list-data-modal").modal("show")  }, 500); });</script>';
             }
         }
+    }
+
+    /**
+     * Every item's edit fields, rendered once into inert templates so the
+     * Edit button can fill the item dialog in the browser (editor.js)
+     * instead of reloading the page. An item that fails to render gets no
+     * template and keeps the old reload flow through child_edit().
+     *
+     * @since 3.1.0
+     */
+    public function child_edit_templates() {
+        $current = $this->child_editable;
+        $items = [ 'new' => $this->blank_child_editable ];
+        foreach ( (array) $this->child as $item ) {
+            $items[ (int) $item['id'] ] = array_merge( explode( '{#}|{#}', (string) $item['files'] ), $this->blank_child_editable );
+        }
+        echo '<div class="oxi-flip-edit-templates" hidden>';
+        foreach ( $items as $key => $editable ) {
+            $this->child_editable = $editable;
+            ob_start();
+            try {
+                $this->modal_form_data();
+                $fields = ob_get_clean();
+            } catch ( \Throwable $e ) {
+                ob_end_clean();
+                continue;
+            }
+            echo '<template id="oxi-flip-edit-tpl-' . esc_attr( $key ) . '">' . $fields . '</template>';
+        }
+        echo '</div>';
+        $this->child_editable = $current;
     }
 
     public function Delete_child_data() {
@@ -803,6 +842,7 @@ class Admin_Render {
      */
     public function hooks() {
         $this->admin_elements_frontend_loader();
+        wp_enqueue_script( 'oxi-flip-editor-js', OXI_FLIP_BOX_URL . 'asset/backend/js/editor.js', [ 'jquery', 'oxi-flip-box-addons-vendor' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/js/editor.js' ), true );
         $this->dbdata = $this->wpdb->get_row( $this->wpdb->prepare( 'SELECT * FROM ' . $this->parent_table . ' WHERE id = %d ', $this->oxiid ), ARRAY_A );
         $this->child = $this->wpdb->get_results( $this->wpdb->prepare( "SELECT * FROM $this->child_table WHERE styleid = %d ORDER by id ASC", $this->oxiid ), ARRAY_A );
         if ( ! empty( $this->dbdata['css'] ) ) :
@@ -841,6 +881,7 @@ class Admin_Render {
     public function saving() {
         $demos = '{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}';
         $this->child_editable = explode( '{#}|{#}', $demos );
+        $this->blank_child_editable = $this->child_editable;
         $this->style_data();
         $this->child_save();
         $this->child_edit();
