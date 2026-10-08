@@ -357,6 +357,22 @@ class Admin_Render {
                                 </div>
                             </div>
                             <?php $this->child_edit_templates(); ?>
+                            <div class="oxi-flip-ed-dialog" id="oxi-flip-ed-delete-dialog" hidden>
+                                <div class="oxi-flip-ed-dialog-backdrop" data-oxi-flip-ed-close></div>
+                                <div class="oxi-flip-ed-dialog-box" role="alertdialog" aria-modal="true" aria-labelledby="oxi-flip-ed-delete-title" aria-describedby="oxi-flip-ed-delete-desc">
+                                    <span class="oxi-flip-ed-dialog-icon dashicons dashicons-trash" aria-hidden="true"></span>
+                                    <h2 class="oxi-flip-ed-dialog-title" id="oxi-flip-ed-delete-title"
+                                        data-default="<?php esc_attr_e( 'Delete this flip box?', 'oxi-flip-box-plugin' ); ?>"
+                                        data-template="<?php /* translators: %s: flip box front title */ esc_attr_e( 'Delete “%s”?', 'oxi-flip-box-plugin' ); ?>"></h2>
+                                    <p class="oxi-flip-ed-dialog-text" id="oxi-flip-ed-delete-desc">
+                                        <?php esc_html_e( 'It is removed from this set and from every page that shows this shortcode. This cannot be undone.', 'oxi-flip-box-plugin' ); ?>
+                                    </p>
+                                    <div class="oxi-flip-ed-dialog-actions">
+                                        <button type="button" class="oxi-flip-ed-dialog-btn is-secondary" data-oxi-flip-ed-close><?php esc_html_e( 'Cancel', 'oxi-flip-box-plugin' ); ?></button>
+                                        <button type="button" class="oxi-flip-ed-dialog-btn is-danger" id="oxi-flip-ed-delete-submit" data-busy="<?php esc_attr_e( 'Deleting', 'oxi-flip-box-plugin' ); ?>"><?php esc_html_e( 'Delete', 'oxi-flip-box-plugin' ); ?></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="oxi-addons-Preview" id="oxipreviewreload">
                             <div class="oxi-addons-wrapper">
