@@ -181,7 +181,20 @@ class Admin_Render {
                 <div class="oxi-addons-row">
                     <?php
                     apply_filters( 'oxi-flip-box-support-and-comments', true );
+                    $template_label = preg_match( '/^style\s*(\d+)$/i', $this->dbdata['style_name'], $template_match )
+                        ? sprintf( /* translators: %s: template number */ __( 'Style %s', 'oxi-flip-box-plugin' ), $template_match[1] )
+                        : $this->dbdata['style_name'];
                     ?>
+                    <div class="oxi-flip-ed-header">
+                        <a class="oxi-flip-ed-back" href="<?php echo esc_url( admin_url( 'admin.php?page=oxi-flip-box-ultimate' ) ); ?>">
+                            <span class="dashicons dashicons-arrow-left-alt" aria-hidden="true"></span><?php esc_html_e( 'All flip boxes', 'oxi-flip-box-plugin' ); ?>
+                        </a>
+                        <div class="oxi-flip-ed-title">
+                            <h1><?php echo esc_html( $this->dbdata['name'] ); ?></h1>
+                            <span class="oxi-flip-ed-template"><?php echo esc_html( $template_label ); ?></span>
+                            <span class="oxi-flip-ed-id">#<?php echo (int) $this->oxiid; ?></span>
+                        </div>
+                    </div>
                     <div class="oxi-addons-wrapper oxi-addons-flip-tabs-mode">
                         <div class="oxi-addons-settings" id="oxisettingsreload">
                             <div class="oxi-addons-style-left">
@@ -218,7 +231,8 @@ class Admin_Render {
                                             <?php wp_nonce_field( 'oxiflipstylecss' ); ?>
                                             <input type="hidden" id="style-id" name="style-id" value="<?php echo (int) $this->oxiid; ?>">
                                             <button type="button" class="btn btn-danger" id="oxi-addons-setting-reload">Reload</button>
-                                            <input type="submit" class="btn btn-primary" name="oxi-addons-flip-templates-submit" value="Submit">
+                                            <?php /* The server checks the value "Submit", only the label changes. */ ?>
+                                            <button type="submit" class="btn btn-primary" name="oxi-addons-flip-templates-submit" value="Submit"><?php esc_html_e( 'Save changes', 'oxi-flip-box-plugin' ); ?></button>
                                         </div>
                                     </div>
                                 </form>
@@ -227,19 +241,19 @@ class Admin_Render {
                             <div class="oxi-addons-style-right">
                                 <div class="oxi-addons-item-form shortcode-addons-templates-right-panel ">
                                     <div class="oxi-addons-item-form-heading shortcode-addons-templates-right-panel-heading">
-                                        Add New Flip Boxes
+                                        <?php esc_html_e( 'Flip boxes', 'oxi-flip-box-plugin' ); ?>
                                         <div class="oxi-head-toggle"></div>
                                     </div>
                                     <div class="oxi-addons-item-form-item shortcode-addons-templates-right-panel-body" id="oxi-addons-list-data-modal-open">
                                         <span>
-                                            <i class="dashicons dashicons-plus-alt oxi-icons"></i>
-                                            Open Flip Boxes Form
+                                            <i class="dashicons dashicons-plus-alt2 oxi-icons"></i>
+                                            <?php esc_html_e( 'Add a flip box', 'oxi-flip-box-plugin' ); ?>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="oxi-addons-shortcode  shortcode-addons-templates-right-panel ">
                                     <div class="oxi-addons-shortcode-heading  shortcode-addons-templates-right-panel-heading">
-                                        Shortcode Name
+                                        <?php esc_html_e( 'Name', 'oxi-flip-box-plugin' ); ?>
                                         <div class="oxi-head-toggle"></div>
                                     </div>
                                     <div class="oxi-addons-shortcode-body  shortcode-addons-templates-right-panel-body">
@@ -247,7 +261,7 @@ class Admin_Render {
                                             <div class="input-group my-2">
                                                 <input type="text" class="form-control" name="oxi-addons-name" placeholder=" Set Your Shortcode Name" value="<?php echo esc_attr( $this->dbdata['name'] ); ?>">
                                                 <div class="input-group-append">
-                                                    <input type="submit" class="btn btn-success" name="addonsstylenamechange" value="Save">
+                                                    <button type="submit" class="btn btn-success" name="addonsstylenamechange" value="Save"><?php esc_html_e( 'Rename', 'oxi-flip-box-plugin' ); ?></button>
                                                 </div>
                                             </div>
                                             <?php wp_nonce_field( 'oxi-addons-name-change' ); ?>
@@ -274,13 +288,13 @@ class Admin_Render {
                                 </div>
                                 <div class="oxi-addons-item-form shortcode-addons-templates-right-panel ">
                                     <div class="oxi-addons-item-form-heading shortcode-addons-templates-right-panel-heading">
-                                        Flipbox Rearrange
+                                        <?php esc_html_e( 'Order', 'oxi-flip-box-plugin' ); ?>
                                         <div class="oxi-head-toggle"></div>
                                     </div>
                                     <div class="oxi-addons-item-form-item shortcode-addons-templates-right-panel-body" id="oxi-addons-rearrange-data-modal-open">
                                         <span>
-                                            <i class="dashicons dashicons-plus-alt oxi-icons"></i>
-                                            Flip Data Rearrange
+                                            <i class="dashicons dashicons-sort oxi-icons"></i>
+                                            <?php esc_html_e( 'Reorder flip boxes', 'oxi-flip-box-plugin' ); ?>
                                         </span>
                                     </div>
                                 </div>
@@ -328,7 +342,7 @@ class Admin_Render {
                                                 <input type="hidden" id="item-id" name="item-id" value="<?php echo (int) $this->itemid; ?>">
                                                 <input type="hidden" id="shortcodeitemid" name="shortcodeitemid" value="">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                <input type="submit" id="oxi-flip-template-modal-submit" name="oxi-flip-template-modal-submit" class="btn btn-success" value="Submit">
+                                                <button type="submit" id="oxi-flip-template-modal-submit" name="oxi-flip-template-modal-submit" class="btn btn-success" value="Submit"><?php esc_html_e( 'Save', 'oxi-flip-box-plugin' ); ?></button>
                                             </div>
                                         </div>
                                         <?php wp_nonce_field( 'oxiflipchildnonce' ); ?>

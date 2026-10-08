@@ -19,6 +19,7 @@ class Changelog {
                         'Removing a template from the Create New list now only removes Flipbox\'s own entry.',
                     ],
                     'enhancement' => [
+                        'Refreshed the flip box editor: a header showing which flip box you are editing with a quick way back, cleaner tabs and settings panels, clearer "Add a flip box" and "Reorder flip boxes" buttons, "Save changes" and "Rename" buttons, accordion arrows on every panel, and tidier dialogs.',
                         'Redesigned the Import Templates page as a template library: live previews of every design and one click "Add to Create New".',
                         'Redesigned the Create New page: live previews of every design with a "Use this design" button, so you name the flip box and start editing in one step.',
                         'Redesigned the Flip Box page: one click copy for the shortcode and PHP code, newest flip boxes first, quick search, item counts, and clear dialogs for import, clone and delete.',

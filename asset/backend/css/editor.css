@@ -1,0 +1,641 @@
+/*
+ * Flipbox: flip box editor (Create New with a styleid).
+ * A visual reskin only: every rule is scoped to body.oxi-flip-editor-page and
+ * no class the editor script toggles (active, oxi-admin-head-d-none) is
+ * restyled in a way that changes what it shows or hides. Bootstrap and
+ * admin.css load after this file, so selectors carry the body class to win.
+ */
+
+body.oxi-flip-editor-page {
+    --flip-brand: #17bcb5;
+    --flip-brand-strong: #0d817c;
+    --flip-brand-soft: #e3f7f6;
+    --flip-brand-ring: rgba(23, 188, 181, 0.28);
+    --flip-ink: #101828;
+    --flip-ink-2: #475467;
+    --flip-ink-3: #667085;
+    --flip-line: #eaecf0;
+    --flip-line-2: #d0d5dd;
+    --flip-surface: #ffffff;
+    --flip-danger: #b42318;
+    --flip-radius: 14px;
+    --flip-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+body.oxi-flip-editor-page .oxi-addons-style-20-spacer {
+    height: 20px;
+}
+
+/* Header bar */
+
+body.oxi-flip-editor-page .oxi-flip-ed-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 16px 20px;
+    background:
+        radial-gradient(420px 140px at 100% 0%, rgba(23, 188, 181, 0.14), transparent 70%),
+        linear-gradient(135deg, #ffffff 0%, #f1fbfb 100%);
+    border: 1px solid var(--flip-line);
+    border-left: 4px solid var(--flip-brand);
+    border-radius: var(--flip-radius);
+    box-shadow: var(--flip-shadow);
+    box-sizing: border-box;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-back {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--flip-ink-2);
+    text-decoration: none;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line-2);
+    border-radius: 8px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-back:hover {
+    color: var(--flip-brand-strong);
+    border-color: var(--flip-brand);
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-back .dashicons {
+    position: relative;
+    top: 1px;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-width: 0;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-title h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--flip-ink);
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-template {
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+    border-radius: 999px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-id {
+    font-size: 13px;
+    color: var(--flip-ink-3);
+}
+
+/* Tabs */
+
+body.oxi-flip-editor-page .oxi-addons-tabs-ul {
+    gap: 4px;
+    margin: 0 0 16px;
+    padding: 6px;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-radius: 12px;
+    box-shadow: var(--flip-shadow);
+    box-sizing: border-box;
+}
+
+body.oxi-flip-editor-page .oxi-addons-tabs-ul li {
+    flex: 1;
+    width: auto;
+    bottom: 0;
+    margin: 0;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--flip-ink-3);
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxi-addons-tabs-ul li:hover {
+    color: var(--flip-ink);
+    background: #f2f4f7;
+}
+
+body.oxi-flip-editor-page .oxi-addons-tabs-ul li.active {
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+}
+
+body.oxi-flip-editor-page .oxi-addons-tabs-content-tabs {
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+/* Setting panels */
+
+body.oxi-flip-editor-page .oxi-addons-content-div {
+    margin-bottom: 16px;
+    padding: 0 16px 4px;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-radius: 12px;
+    box-shadow: var(--flip-shadow);
+    box-sizing: border-box;
+}
+
+body.oxi-flip-editor-page .oxi-addons-content-div .oxi-head {
+    align-items: center;
+    width: calc(100% + 32px);
+    margin: 0 -16px 14px;
+    padding: 12px 48px 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--flip-ink);
+    background: #f9fafb;
+    border-bottom: 1px solid var(--flip-line);
+    border-radius: 12px 12px 0 0;
+    box-sizing: border-box;
+}
+
+body.oxi-flip-editor-page .oxi-admin-head-d-none.oxi-addons-content-div {
+    padding-bottom: 0;
+}
+
+body.oxi-flip-editor-page .oxi-admin-head-d-none .oxi-head {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-radius: 12px;
+}
+
+body.oxi-flip-editor-page .oxi-addons-content-div .oxi-head-toggle,
+body.oxi-flip-editor-page .shortcode-addons-templates-right-panel-heading .oxi-head-toggle {
+    top: 50%;
+    width: 40px;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--flip-ink-3);
+    transform: translateY(-50%);
+}
+
+/* Accordion chevrons: down when open, right when collapsed
+   (the editor script toggles .oxi-admin-head-d-none on the panel). */
+body.oxi-flip-editor-page .oxi-addons-content-div .oxi-head {
+    position: relative;
+    user-select: none;
+}
+
+body.oxi-flip-editor-page .oxi-addons-content-div .oxi-head::after {
+    content: "\f347";
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    font-family: dashicons;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: var(--flip-ink-3);
+    transition: transform 0.2s ease, color 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxi-addons-content-div .oxi-head:hover::after {
+    color: var(--flip-brand-strong);
+}
+
+body.oxi-flip-editor-page .oxi-admin-head-d-none.oxi-addons-content-div .oxi-head::after {
+    transform: rotate(-90deg);
+}
+
+body.oxi-flip-editor-page .shortcode-addons-templates-right-panel-heading .oxi-head-toggle::before {
+    content: "\f347";
+    display: inline-block;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+body.oxi-flip-editor-page .oxi-admin-head-d-none .shortcode-addons-templates-right-panel-heading .oxi-head-toggle::before {
+    content: "\f347";
+    transform: rotate(-90deg);
+}
+
+body.oxi-flip-editor-page .shortcode-addons-templates-right-panel-heading:hover .oxi-head-toggle {
+    color: var(--flip-brand-strong);
+}
+
+/* Form rows and controls */
+
+body.oxi-flip-editor-page .oxi-addons-content-div .form-group {
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+body.oxi-flip-editor-page .oxi-addons-content-div .col-form-label,
+body.oxi-flip-editor-page .oxi-addons-content-div .control-label {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--flip-ink-2);
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings .form-control,
+body.oxi-flip-editor-page .modal .form-control {
+    height: 38px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: var(--flip-ink);
+    background-color: var(--flip-surface);
+    border: 1px solid var(--flip-line-2);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings textarea.form-control,
+body.oxi-flip-editor-page .modal textarea.form-control {
+    height: auto;
+    min-height: 90px;
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings .form-control:focus,
+body.oxi-flip-editor-page .modal .form-control:focus {
+    border-color: var(--flip-brand);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--flip-brand-ring);
+}
+
+/* Color pickers (minicolors): its swatch is placed for a 30px input at
+   top 3px / left 2px. Center it in our taller inputs, keep a border so light
+   colors stay visible, and give the color code room after the swatch. */
+body.oxi-flip-editor-page .minicolors-theme-bootstrap .minicolors-swatch {
+    top: 50%;
+    left: 8px;
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    overflow: hidden;
+    border: 1px solid rgba(16, 24, 40, 0.18);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+body.oxi-flip-editor-page .minicolors-theme-bootstrap .minicolors-swatch-color {
+    border-radius: 5px;
+}
+
+body.oxi-flip-editor-page .minicolors-theme-bootstrap .minicolors-input {
+    padding-left: 40px !important;
+}
+
+/* Two-option toggles (e.g. Link Open): Bootstrap marks the chosen label .active. */
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group,
+body.oxi-flip-editor-page .modal .btn-group {
+    display: inline-flex;
+    padding: 3px;
+    background: #f2f4f7;
+    border-radius: 10px;
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group > .btn,
+body.oxi-flip-editor-page .modal .btn-group > .btn {
+    margin: 0;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--flip-ink-2);
+    background: transparent;
+    border: 0;
+    border-radius: 8px !important;
+    box-shadow: none;
+}
+
+/* The options are labels around a hidden radio: show they are clickable. */
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group > .btn,
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group > .btn input,
+body.oxi-flip-editor-page .modal .btn-group > .btn,
+body.oxi-flip-editor-page .modal .btn-group > .btn input {
+    cursor: pointer;
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group > .btn:not(.active):hover,
+body.oxi-flip-editor-page .modal .btn-group > .btn:not(.active):hover {
+    color: var(--flip-ink);
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group > .btn.active,
+body.oxi-flip-editor-page .modal .btn-group > .btn.active {
+    color: var(--flip-brand-strong);
+    background: var(--flip-surface);
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.12);
+}
+
+body.oxi-flip-editor-page .oxi-addons-settings .btn-group > .btn:focus,
+body.oxi-flip-editor-page .modal .btn-group > .btn:focus {
+    box-shadow: 0 0 0 3px var(--flip-brand-ring);
+}
+
+/* Save bar */
+
+body.oxi-flip-editor-page .oxi-addons-setting-save {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 4px;
+    padding: 14px 16px;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-radius: 12px;
+    box-shadow: var(--flip-shadow);
+    box-sizing: border-box;
+}
+
+body.oxi-flip-editor-page .oxi-addons-setting-save .btn,
+body.oxi-flip-editor-page .modal-footer .btn,
+body.oxi-flip-editor-page .oxi-addons-shortcode-body .btn {
+    min-height: 38px;
+    margin: 0;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Primary actions: Submit / Save (values unchanged, the server checks them). */
+body.oxi-flip-editor-page .oxi-addons-setting-save .btn-primary,
+body.oxi-flip-editor-page .modal-footer .btn-primary,
+body.oxi-flip-editor-page .modal-footer .btn-success,
+body.oxi-flip-editor-page .oxi-addons-shortcode-body .btn-success {
+    color: #ffffff;
+    background: var(--flip-brand-strong);
+    border: 1px solid var(--flip-brand-strong);
+}
+
+body.oxi-flip-editor-page .oxi-addons-setting-save .btn-primary:hover,
+body.oxi-flip-editor-page .modal-footer .btn-primary:hover,
+body.oxi-flip-editor-page .modal-footer .btn-success:hover,
+body.oxi-flip-editor-page .oxi-addons-shortcode-body .btn-success:hover {
+    background: #0a6b67;
+    border-color: #0a6b67;
+}
+
+/* Secondary actions: Reload / Close. */
+body.oxi-flip-editor-page .oxi-addons-setting-save .btn-danger,
+body.oxi-flip-editor-page .modal-footer .btn-danger {
+    color: var(--flip-ink);
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line-2);
+}
+
+body.oxi-flip-editor-page .oxi-addons-setting-save .btn-danger:hover,
+body.oxi-flip-editor-page .modal-footer .btn-danger:hover {
+    color: var(--flip-brand-strong);
+    border-color: var(--flip-brand);
+}
+
+/* Sidebar */
+
+body.oxi-flip-editor-page .shortcode-addons-templates-right-panel {
+    margin-bottom: 16px;
+    overflow: hidden;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-radius: 12px;
+    box-shadow: var(--flip-shadow);
+}
+
+body.oxi-flip-editor-page .shortcode-addons-templates-right-panel-heading {
+    padding: 12px 44px 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--flip-ink);
+    background: #f9fafb;
+    border-bottom: 1px solid var(--flip-line);
+}
+
+body.oxi-flip-editor-page .oxi-admin-head-d-none .shortcode-addons-templates-right-panel-heading {
+    border-bottom: 0;
+}
+
+body.oxi-flip-editor-page .shortcode-addons-templates-right-panel-body {
+    padding: 14px 16px;
+    box-sizing: border-box;
+}
+
+/* "Add a flip box" / "Reorder flip boxes": always visible dashed buttons. */
+body.oxi-flip-editor-page .oxi-addons-item-form-item,
+body.oxi-flip-editor-page .oxi-addons-item-form:hover .oxi-addons-item-form-item {
+    padding: 14px 16px;
+    background: var(--flip-surface);
+}
+
+body.oxi-flip-editor-page .oxi-addons-item-form-item span,
+body.oxi-flip-editor-page .oxi-addons-item-form:hover .oxi-addons-item-form-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+    border: 1.5px dashed #a3e4e0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxi-addons-item-form-item:hover {
+    color: inherit;
+    background: var(--flip-surface);
+}
+
+body.oxi-flip-editor-page .oxi-addons-item-form-item:hover span {
+    background: #d5f5f3;
+    border-color: var(--flip-brand);
+}
+
+body.oxi-flip-editor-page .oxi-addons-item-form-item span .oxi-icons,
+body.oxi-flip-editor-page .oxi-addons-item-form:hover .oxi-addons-item-form-item span .oxi-icons,
+body.oxi-flip-editor-page .oxi-addons-item-form-item:hover span .oxi-icons {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    color: var(--flip-brand-strong);
+}
+
+/* Name + shortcode fields */
+
+body.oxi-flip-editor-page .oxi-addons-shortcode-body .input-group {
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+body.oxi-flip-editor-page .oxi-addons-shortcode-body .input-group > .form-control {
+    border-radius: 8px !important;
+}
+
+body.oxi-flip-editor-page .oxi-addons-shortcode-body em {
+    display: block;
+    margin: 4px 0 2px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--flip-ink);
+}
+
+body.oxi-flip-editor-page .oxi-addons-shortcode-body p {
+    margin: 0 0 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--flip-ink-3);
+}
+
+body.oxi-flip-editor-page .oxi-addons-shortcode-body input[type="text"][onclick] {
+    margin-bottom: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: #f9fafb;
+    cursor: pointer;
+}
+
+/* Preview */
+
+body.oxi-flip-editor-page .oxi-addons-style-left-preview {
+    overflow: hidden;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-radius: var(--flip-radius);
+    box-shadow: var(--flip-shadow);
+}
+
+body.oxi-flip-editor-page .oxi-addons-style-left-preview-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #f9fafb;
+    border-bottom: 1px solid var(--flip-line);
+}
+
+body.oxi-flip-editor-page .oxi-addons-style-left-preview-heading-left {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--flip-ink);
+}
+
+body.oxi-flip-editor-page .oxi-addons-style-left-preview-heading-right input[type="text"] {
+    height: 34px;
+    font-size: 13px;
+    border: 1px solid var(--flip-line-2);
+    border-radius: 8px;
+}
+
+/* Modals (add/edit item, reorder) */
+
+body.oxi-flip-editor-page .modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px -12px rgba(16, 24, 40, 0.3);
+}
+
+body.oxi-flip-editor-page .modal-header {
+    padding: 16px 20px;
+    background: #f9fafb;
+    border-bottom: 1px solid var(--flip-line);
+}
+
+body.oxi-flip-editor-page .modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--flip-ink);
+}
+
+body.oxi-flip-editor-page .modal-footer {
+    gap: 8px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--flip-line);
+}
+
+body.oxi-flip-editor-page .modal-footer > * {
+    margin: 0;
+}
+
+/* Keep the dialog clear of the WordPress admin bar. */
+body.oxi-flip-editor-page .modal-dialog {
+    margin-top: 56px;
+    margin-bottom: 32px;
+}
+
+body.oxi-flip-editor-page .modal .form-group > label,
+body.oxi-flip-editor-page .modal .form-group .col-form-label {
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--flip-ink);
+}
+
+body.oxi-flip-editor-page .modal .form-text,
+body.oxi-flip-editor-page .modal small {
+    font-size: 12px;
+    color: var(--flip-ink-3);
+}
+
+body.oxi-flip-editor-page .modal .list-group-item {
+    margin-bottom: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--flip-ink);
+    border: 1px solid var(--flip-line);
+    border-radius: 8px;
+}
+
+/* Responsive */
+
+@media (max-width: 782px) {
+    body.oxi-flip-editor-page .oxi-flip-ed-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    body.oxi-flip-editor-page .oxi-addons-tabs-ul {
+        flex-wrap: wrap;
+    }
+
+    body.oxi-flip-editor-page .oxi-addons-tabs-ul li {
+        flex: 1 1 30%;
+    }
+}

@@ -17,6 +17,7 @@ class Assets {
 	public function __construct() {
 
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scriptss' ] );
+		add_filter( 'admin_body_class', [ $this, 'editor_body_class' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'public_enqueue_scripts' ] );
 		if ( class_exists( '\\Elementor\\Plugin' ) ) {
 			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'editor_enqueue_styles' ] );
@@ -26,6 +27,33 @@ class Assets {
 			add_action( 'elementor/preview/enqueue_styles', [ $this, 'editor_enqueue_styles' ] );
 			add_action( 'elementor/preview/enqueue_scripts', [ $this, 'editor_enqueue_scripts' ] );
 		}
+	}
+
+	/**
+	 * Whether this request is the flip box editor.
+	 *
+	 * @since 3.1.0
+	 *
+	 * @return bool
+	 */
+	public function is_editor_page() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return isset( $_GET['page'] ) && 'oxi-flip-box-ultimate-new' === $_GET['page'] && ! empty( $_GET['styleid'] );
+	}
+
+	/**
+	 * Mark the editor so editor.css only ever applies there.
+	 *
+	 * @since 3.1.0
+	 *
+	 * @param string $classes Admin body classes.
+	 * @return string
+	 */
+	public function editor_body_class( $classes ) {
+		if ( $this->is_editor_page() ) {
+			$classes .= ' oxi-flip-editor-page';
+		}
+		return $classes;
 	}
 
 	/**
@@ -41,6 +69,11 @@ class Assets {
 
 		if ( 'oxi-flip-box-ultimate-settings' === $current_page ) {
 			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
+		}
+
+		// Flip box editor (Create New with a styleid): restyled by editor.css.
+		if ( $this->is_editor_page() ) {
+			wp_enqueue_style( 'oxi-flip-editor-css', OXI_FLIP_BOX_URL . 'asset/backend/css/editor.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/editor.css' ) );
 		}
 
 		// Template pages: the Create New picker (the same page with a styleid is

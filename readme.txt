@@ -174,6 +174,7 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 == Changelog ==
 
 = 3.1.0 =
+*Refreshed the flip box editor: a header showing which flip box you are editing with a quick way back, cleaner tabs and settings panels, clearer "Add a flip box" and "Reorder flip boxes" buttons, "Save changes" and "Rename" buttons, accordion arrows on every panel, and tidier dialogs.
 *Redesigned the Import Templates page as a template library: live previews of every design and one click "Add to Create New".
 *Redesigned the Create New page: live previews of every design with a "Use this design" button, so you name the flip box and start editing in one step.
 *Fixed: removing a template from the Create New list now only removes Flipbox's own entry.
