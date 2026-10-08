@@ -9,6 +9,20 @@ class Changelog {
         // Full changelog array
         $logs = [
             [
+                'version' => '3.1.0',
+                'date' => '08-10-2026',
+                'sections' => [
+                    'new' => [
+                        'Added a Danger zone to the Settings page: delete all flip boxes, items and settings at once after typing DELETE to confirm, or choose to remove all Flipbox data when the plugin is deleted.',
+                    ],
+                    'enhancement' => [
+                        'Redesigned the Flip Box page: one click copy for the shortcode and PHP code, newest flip boxes first, quick search, item counts, and clear dialogs for import, clone and delete.',
+                        'Redesigned the Settings page with grouped cards, on/off switches, a live save status for every option, a License card and quick links to docs and support.',
+                        'Redesigned the Account page with the plugin header menu, a clear license overview, a plan badge, tidy billing details and an easy to read payments list.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.0.3',
                 'date' => '04-09-2026',
                 'sections' => [

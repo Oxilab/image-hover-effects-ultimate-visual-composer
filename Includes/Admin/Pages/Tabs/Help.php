@@ -45,7 +45,7 @@ class Help {
 					<div class="faq-body" style="display:none;">
 						<p>
 							<?php _e( "Go to Plugins → Add New → Upload Plugin, choose the Flipbox .zip file, install and activate. You can also install it directly from the WordPress plugin directory by searching for 'Flipbox – Awesomes Image Overlay'.", 'oxi-flip-box-plugin' ); ?>
-							<a href="https://oxilab.dev/docs/flipbox" target="_blank" rel="noopener noreferrer">
+							<a href="https://oxilab.dev/docs/flipbox/" target="_blank" rel="noopener noreferrer">
 								<?php _e( 'Read Installation Guide', 'oxi-flip-box-plugin' ); ?>
 							</a>
 						</p>

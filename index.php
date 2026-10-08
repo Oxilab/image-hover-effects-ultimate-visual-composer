@@ -3,7 +3,7 @@
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://oxilab.dev/flipbox
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           3.0.3
+ * Version:           3.1.0
  * Author:            Oxilab
  * Author URI:        https://oxilab.dev
  * Text Domain:       oxi-flip-box-plugin
@@ -56,6 +56,11 @@ if ( ! function_exists( 'wpkin_fb_v' ) ) {
     wpkin_fb_v();
     // Signal that SDK was initiated.
     do_action( 'oxilab_flipbox_loaded' );
+
+    // Freemius owns the uninstall hook, so cleanup runs from its after_uninstall
+    // action (an uninstall.php would replace Freemius' hook). It only removes
+    // data on sites that switched on "Delete data when the plugin is deleted".
+    wpkin_fb_v()->add_action( 'after_uninstall', [ '\OXI_FLIP_BOX_PLUGINS\Classes\Data_Cleaner', 'uninstall' ] );
 }
 
 /** If class `Oxilab_Flipbox` doesn't exists yet. */
@@ -75,7 +80,7 @@ if ( ! class_exists( 'Oxilab_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-        const VERSION = '3.0.3';
+        const VERSION = '3.1.0';
 
 		/**
 		 * Php Version

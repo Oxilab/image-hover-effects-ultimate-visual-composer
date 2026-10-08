@@ -1,0 +1,491 @@
+/*
+ * Flipbox: Freemius Account page.
+ * Loaded after settings.css (tokens, hero, buttons) and only on this page.
+ * Every rule goes through .oxi-flip-account #fs_account so it outranks
+ * Freemius' own #fs_account rules and never reaches its dialogs.
+ */
+
+.oxi-flip-account .wrap.fs-section {
+    margin: 0;
+}
+
+.oxi-flip-account .oxi-flip-set-hero .oxi-flip-set-btn {
+    flex: none;
+}
+
+/* "Is this your client's site?" banner */
+
+.oxi-flip-account .fs-notice.fs-slug-oxi-flip-box-ultimate {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 20px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--flip-ink-2);
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-left: 4px solid #2e90fa;
+    border-radius: 10px;
+    box-shadow: var(--flip-shadow);
+}
+
+.oxi-flip-account .fs-notice.fs-slug-oxi-flip-box-ultimate .fs-plugin-title {
+    display: none;
+}
+
+.oxi-flip-account .fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body {
+    margin: 0;
+    padding: 0;
+}
+
+.oxi-flip-account .fs-notice.fs-slug-oxi-flip-box-ultimate a {
+    font-weight: 600;
+    color: var(--flip-brand-strong);
+}
+
+/* Layout: details on the left, billing and payments on the right */
+
+.oxi-flip-account #poststuff {
+    padding-top: 0;
+    min-width: 0;
+}
+
+.oxi-flip-account #fs_account .has-sidebar,
+.oxi-flip-account #fs_account .has-sidebar-content {
+    float: none;
+    margin: 0;
+    width: auto;
+}
+
+.oxi-flip-account #fs_account .has-sidebar-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.oxi-flip-account #fs_account .has-sidebar-content > .postbox:first-child {
+    grid-row: span 2;
+}
+
+/* Cards */
+
+.oxi-flip-account #fs_account .postbox {
+    position: relative;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line);
+    border-radius: var(--flip-radius);
+    box-shadow: var(--flip-shadow);
+}
+
+.oxi-flip-account #fs_account .postbox .inside {
+    margin: 0;
+    padding: 0;
+}
+
+.oxi-flip-account #fs_account h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 18px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--flip-ink);
+    border-bottom: 1px solid var(--flip-line);
+}
+
+.oxi-flip-account #fs_account h3 .dashicons {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--flip-brand);
+    background: var(--flip-brand-soft);
+    border-radius: 10px;
+}
+
+.oxi-flip-account #fs_account h3 .dashicons::before {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+/* Header actions: Billing & Invoices, Deactivate License, Sync */
+
+.oxi-flip-account #fs_account .fs-header-actions {
+    top: 22px;
+    right: 20px;
+    font-size: 12px;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions li {
+    float: none;
+    margin: 0;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions li:nth-child(even) {
+    display: none;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-weight: 600;
+    color: var(--flip-ink-2);
+    background: #f9fafb;
+    border: 1px solid var(--flip-line);
+    border-radius: 999px;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions li a:hover {
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+    border-color: #a3e4e0;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions li a.fs-deactivate-license:hover {
+    color: var(--flip-danger);
+    background: var(--flip-danger-soft);
+    border-color: #fecdca;
+}
+
+.oxi-flip-account #fs_account .fs-header-actions i.dashicons {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+}
+
+/* Account details */
+
+.oxi-flip-account #fs_account .fs-key-value-table {
+    border-collapse: collapse;
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table tr,
+.oxi-flip-account #fs_account .fs-key-value-table tr.alternate {
+    background: none;
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table tr + tr {
+    border-top: 1px solid var(--flip-line);
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table td {
+    padding: 13px 24px;
+    vertical-align: middle;
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table td:first-child {
+    width: 120px;
+    padding-right: 8px;
+    text-align: left;
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table td:first-child nobr {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--flip-ink-3);
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table code,
+.oxi-flip-account #fs_account .fs-key-value-table input[type="text"] {
+    padding: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--flip-ink);
+    background: none;
+    word-break: break-word;
+}
+
+/* Long technical values read better in monospace. */
+.oxi-flip-account #fs_account .fs-field-site_public_key code,
+.oxi-flip-account #fs_account .fs-field-site_secret_key code,
+.oxi-flip-account #fs_account .fs-field-site_secret_key input[type="text"],
+.oxi-flip-account #fs_account .fs-field-license_key code,
+.oxi-flip-account #fs_account .fs-field-license_key input[type="text"] {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--flip-ink-2);
+    white-space: nowrap;
+    word-break: normal;
+}
+
+.oxi-flip-account #fs_account .fs-field-plan code {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--flip-success);
+    background: var(--flip-success-soft);
+    border-radius: 999px;
+}
+
+/* "Premium version" after the version number, only when Pro is active. */
+.oxi-flip-account.is-premium #fs_account .fs-field-version td:nth-child(2) code::after {
+    content: var(--flip-premium-label);
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 2px 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--flip-success);
+    background: var(--flip-success-soft);
+    border-radius: 999px;
+    vertical-align: 1px;
+}
+
+.oxi-flip-account #fs_account .fs-field-plan .button-group {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.oxi-flip-account #fs_account .fs-key-value-table td.fs-right {
+    padding-left: 8px;
+    white-space: nowrap;
+}
+
+/* Buttons inside Freemius sections */
+
+.oxi-flip-account #fs_account .button {
+    min-height: 30px;
+    margin: 0 0 0 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--flip-ink);
+    background: var(--flip-surface);
+    border: 1px solid var(--flip-line-2);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.oxi-flip-account #fs_account .fs-field-plan .button {
+    margin-left: 0;
+}
+
+.oxi-flip-account #fs_account .button:hover {
+    color: var(--flip-brand-strong);
+    border-color: var(--flip-brand);
+}
+
+.oxi-flip-account #fs_account .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--flip-brand-ring);
+}
+
+/* Billing */
+
+.oxi-flip-account #fs_account #fs_billing_address {
+    margin: 0;
+    padding: 18px 20px 20px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.oxi-flip-account #fs_account #fs_billing_address tr td {
+    padding: 4px;
+}
+
+.oxi-flip-account #fs_account #fs_billing_address span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--flip-ink-3);
+}
+
+.oxi-flip-account #fs_account #fs_billing_address input,
+.oxi-flip-account #fs_account #fs_billing_address select {
+    box-sizing: border-box;
+    height: 40px;
+    min-height: 40px;
+    margin-top: 4px;
+    padding: 0 12px;
+    line-height: 38px;
+    font-size: 14px;
+    color: var(--flip-ink);
+    background-color: var(--flip-surface);
+    border: 1px solid var(--flip-line-2);
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.oxi-flip-account #fs_account #fs_billing_address input:focus,
+.oxi-flip-account #fs_account #fs_billing_address select:focus {
+    border-color: var(--flip-brand);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--flip-brand-ring);
+}
+
+/* Read mode: label above, value in a quiet tile, empty tiles stay blank. */
+.oxi-flip-account #fs_account #fs_billing_address.fs-read-mode input,
+.oxi-flip-account #fs_account #fs_billing_address.fs-read-mode select {
+    font-weight: 500;
+    color: var(--flip-ink);
+    background: #f9fafb;
+    border: 1px solid var(--flip-line);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.oxi-flip-account #fs_account #fs_billing_address.fs-read-mode input::placeholder {
+    color: transparent;
+}
+
+.oxi-flip-account #fs_account #fs_billing_address.fs-read-mode select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: none;
+}
+
+.oxi-flip-account #fs_account #fs_billing_address button {
+    display: inline-flex;
+    width: auto;
+    margin: 12px 0 0;
+    padding: 6px 18px;
+    font-size: 13px;
+}
+
+/* Payments */
+
+.oxi-flip-account #fs_account #fs_payments .widefat {
+    max-width: none;
+    margin: 0;
+    border: 0;
+    border-collapse: collapse;
+    box-shadow: none;
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat thead th {
+    padding: 10px 24px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--flip-ink-3);
+    background: #f9fafb;
+    border-bottom: 1px solid var(--flip-line);
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat tbody tr,
+.oxi-flip-account #fs_account #fs_payments .widefat tbody tr.alternate {
+    background: none;
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat tbody tr + tr {
+    border-top: 1px solid var(--flip-line);
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat tbody tr:hover {
+    background: #fcfcfd;
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat td {
+    padding: 12px 24px;
+    font-size: 13px;
+    color: var(--flip-ink-2);
+    vertical-align: middle;
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat td:nth-child(3) {
+    font-weight: 600;
+    color: var(--flip-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+.oxi-flip-account #fs_account #fs_payments .widefat td .button {
+    margin: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+    .oxi-flip-account #fs_account .has-sidebar-content {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .oxi-flip-account #fs_account .has-sidebar-content > .postbox:first-child {
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 782px) {
+    .oxi-flip-account .oxi-flip-set-hero .oxi-flip-set-btn {
+        order: 3;
+    }
+
+    .oxi-flip-account #fs_account .fs-header-actions {
+        position: static;
+        margin: 0;
+        padding: 12px 16px 0;
+    }
+
+    .oxi-flip-account #fs_account h3,
+    .oxi-flip-account #fs_account .fs-key-value-table td,
+    .oxi-flip-account #fs_account #fs_payments .widefat td,
+    .oxi-flip-account #fs_account #fs_payments .widefat thead th {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .oxi-flip-account #fs_account .fs-key-value-table td:first-child {
+        width: auto;
+        padding-bottom: 0;
+    }
+
+    .oxi-flip-account #fs_account .fs-key-value-table td.fs-right {
+        padding-top: 0;
+        text-align: left;
+        white-space: normal;
+    }
+
+    .oxi-flip-account #fs_account .fs-key-value-table td.fs-right:empty {
+        display: none;
+    }
+
+    /* Freemius' phone rules use two IDs; match them to keep the row indent and the plan badge. */
+    .oxi-flip-account #fs_account #fs_account_details tr td:nth-child(2) {
+        padding: 2px 16px 12px;
+    }
+
+    .oxi-flip-account #fs_account #fs_account_details tr.fs-field-plan td:nth-child(2) code {
+        padding: 3px 12px;
+    }
+
+    .oxi-flip-account #fs_account #fs_account_details tr.fs-field-plan td:nth-child(2) .button-group {
+        margin: 0 0 0 10px;
+    }
+
+    .oxi-flip-account #fs_account #fs_payments {
+        overflow-x: auto;
+    }
+}

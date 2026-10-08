@@ -202,6 +202,47 @@ class Admin_Ajax {
         return;
     }
 
+    /**
+     * Danger zone: delete all data when the plugin is deleted.
+     *
+     * Destructive, so administrators only, whatever role "Who can edit" allows.
+     *
+     * @since 3.1.0
+     */
+    public function oxi_flipbox_delete_data_on_uninstall( $data = '', $styleid = '', $itemid = '' ) {
+        if ( ! current_user_can( 'manage_options' ) ) :
+            echo '<span class="oxi-confirmation-failed"></span>';
+            return;
+        endif;
+        $rawdata = json_decode( stripslashes( $data ), true );
+        $value = ( is_array( $rawdata ) && isset( $rawdata['value'] ) && 'yes' === $rawdata['value'] ) ? 'yes' : 'no';
+        update_option( Data_Cleaner::UNINSTALL_OPTION, $value );
+        echo '<span class="oxi-confirmation-success"></span>';
+        return;
+    }
+
+    /**
+     * Danger zone: delete every flip box, item and setting right now.
+     *
+     * The typed confirmation is checked here too, not only in the browser.
+     *
+     * @since 3.1.0
+     */
+    public function oxi_flipbox_delete_all_data( $data = '', $styleid = '', $itemid = '' ) {
+        if ( ! current_user_can( 'manage_options' ) ) :
+            echo '<span class="oxi-confirmation-failed"></span>';
+            return;
+        endif;
+        $rawdata = json_decode( stripslashes( $data ), true );
+        if ( ! is_array( $rawdata ) || ! isset( $rawdata['confirm'] ) || 'DELETE' !== $rawdata['confirm'] ) :
+            echo '<span class="oxi-confirmation-failed"></span>';
+            return;
+        endif;
+        Data_Cleaner::delete_now();
+        echo '<span class="oxi-confirmation-success"></span>';
+        return;
+    }
+
     public function check_user_permission() {
         $user_role = get_option( 'oxi_addons_user_permission' );
         $role_object = get_role( $user_role );

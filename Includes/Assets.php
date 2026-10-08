@@ -39,6 +39,23 @@ class Assets {
 
 		wp_enqueue_style( 'oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
 
+		if ( 'oxi-flip-box-ultimate-settings' === $current_page ) {
+			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
+		}
+
+		if ( 'oxi-flip-box-ultimate' === $current_page ) {
+			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
+			wp_enqueue_style( 'oxi-flip-home-css', OXI_FLIP_BOX_URL . 'asset/backend/css/home.css', [ 'oxi-flip-settings-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/home.css' ) );
+		}
+
+		// Freemius Account page: only our own scoped styles, no Bootstrap or
+		// admin.css, so Freemius' forms and dialogs keep working as designed.
+		if ( 'oxi-flip-box-ultimate-account' === $current_page ) {
+			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
+			wp_enqueue_style( 'oxi-flip-account-css', OXI_FLIP_BOX_URL . 'asset/backend/css/account.css', [ 'oxi-flip-settings-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/account.css' ) );
+			wp_enqueue_style( 'oxi-flip-admin-menu-css', OXI_FLIP_BOX_URL . 'asset/backend/css/admin-menu.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/admin-menu.css' ) );
+		}
+
 		if ( 'flipbox-getting-started' === $current_page ) {
 			//CSS
 			wp_enqueue_style( 'flip-box-admin-welcome', OXI_FLIP_BOX_URL . 'asset/backend/css/getting-started.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/getting-started.css' ) );

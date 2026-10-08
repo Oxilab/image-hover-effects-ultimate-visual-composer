@@ -1,0 +1,82 @@
+/*
+ * Flipbox: plugin header menu, for the Freemius Account page.
+ *
+ * The menu's styles live in admin.css, which also carries Bootstrap-era
+ * global rules (.notice { display: none !important } and others) that break
+ * Freemius' forms and dialogs. This file holds only the menu rules, copied
+ * from admin.css, so the Account page can show the same header safely.
+ * If the menu's look changes in admin.css, update it here too.
+ */
+
+/* Full-width header, as admin.css does on the other Flipbox pages. */
+body.oxi-flip-menu-page #wpcontent {
+    padding-left: 0;
+}
+
+body.oxi-flip-menu-page .oxi-addons-wrapper ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.oxi-flip-menu-page .oxi-addons-wrapper a {
+    text-decoration: none;
+}
+
+/* Copied from admin.css */
+.oxi-addons-wrapper {width: 100%; display: flex; flex-direction: column; position: relative; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+.oxi-addons-wrapper * {box-sizing: border-box;}
+.oxilab-new-admin-menu {background-color: #fff; display: -ms-flexbox; display: flex; border-bottom: 1px solid #e0e5e9; z-index: 20; width: 100%;}
+.oxilab-new-admin-menu .oxi-site-logo {display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; -ms-flex-direction: column; flex-direction: column; padding: 0 10px 0 20px; min-height: 54px;}
+.oxilab-new-admin-menu  .oxi-site-logo a.header-logo {background-repeat: no-repeat; background-position: 0; background-size: contain; height: 28px; width: 180px; overflow: hidden; cursor: pointer; text-indent: -9999px;}
+.oxilab-sa-admin-nav {display: -ms-flexbox; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: justify; justify-content: space-between; border-left: 1px solid #f1f1f1; -ms-flex: 1; flex: 1;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 {display: -ms-flexbox; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: left; justify-content: left; margin: 0; padding: 0;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li {padding: 0; margin: 0; border-right: 1px solid #f1f1f1; position: relative;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li a,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li a {display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; font-weight: 500; text-align: center; -ms-flex-pack: center; justify-content: center; font-size: 13px; text-decoration: none; color: #555d66; height: 55px; padding: 0 30px; cursor: pointer; position: relative;}
+.oxilab-new-admin-menu a:hover,
+.oxilab-new-admin-menu a:active,
+.oxilab-new-admin-menu a:focus {outline: 0; box-shadow: none;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li:hover a,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li:hover a {color: #222; background: #f0f2f4;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.active a,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li a:focus,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li.active a,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li a:focus {outline: 0; border: none; background-color: #f0f2f4;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.active a:after,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li.active a:after {content: ""; position: absolute; width: calc(100% + 2px); bottom: 0; background: repeat; height: 1px; left: -1px; box-shadow: inset 0 -2px 0 0 #FB533B;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.active .oxi-nev-d-menu a:after {height: 0px; box-shadow: none;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li.fazil-class {background: #FB533B;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li.fazil-class a {color: #FFF;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu2 li.fazil-class:hover a {background: #e22207;}
+.oxi-nev-drop-menu:before {content: "\f132"; font-family: dashicons; position: absolute; color: #727272; font-size: .8rem; right: 15px; top: 55%; transform: translateY(-50%);}
+ul.oxilab-sa-admin-menu li:hover .oxi-nev-drop-menu:before {content: "\f460";}
+.oxi-nev-d-menu {position: absolute; text-align: left; top: 100%; left: 0; width: 170px; z-index: 0; display: none; padding-top: 0px;}
+ul.oxilab-sa-admin-menu li:hover .oxi-nev-d-menu {display: block; opacity: 1; z-index: 20;}
+.oxi-nev-drop-menu-li {width: 100%; text-align: center; background: #ffffff!important; overflow: hidden;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li .oxi-nev-drop-menu-li a {text-align: left; -ms-flex-pack: center; justify-content: flex-start; font-size: 13px; color: #555d66; background: transparent; height: 45px; padding: 0 10px 0 30px;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li .oxi-nev-drop-menu-li a:hover {color: #FFF; background: #ff6138;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item {position: relative;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a {color: #1A73E8; font-weight: 600;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:hover > a,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:focus-within > a {color: #1557B0; background: #E8F0FE;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a .dashicons {width: 16px; height: 16px; font-size: 16px; line-height: 16px; display: inline-flex; align-items: center; justify-content: center; position: relative; top: -1px; margin-right: 6px; color: inherit;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a .dashicons:before {line-height: 1;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a:after {content: '\f347'; font-family: dashicons; font-size: 15px; line-height: 1; margin-left: 7px; color: inherit; transition: transform 0.2s ease;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:hover > a:after,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item:focus-within > a:after {transform: rotate(180deg);}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a:focus {background: #E8F0FE;}
+.oxi-howto-menu {position: absolute; top: 100%; left: 0; z-index: 30; min-width: 268px; margin: 0; padding: 6px 0; list-style: none; background: #fff; border: 1px solid #e0e5e9; border-radius: 0 0 6px 6px; box-shadow: 0 6px 18px rgba(29, 35, 39, 0.12); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;}
+.oxi-howto-item:hover > .oxi-howto-menu,
+.oxi-howto-item:focus-within > .oxi-howto-menu {opacity: 1; visibility: visible; transform: translateY(0);}
+.oxi-howto-menu li {width: 100%; margin: 0; padding: 0; border: none !important;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item .oxi-howto-menu li a {display: block; height: auto; padding: 9px 18px; font-size: 13px; font-weight: 400; line-height: 1.5; text-align: left; color: #3c434a; background: transparent; white-space: nowrap;}
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item .oxi-howto-menu li a:hover,
+.oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item .oxi-howto-menu li a:focus {color: #fff; background: #1A73E8;}
+.oxi-howto-menu li:last-child {margin-top: 5px; border-top: 1px solid #eef0f2 !important; padding-top: 5px;}
+@media (prefers-reduced-motion: reduce) {
+    .oxi-howto-menu,
+    .oxilab-new-admin-menu ul.oxilab-sa-admin-menu li.oxi-howto-item > a:after {transition: none;}
+}

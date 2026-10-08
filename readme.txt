@@ -5,7 +5,7 @@ Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 4.4
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.0.3
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,12 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 3.1.0 =
+*Redesigned the Flip Box page: one click copy for the shortcode and PHP code, newest flip boxes first, quick search, item counts, and clear dialogs for import, clone and delete.
+*Redesigned the Settings page with grouped cards, on/off switches, a live save status for every option, a License card to activate or change your Pro license key, and quick links to docs and support.
+*Added a Danger zone to the Settings page: delete all flip boxes, items and settings at once after typing DELETE to confirm, or choose to remove all Flipbox data when the plugin is deleted (deactivating never removes data).
+*Redesigned the Account page with the plugin header menu, a clear license overview, a plan badge, tidy billing details and an easy to read payments list.
 
 = 3.0.3 =
 *Added a "How to use?" documentation menu to the plugin header with quick links for the shortcode, Elementor, WPBakery and the WordPress widget
