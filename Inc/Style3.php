@@ -130,7 +130,7 @@ class Style3 extends Admin_Render {
             . ' backend-info-padding-left |' . sanitize_text_field( $_POST['backend-info-padding-left'] ) . '|'
             . ' backend-info-padding-right |' . sanitize_text_field( $_POST['backend-info-padding-right'] ) . '|'
             . ' flip-border-radius |' . sanitize_text_field( $_POST['flip-border-radius'] ) . '|'
-            . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+            . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
             . '|';
         return $data;
     }

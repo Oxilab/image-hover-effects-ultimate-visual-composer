@@ -13,16 +13,24 @@ class Changelog {
                 'date' => '08-10-2026',
                 'sections' => [
                     'new' => [
+                        'New Flipbox block for the block editor (Gutenberg): add it, choose a flip box, and see a live preview right in the editor (hover it to see it flip). It shows exactly what the shortcode shows, supports wide and full width, and links to the flip box\'s editor.',
+                        'New Flip Trigger option in General Settings: flip on hover (default, unchanged for existing flip boxes) or only on click or tap. Works for all 29 designs, on touch screens and with the keyboard.',
                         'Added a Clone button next to Edit on every flip box item in the editor preview: it copies the item to the end of the list without reloading the page.',
+                        'Added a copy button to the shortcode and the PHP code in the editor\'s Shortcode panel: one click copies it.',
+                        'New getting started video tutorial on the Getting Started page and in the editor\'s Support tab.',
+                        'Custom CSS now has a real code editor (the same one as WordPress\'s Additional CSS): line numbers, syntax colors and indenting. Line breaks are kept when you save; CSS you saved before loads exactly as it was.',
                         'Added a Danger zone to the Settings page: delete all flip boxes, items and settings at once after typing DELETE to confirm, or choose to remove all Flipbox data when the plugin is deleted.',
                     ],
                     'fix' => [
+                        'Fixed flip boxes flashing and shaking for a moment after a page reload (most visible when hovering right away): the box no longer animates into place while the page loads.',
                         'Removing a template from the Create New list now only removes Flipbox\'s own entry.',
+                        'Saving in the editor now updates the preview in place, so an element you are looking at in the browser\'s developer tools (Inspect) stays there instead of disappearing.',
                     ],
                     'enhancement' => [
                         'The flip box editor now saves without reloading the page: Save changes, saving an item, Rename and Delete update the preview in place and confirm with a short message.',
                         'Editing a flip box item now opens its dialog instantly, without reloading the page first.',
                         'Deleting a flip box item now asks in a clear confirmation dialog that names the item, instead of the browser\'s plain alert.',
+                        'Redesigned the "How to use?" menu: every guide now shows its tool\'s own logo (Elementor, WPBakery, WordPress) and a short description, plus a quick link to all documentation.',
                         'Refreshed the flip box editor: a header showing which flip box you are editing with a quick way back, cleaner tabs and settings panels, clearer "Add a flip box" and "Reorder flip boxes" buttons, "Save changes" and "Rename" buttons, accordion arrows on every panel, and tidier dialogs.',
                         'Redesigned the Import Templates page as a template library: live previews of every design and one click "Add to Create New".',
                         'Redesigned the Create New page: live previews of every design with a "Use this design" button, so you name the flip box and start editing in one step.',

@@ -158,9 +158,27 @@ class Admin_Render {
                 die( 'You do not have sufficient permissions to access this page.' );
             } else {
                 $data = $this->register_style();
+                // Flip Trigger goes after the design's own values, so none of
+                // their numbered positions move (see Public_Render::flip_trigger()).
+                $data .= ' flip-trigger |' . $this->posted_flip_trigger() . '|';
                 $this->wpdb->query( $this->wpdb->prepare( "UPDATE $this->parent_table SET css = %s WHERE id = %d", $data, $this->oxiid ) );
             }
         }
+    }
+
+    /**
+     * The Flip Trigger to save: "click" or "hover". When the field is not in
+     * the request the flip box keeps what it has.
+     *
+     * @since 3.1.0
+     * @return string
+     */
+    public function posted_flip_trigger() {
+        if ( isset( $_POST['oxilab-flip-trigger'] ) ) {
+            return 'click' === sanitize_key( wp_unslash( $_POST['oxilab-flip-trigger'] ) ) ? 'click' : 'hover';
+        }
+        $css = $this->wpdb->get_var( $this->wpdb->prepare( "SELECT css FROM {$this->parent_table} WHERE id = %d", $this->oxiid ) );
+        return \OXI_FLIP_BOX_PLUGINS\Page\Public_Render::flip_trigger( (string) $css );
     }
 
     public function clild() {
@@ -284,12 +302,18 @@ class Admin_Render {
                                         <em>Shortcode for posts/pages/plugins</em>
                                         <p>Copy &amp;
                                             paste the shortcode directly into any WordPress post, page or Page Builder.</p>
-                                        <input type="text" class="form-control" onclick="this.setSelectionRange(0, this.value.length)" value="[oxilab_flip_box id=&quot;<?php echo (int) $this->oxiid; ?>&quot;]">
+                                        <div class="oxi-flip-shortcode-field">
+                                            <input type="text" class="form-control" onclick="this.setSelectionRange(0, this.value.length)" value="[oxilab_flip_box id=&quot;<?php echo (int) $this->oxiid; ?>&quot;]">
+                                            <button type="button" class="oxi-flip-shortcode-copy" aria-label="<?php esc_attr_e( 'Copy shortcode', 'oxi-flip-box-plugin' ); ?>" title="<?php esc_attr_e( 'Copy shortcode', 'oxi-flip-box-plugin' ); ?>" data-copied="<?php esc_attr_e( 'Copied', 'oxi-flip-box-plugin' ); ?>" data-copy-failed="<?php esc_attr_e( 'Press Ctrl+C to copy', 'oxi-flip-box-plugin' ); ?>"><i class="dashicons dashicons-admin-page" aria-hidden="true"></i></button>
+                                        </div>
                                         <span></span>
                                         <em>Shortcode for templates/themes</em>
                                         <p>Copy &amp;
                                             paste this code into a template file to include the slideshow within your theme.</p>
-                                        <input type="text" class="form-control" onclick="this.setSelectionRange(0, this.value.length)" value="<?php echo '<?php echo do_shortcode(\'[oxilab_flip_box  id=&quot;' . (int) $this->oxiid . '&quot;]\'); ?>'; ?>">
+                                        <div class="oxi-flip-shortcode-field">
+                                            <input type="text" class="form-control" onclick="this.setSelectionRange(0, this.value.length)" value="<?php echo '<?php echo do_shortcode(\'[oxilab_flip_box  id=&quot;' . (int) $this->oxiid . '&quot;]\'); ?>'; ?>">
+                                            <button type="button" class="oxi-flip-shortcode-copy" aria-label="<?php esc_attr_e( 'Copy PHP code', 'oxi-flip-box-plugin' ); ?>" title="<?php esc_attr_e( 'Copy PHP code', 'oxi-flip-box-plugin' ); ?>" data-copied="<?php esc_attr_e( 'Copied', 'oxi-flip-box-plugin' ); ?>" data-copy-failed="<?php esc_attr_e( 'Press Ctrl+C to copy', 'oxi-flip-box-plugin' ); ?>"><i class="dashicons dashicons-admin-page" aria-hidden="true"></i></button>
+                                        </div>
                                         <span></span>
                                     </div>
                                 </div>
@@ -878,6 +902,10 @@ class Admin_Render {
                                 jQuery(this).val(jQuery(this).attr("oxilabvalue"));
                             });
                             jQuery("#custom-css").val("");
+                            var oxiCssEditor = jQuery("#custom-css").data("oxiCodeMirror");
+                            if (oxiCssEditor) {
+                                oxiCssEditor.setValue("");
+                            }
                         });';
         endif;
         wp_add_inline_script( 'oxi-flip-box-addons-vendor', $data );
@@ -889,7 +917,21 @@ class Admin_Render {
      */
     public function hooks() {
         $this->admin_elements_frontend_loader();
-        wp_enqueue_script( 'oxi-flip-editor-js', OXI_FLIP_BOX_URL . 'asset/backend/js/editor.js', [ 'jquery', 'oxi-flip-box-addons-vendor' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/js/editor.js' ), true );
+        // Custom CSS gets WordPress's own CSS code editor (CodeMirror, as in
+        // Additional CSS). False when the user turned syntax highlighting off
+        // in their profile: the plain textarea stays.
+        $css_editor = wp_enqueue_code_editor(
+            [
+                'type'       => 'text/css',
+                'codemirror' => [ 'lineWrapping' => true ],
+            ]
+        );
+        wp_enqueue_script( 'oxi-flip-editor-js', OXI_FLIP_BOX_URL . 'asset/backend/js/editor.js', $css_editor ? [ 'jquery', 'oxi-flip-box-addons-vendor', 'code-editor' ] : [ 'jquery', 'oxi-flip-box-addons-vendor' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/js/editor.js' ), true );
+        if ( $css_editor ) {
+            wp_add_inline_script( 'oxi-flip-editor-js', 'window.oxiFlipCssEditor = ' . wp_json_encode( $css_editor ) . ';', 'before' );
+        }
+        // So the preview can flip on click as soon as "On Click" is chosen.
+        wp_enqueue_script( 'oxi-flip-trigger', OXI_FLIP_BOX_URL . 'asset/frontend/js/flip-trigger.js', [], OXI_FLIP_BOX_PLUGIN_VERSION, true );
         $this->dbdata = $this->wpdb->get_row( $this->wpdb->prepare( 'SELECT * FROM ' . $this->parent_table . ' WHERE id = %d ', $this->oxiid ), ARRAY_A );
         $this->child = $this->wpdb->get_results( $this->wpdb->prepare( "SELECT * FROM $this->child_table WHERE styleid = %d ORDER by id ASC", $this->oxiid ), ARRAY_A );
         if ( ! empty( $this->dbdata['css'] ) ) :

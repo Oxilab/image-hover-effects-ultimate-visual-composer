@@ -70,15 +70,60 @@ jQuery(function ($) {
         });
     }
 
+    // Bring `from` (on the page) in line with `to` (from the response) in
+    // place: identical parts are left alone, changed attributes and text are
+    // set on the existing nodes, and only new or removed nodes are added or
+    // removed. Replacing the whole preview instead threw away the very
+    // elements the browser's inspector was showing, so their code vanished
+    // from Elements after every save.
+    function morph(from, to) {
+        var i, name;
+        for (i = from.attributes.length - 1; i >= 0; i--) {
+            name = from.attributes[i].name;
+            if (!to.hasAttribute(name)) {
+                from.removeAttribute(name);
+            }
+        }
+        for (i = 0; i < to.attributes.length; i++) {
+            if (from.getAttribute(to.attributes[i].name) !== to.attributes[i].value) {
+                from.setAttribute(to.attributes[i].name, to.attributes[i].value);
+            }
+        }
+        var kids = Array.prototype.slice.call(to.childNodes);
+        for (i = 0; i < kids.length; i++) {
+            var next = kids[i];
+            var cur = from.childNodes[i];
+            if (!cur) {
+                from.appendChild(document.importNode(next, true));
+            } else if (cur.isEqualNode(next)) {
+                continue;
+            } else if (cur.nodeType === next.nodeType && cur.nodeName === next.nodeName && cur.nodeType === 1 && cur.nodeName !== 'SCRIPT') {
+                morph(cur, next);
+            } else if (cur.nodeType === next.nodeType && (cur.nodeType === 3 || cur.nodeType === 8)) {
+                cur.nodeValue = next.nodeValue;
+            } else {
+                from.replaceChild(document.importNode(next, true), cur);
+            }
+        }
+        while (from.childNodes.length > kids.length) {
+            from.removeChild(from.lastChild);
+        }
+    }
+
     function refresh(doc) {
         // Preview. Its edit and delete forms use delegated handlers below.
-        $('#oxi-addons-preview-data')[0].innerHTML = doc.getElementById('oxi-addons-preview-data').innerHTML;
+        // Its CSS is already on the page, so the load guard is not needed
+        // (and its script, a one-time guard, does nothing a second time).
+        morph($('#oxi-addons-preview-data')[0], doc.getElementById('oxi-addons-preview-data'));
+        $('#oxi-addons-preview-data .oxi-flip-booting').removeClass('oxi-flip-booting');
 
         // The preview's CSS (printed with the flip box stylesheet).
         var css = doc.getElementById('flip-box-addons-style-inline-css');
         var current = document.getElementById('flip-box-addons-style-inline-css');
         if (css && current) {
-            current.textContent = css.textContent;
+            if (current.textContent !== css.textContent) {
+                current.textContent = css.textContent;
+            }
         } else if (css) {
             document.head.appendChild(document.importNode(css, true));
         } else if (current) {
@@ -116,7 +161,29 @@ jQuery(function ($) {
         if (name) {
             $('.oxi-flip-ed-title h1').text(name.textContent);
         }
+
+        flipTriggerPreview();
     }
+
+    /* Flip Trigger: the preview follows the select before saving too */
+
+    function flipTriggerPreview() {
+        var $select = $('#oxilab-flip-trigger');
+        if (!$select.length) {
+            return;
+        }
+        var click = $select.val() === 'click';
+        var $preview = $('#oxi-addons-preview-data');
+        $preview.find('.oxi-addons-container').toggleClass('oxi-flip-trigger-click', click);
+        if (!click) {
+            $preview.find('.oxilab-flip-box-flip.active').removeClass('active');
+        }
+        if (click && window.oxiFlipTriggerPrepare) {
+            window.oxiFlipTriggerPrepare();
+        }
+    }
+
+    $(document).on('change', '#oxilab-flip-trigger', flipTriggerPreview);
 
     function busy($button, on) {
         $button.prop('disabled', on).toggleClass('oxi-flip-ed-saving', on).attr('aria-busy', on ? 'true' : null);
@@ -365,5 +432,73 @@ jQuery(function ($) {
             fill(tpl);
             $('#item-id').val('');
         }
+    });
+
+    /* Custom CSS: a code editor on the textarea */
+
+    // WordPress's own CSS editor (CodeMirror, settings from
+    // wp_enqueue_code_editor() in Admin_Render::hooks()). The textarea stays
+    // the field the form sends, so saved CSS loads into the editor as it is
+    // and every save posts exactly what is in the editor. Without the editor
+    // (syntax highlighting turned off in the user's profile) nothing changes.
+    var cssField = document.getElementById('custom-css');
+    if (cssField && window.oxiFlipCssEditor && window.wp && wp.codeEditor) {
+        var cssEditor = wp.codeEditor.initialize(cssField, window.oxiFlipCssEditor).codemirror;
+        cssEditor.on('change', function () {
+            cssEditor.save();
+        });
+        $(cssField).data('oxiCodeMirror', cssEditor);
+        // It starts in a hidden tab: lay it out again once it is shown.
+        $('.oxi-addons-tabs-ul li[ref="#oxilab-tabs-id-2"]').on('click', function () {
+            setTimeout(function () {
+                cssEditor.refresh();
+            }, 0);
+        });
+    }
+
+    /* Copy the shortcode (or the PHP code) next to its field */
+
+    function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+            return navigator.clipboard.writeText(text);
+        }
+        // Sites without HTTPS have no Clipboard API: fall back to a hidden textarea.
+        return new Promise(function (resolve, reject) {
+            var $tmp = $('<textarea readonly>').val(text).css({position: 'fixed', top: '-1000px'}).appendTo('body');
+            var ok = false;
+            $tmp[0].select();
+            try {
+                ok = document.execCommand('copy');
+            } catch (err) {
+                ok = false;
+            }
+            $tmp.remove();
+            return ok ? resolve() : reject();
+        });
+    }
+
+    $(document).on('click', '.oxi-flip-shortcode-copy', function () {
+        var $btn = $(this);
+        var input = $btn.siblings('input')[0];
+        var label = $btn.data('label') || $btn.attr('aria-label');
+        var restore = function () {
+            $btn.removeClass('is-copied').attr({'aria-label': label, title: label})
+                .find('.dashicons').removeClass('dashicons-yes').addClass('dashicons-admin-page');
+        };
+        if (!input) {
+            return;
+        }
+        $btn.data('label', label);
+        clearTimeout($btn.data('timer'));
+        copyText(input.value).then(function () {
+            $btn.addClass('is-copied').attr({'aria-label': $btn.attr('data-copied'), title: $btn.attr('data-copied')})
+                .find('.dashicons').removeClass('dashicons-admin-page').addClass('dashicons-yes');
+        }, function () {
+            // Copy blocked: leave the text selected so Ctrl+C still works.
+            input.focus();
+            input.setSelectionRange(0, input.value.length);
+            $btn.attr({'aria-label': $btn.attr('data-copy-failed'), title: $btn.attr('data-copy-failed')});
+        });
+        $btn.data('timer', setTimeout(restore, 1800));
     });
 });

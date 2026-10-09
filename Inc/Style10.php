@@ -88,7 +88,7 @@ class Style10 extends Admin_Render {
             . ' backend-icon-padding-left-right |' . sanitize_text_field( $_POST['backend-icon-padding-left-right'] ) . '|'
             . ' front-icon-padding-top-bottom |' . sanitize_text_field( $_POST['front-icon-padding-top-bottom'] ) . '|'
             . ' front-icon-padding-left-right |' . sanitize_text_field( $_POST['front-icon-padding-left-right'] ) . '|'
-            . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+            . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
             . '|';
         return $data;
     }

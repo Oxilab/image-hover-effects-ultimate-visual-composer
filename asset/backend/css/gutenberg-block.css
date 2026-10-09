@@ -1,0 +1,29 @@
+/* Flipbox block, block editor only (Modules/Gutenberg.php). */
+
+/* Flip boxes with a scroll-in animation start hidden until the front-end
+   script plays it; the preview never runs that script, so show them. */
+.oxi-flip-block-preview .sa-data-animation {
+    opacity: 1;
+}
+
+.oxi-flip-block-loading {
+    padding: 24px;
+    text-align: center;
+}
+
+.oxi-flip-block-notice {
+    padding: 16px;
+    color: #b42318;
+    text-align: center;
+    background: #fef3f2;
+    border: 1px dashed #fda29b;
+    border-radius: 8px;
+}
+
+.oxi-flip-block-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-top: 12px;
+}

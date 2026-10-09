@@ -110,7 +110,7 @@ class Style8 extends Admin_Render {
             . ' backend-icon-padding-top-bottom |' . sanitize_text_field( $_POST['backend-icon-padding-top-bottom'] ) . '|'
             . ' backend-icon-padding-left-right |' . sanitize_text_field( $_POST['backend-icon-padding-left-right'] ) . '|'
             . ' flip-border-radius |' . sanitize_text_field( $_POST['flip-border-radius'] ) . '|'
-            . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+            . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
             . '|';
         return $data;
     }

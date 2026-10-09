@@ -111,7 +111,7 @@ class Style21 extends Admin_Render {
                 . ' flip-backend-border-style |' . sanitize_text_field( $_POST['flip-backend-border-style'] ) . '|'
                 . ' front-icon-padding-top-bottom |' . sanitize_text_field( $_POST['front-icon-padding-top-bottom'] ) . '|'
                 . ' front-icon-padding-left-right |' . sanitize_text_field( $_POST['front-icon-padding-left-right'] ) . '|'
-                . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+                . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
                 . '|';
         return $data;
     }

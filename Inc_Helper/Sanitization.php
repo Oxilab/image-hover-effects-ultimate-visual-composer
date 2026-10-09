@@ -849,7 +849,7 @@ trait Sanitization {
                         </div>
                     </div>
                 </a>
-                <a href="https://www.youtube.com/watch?v=OaLL0DNUHWA" target="_blank">
+                <a href="https://www.youtube.com/watch?v=Jj_8eL8nHPI" target="_blank">
                     <div class="col-xs-support-ihewc">
                         <div class="ihewc-admin-support-icon">
                             <i class="fas fa-ticket-alt oxi-icons"></i>
@@ -1087,7 +1087,19 @@ trait Sanitization {
     }
 
     public function oxilab_flip_box_flip_type_effects_type( $flip_type, $effects_Type ) {
+        // Flip Trigger (3.1.0): first row of every design's General Settings.
+        // Saved by Admin_Render::style_data(), default "hover".
+        $flip_trigger = \OXI_FLIP_BOX_PLUGINS\Page\Public_Render::flip_trigger( isset( $this->dbdata['css'] ) ? $this->dbdata['css'] : '' );
 		?>
+        <div class="form-group row form-group-sm">
+            <label for="oxilab-flip-trigger" class="col-sm-6 col-form-label" data-toggle="tooltip" data-placement="top" title="<?php esc_attr_e( 'Flip when a visitor hovers over the box, or only when they click or tap it', 'oxi-flip-box-plugin' ); ?>"><?php esc_html_e( 'Flip Trigger', 'oxi-flip-box-plugin' ); ?> </label>
+            <div class="col-sm-6">
+                <select class="form-control" id="oxilab-flip-trigger" name="oxilab-flip-trigger">
+                    <option value="hover" <?php selected( $flip_trigger, 'hover' ); ?>><?php esc_html_e( 'On Hover', 'oxi-flip-box-plugin' ); ?></option>
+                    <option value="click" <?php selected( $flip_trigger, 'click' ); ?>><?php esc_html_e( 'On Click', 'oxi-flip-box-plugin' ); ?></option>
+                </select>
+            </div>
+        </div>
         <div class="form-group row form-group-sm">
             <label for="oxilab-flip-type" class="col-sm-6 col-form-label" data-toggle="tooltip" data-placement="top" title="Select Flip Type to use into this Flip">Flip Type </label>
             <div class="col-sm-6">

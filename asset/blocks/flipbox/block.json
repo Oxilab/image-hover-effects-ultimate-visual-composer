@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oxi-flip-box/flipbox",
+	"version": "3.1.0",
+	"title": "Flipbox",
+	"category": "design",
+	"icon": "image-flip-horizontal",
+	"description": "Show a flip box you made with Flipbox.",
+	"keywords": [ "flip", "flipbox", "flip box", "card", "hover" ],
+	"textdomain": "oxi-flip-box-plugin",
+	"attributes": {
+		"flipboxId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	}
+}

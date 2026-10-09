@@ -275,6 +275,15 @@ body.oxi-flip-editor-page .modal .form-control {
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* WordPress core gives every select line-height 2.71 (about 35px), which in
+   this box pushes the text down. Match the text inputs, and keep the text
+   clear of the dropdown arrow. */
+body.oxi-flip-editor-page .oxi-addons-settings select.form-control,
+body.oxi-flip-editor-page .modal select.form-control {
+    line-height: 1.5;
+    padding-right: 32px;
+}
+
 body.oxi-flip-editor-page .oxi-addons-settings textarea.form-control,
 body.oxi-flip-editor-page .modal textarea.form-control {
     height: auto;
@@ -527,6 +536,88 @@ body.oxi-flip-editor-page .oxi-addons-shortcode-body input[type="text"][onclick]
     font-size: 12px;
     background: #f9fafb;
     cursor: pointer;
+}
+
+/* Custom CSS code editor (WordPress's CodeMirror on the #custom-css textarea) */
+
+body.oxi-flip-editor-page #oxilab-tabs-id-2 .CodeMirror {
+    height: 360px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    border: 1px solid var(--flip-line-2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+body.oxi-flip-editor-page #oxilab-tabs-id-2 .CodeMirror-focused {
+    border-color: var(--flip-brand);
+    box-shadow: 0 0 0 3px var(--flip-brand-ring);
+}
+
+body.oxi-flip-editor-page #oxilab-tabs-id-2 .CodeMirror-gutters {
+    background: #f9fafb;
+    border-right: 1px solid var(--flip-line);
+}
+
+/* Copy button inside each shortcode field */
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-field {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-field input[type="text"][onclick] {
+    margin-bottom: 0;
+    padding-right: 44px;
+    text-overflow: ellipsis;
+}
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-copy {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    color: var(--flip-ink-3);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-copy .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-copy:hover {
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+}
+
+/* No ring after a mouse click (the admin's blue focus style), a brand ring for the keyboard. */
+body.oxi-flip-editor-page .oxi-flip-shortcode-copy:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-copy:focus-visible {
+    box-shadow: 0 0 0 3px var(--flip-brand-ring);
+}
+
+body.oxi-flip-editor-page .oxi-flip-shortcode-copy.is-copied {
+    color: #067647;
+    background: #ecfdf3;
 }
 
 /* Preview */

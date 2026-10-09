@@ -290,7 +290,7 @@ class Style12 extends Admin_Render {
                 . ' backend-heading-padding-right |' . sanitize_text_field( $_POST['backend-heading-padding-right'] ) . '|'
                 . ' backend-title-border-width |' . sanitize_text_field( $_POST['backend-title-border-width'] ) . '|'
                 . ' backend-title-border-height |' . sanitize_text_field( $_POST['backend-title-border-height'] ) . '|'
-                . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+                . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
                 . '|';
         return $data;
     }

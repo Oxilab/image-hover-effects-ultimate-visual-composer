@@ -304,7 +304,7 @@ class Style7 extends Admin_Render {
                 . ' front-info-padding-bottom |' . sanitize_text_field( $_POST['front-info-padding-bottom'] ) . '|'
                 . ' front-info-padding-left |' . sanitize_text_field( $_POST['front-info-padding-left'] ) . '|'
                 . ' front-info-padding-right |' . sanitize_text_field( $_POST['front-info-padding-right'] ) . '|'
-                . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+                . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
                 . '|';
         return $data;
     }

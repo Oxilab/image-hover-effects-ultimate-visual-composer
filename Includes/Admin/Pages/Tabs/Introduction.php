@@ -24,7 +24,7 @@ class Introduction {
 				</div>
 
 				<div class="col-image">
-					<iframe src="https://www.youtube.com/embed/OaLL0DNUHWA" title="YouTube demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+					<iframe src="https://www.youtube.com/embed/Jj_8eL8nHPI" title="<?php esc_attr_e( 'Flipbox getting started tutorial', 'oxi-flip-box-plugin' ); ?>" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				</div>
 			</section>
 

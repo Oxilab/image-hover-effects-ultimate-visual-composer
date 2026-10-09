@@ -243,3 +243,59 @@
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
 }
+
+/*
+ * Flip Trigger "On Click" (3.1.0). Only flip boxes saved with this option
+ * have the oxi-flip-trigger-click class: there hovering keeps the front in
+ * place and flip-trigger.js flips with the .active class above. Every other
+ * flip box is untouched by these rules.
+ */
+.oxi-flip-trigger-click .oxilab-flip-box-flip {
+    cursor: pointer;
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-bottom-to-top:hover:not(.active) .oxilab-flip-box-front {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-bottom-to-top:hover:not(.active) .oxilab-flip-box-back {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotateX(-180deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-left-to-right:hover:not(.active) .oxilab-flip-box-front {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-left-to-right:hover:not(.active) .oxilab-flip-box-back {
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-right-to-left:hover:not(.active) .oxilab-flip-box-front {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-right-to-left:hover:not(.active) .oxilab-flip-box-back {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-top-to-bottom:hover:not(.active) .oxilab-flip-box-front {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+}
+.oxi-flip-trigger-click .oxilab-flip-box-flip-top-to-bottom:hover:not(.active) .oxilab-flip-box-back {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+/*
+ * Load guard (3.1.0). While the page is still loading, the flip box CSS
+ * arrives after the markup has been shown, and "transition: all" above made
+ * every property animate into place: the box flashed and shook for a moment.
+ * The oxi-flip-booting class (removed by a small script once the CSS is in)
+ * switches transitions off only during that time.
+ */
+.oxi-flip-booting .oxilab-flip-box-wrapper,
+.oxi-flip-booting .oxilab-flip-box-wrapper * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    transition: none !important;
+}

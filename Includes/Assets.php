@@ -67,6 +67,11 @@ class Assets {
 
 		wp_enqueue_style( 'oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
 
+		// "How to use?" menu in the plugin header, on every Flipbox page.
+		if ( 0 === strpos( $current_page, 'oxi-flip-box-ultimate' ) || 'flipbox-getting-started' === $current_page ) {
+			wp_enqueue_style( 'oxi-flip-howto-menu-css', OXI_FLIP_BOX_URL . 'asset/backend/css/howto-menu.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/howto-menu.css' ) );
+		}
+
 		if ( 'oxi-flip-box-ultimate-settings' === $current_page ) {
 			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
 		}

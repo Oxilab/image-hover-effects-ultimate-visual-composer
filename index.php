@@ -231,6 +231,7 @@ if ( ! class_exists( 'Oxilab_Flipbox' ) ) {
 			add_shortcode( 'oxilab_flip_box', [ $this, 'wp_shortcode' ] );
 			new \OXI_FLIP_BOX_PLUGINS\Modules\Visual_Composer();
 			new \OXI_FLIP_BOX_PLUGINS\Modules\Elementor();
+			new \OXI_FLIP_BOX_PLUGINS\Modules\Gutenberg();
 			// new \OXI_FLIP_BOX_PLUGINS\Modules\Divi();
 			$Flipbox_Widget = new \OXI_FLIP_BOX_PLUGINS\Modules\Widget();
 			add_filter( 'widget_text', 'do_shortcode' );

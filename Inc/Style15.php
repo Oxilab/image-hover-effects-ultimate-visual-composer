@@ -285,7 +285,7 @@ class Style15 extends Admin_Render {
             . ' backend-info-margin-bottom |' . sanitize_text_field( $_POST['backend-info-margin-bottom'] ) . '|'
             . ' backend-info-margin-left |' . sanitize_text_field( $_POST['backend-info-margin-left'] ) . '|'
             . ' backend-info-margin-right |' . sanitize_text_field( $_POST['backend-info-margin-right'] ) . '|'
-            . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+            . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
             . '|';
         return $data;
     }

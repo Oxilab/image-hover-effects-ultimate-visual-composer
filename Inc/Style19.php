@@ -287,7 +287,7 @@ class Style19 extends Admin_Render {
                 . ' backend-heading-padding-bottom |' . sanitize_text_field( $_POST['backend-heading-padding-bottom'] ) . '|'
                 . ' backend-heading-padding-left |' . sanitize_text_field( $_POST['backend-heading-padding-left'] ) . '|'
                 . ' backend-heading-padding-right |' . sanitize_text_field( $_POST['backend-heading-padding-right'] ) . '|'
-                . ' custom-css |' . sanitize_text_field( $_POST['custom-css'] ) . '|'
+                . ' custom-css |' . sanitize_textarea_field( $_POST['custom-css'] ) . '|'
                 . '|';
         return $data;
     }

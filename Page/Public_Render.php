@@ -74,6 +74,14 @@ class Public_Render {
      */
     public $admin;
 
+    /**
+     * True while the Flipbox block renders its block editor preview
+     * (Modules/Gutenberg.php), which works like a page builder preview.
+     *
+     * @since 3.1.0
+     */
+    public static $block_preview = false;
+
 
 
     /**
@@ -209,6 +217,10 @@ class Public_Render {
      * @return bool
      */
     protected function is_builder_context() {
+        // Block editor preview of the Flipbox block (REST block renderer).
+        if ( self::$block_preview ) {
+            return true;
+        }
         // Elementor editor.
         if ( class_exists( '\\Elementor\\Plugin' ) && isset( \Elementor\Plugin::$instance ) && isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
             return true;
@@ -255,9 +267,114 @@ class Public_Render {
      * @since 2.0.0
      */
     public function render() {
-        echo '<div class="oxi-addons-container ' . esc_attr( $this->WRAPPER ) . '  oxi-addons-flipbox-template-' . esc_attr( $this->dbdata['style_name'] ) . '">';
+        $click = 'click' === self::flip_trigger( isset( $this->dbdata['css'] ) ? $this->dbdata['css'] : '' );
+        // Page builders inject the markup without running its scripts, so the
+        // load guard (see boot_script()) is left out there.
+        $booting = ! $this->is_builder_context();
+        echo '<div class="oxi-addons-container ' . esc_attr( $this->WRAPPER ) . '  oxi-addons-flipbox-template-' . esc_attr( $this->dbdata['style_name'] ) . ( $click ? ' oxi-flip-trigger-click' : '' ) . ( $booting ? ' oxi-flip-booting' : '' ) . '">';
         $this->default_render( $this->style, $this->child, $this->admin );
         echo '</div>';
+        if ( $booting ) {
+            $this->boot_script();
+        }
+        if ( $click ) {
+            $this->flip_trigger_script();
+        }
+    }
+
+    /**
+     * Load guard (3.1.0).
+     *
+     * The flip box CSS prints at the end of the page, after this markup, so the
+     * browser first shows the boxes unstyled. When the CSS arrives, the
+     * "transition: all" in style.css made every property animate into place
+     * (sizes, colors and the flip itself), which looked like flashing and
+     * shaking for a moment after a reload. The container carries
+     * oxi-flip-booting, which turns transitions off (style.css), until the CSS
+     * has been applied for one painted frame. Then this script removes it, so
+     * hover and click flips animate exactly as before.
+     *
+     * The class never stays: it is also removed after about 5 seconds, and on
+     * the first mouse over a box once the page has fully loaded (covers boxes
+     * added to the page later without running scripts). Printed once per page.
+     *
+     * @since 3.1.0
+     */
+    protected function boot_script() {
+        static $printed = false;
+        if ( $printed ) {
+            return;
+        }
+        $printed = true;
+        $script = <<<'JS'
+(function () {
+    if (window.oxiFlipBoot) { return; }
+    window.oxiFlipBoot = true;
+    var released = false;
+    function release() {
+        var boxes = document.querySelectorAll('.oxi-flip-booting');
+        for (var i = 0; i < boxes.length; i++) { boxes[i].classList.remove('oxi-flip-booting'); }
+    }
+    function styled() {
+        var box = document.querySelector('.oxi-flip-booting');
+        return !box || window.getComputedStyle(box).display === 'flex';
+    }
+    var frames = 0;
+    function wait() {
+        if (released) { return; }
+        if ((document.readyState !== 'loading' && styled()) || frames > 300) {
+            released = true;
+            requestAnimationFrame(function () { requestAnimationFrame(release); });
+            return;
+        }
+        frames++;
+        requestAnimationFrame(wait);
+    }
+    requestAnimationFrame(wait);
+    setTimeout(function () { released = true; release(); }, 5000);
+    document.addEventListener('mouseover', function (e) {
+        if (document.readyState !== 'complete' || !e.target || !e.target.closest) { return; }
+        var box = e.target.closest('.oxi-flip-booting');
+        if (box) { box.classList.remove('oxi-flip-booting'); }
+    }, true);
+})();
+JS;
+        // The attributes keep caching and "delay JavaScript" plugins from
+        // holding this tiny script back.
+        echo '<script data-no-optimize="1" data-no-defer="1" data-cfasync="false" nowprocket>' . $script . '</script>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static script.
+    }
+
+    /**
+     * How a flip box flips: "hover" or "click".
+     *
+     * Saved as its own " flip-trigger |click|" pair at the end of the style
+     * string and read by name, so the numbered values every design reads never
+     * move. Anything else, including every flip box saved before 3.1.0, is
+     * "hover": those keep working exactly as before.
+     *
+     * @since 3.1.0
+     * @param  string $css Raw style string from the database.
+     * @return string
+     */
+    public static function flip_trigger( $css ) {
+        return ( is_string( $css ) && false !== strpos( $css, ' flip-trigger |click|' ) ) ? 'click' : 'hover';
+    }
+
+    /**
+     * Load the On Click script, only for flip boxes that use it.
+     *
+     * @since 3.1.0
+     */
+    protected function flip_trigger_script() {
+        wp_enqueue_script( 'oxi-flip-trigger', OXI_FLIP_BOX_URL . 'asset/frontend/js/flip-trigger.js', [], OXI_FLIP_BOX_PLUGIN_VERSION, true );
+        // Page builders keep only the module's own markup, so it travels
+        // inline there (the script guards against running twice).
+        if ( $this->is_builder_context() ) {
+            $script = file_get_contents( OXI_FLIP_BOX_PATH . 'asset/frontend/js/flip-trigger.js' );
+            if ( $script ) {
+                echo '<script>' . $script . '</script>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- the plugin's own file.
+            }
+        }
     }
 
     public function admin_edit_panel( $id ) {

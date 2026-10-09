@@ -21,10 +21,12 @@ Showcase team members or any list with Flipbox - Awesome Flip Boxes Image Overla
 
 Flipbox - Awesomes Flip Boxes Image Overlay combines the power of “Info Box” & “Call to Action” block altogether. On the front, it would look like a normal Info Box but as visitor hovers on the block, it flips with a cool CSS3 effect and shows a Call to Action section, provoking him to take a call. Add Flip Box in the Any page builder at WordPress, give user more flexibility in the back box, like icon list, image, web link and text info, etc. Flip box offer incredible elements that leads you to create a beautiful site. You can choose from several different flip animations and add two or more items with many different options for cycling through the items.  The Flipbox - Awesomes Flip Boxes Image Overlay’s content are completely customizable. Include images, videos, icons, buttons, maps, etc. make an amazing flip effect on the image. Besides, by beautiful and unrepeatable effects, your image gives a more professional look to your website. It has 29 unique templates with more than 50 effects in, each with Unlimited Backgrounds Colors. Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin help to create images with hover effects and scrolling animation. You can create images in a circle and square shapes customly. Fully responsive and Pure Css3 Set animation speed. You can represent your data in very beautiful and descriptive way at once!
 
+[youtube https://www.youtube.com/watch?v=Jj_8eL8nHPI]
+
 <h3>Quick Links</h3>
 <ul>
 	<li><a href="https://demos.oxilab.dev/flipbox/template/">Demo (Features)</a></li>
-	<li><a href="https://demos.oxilab.dev/flipbox/template/">How to Use (Video)</a></li>
+	<li><a href="https://www.youtube.com/watch?v=Jj_8eL8nHPI">How to Use (Video)</a></li>
 	<li><a href="https://oxilab.dev/docs/flipbox/">How to Use (Documentation)</a></li>
 	<li><a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/">Help and Support</a></li>
 	<li><a href="https://oxilab.dev/flipbox/pricing/">Upgrade to Pro</a></li>
@@ -174,10 +176,18 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 == Changelog ==
 
 = 3.1.0 =
+*New Flipbox block for the block editor (Gutenberg): add it, choose a flip box, and see a live preview right in the editor (hover it to see it flip). It shows exactly what the shortcode shows, supports wide and full width, and links to the flip box's editor.
+*Fixed flip boxes flashing and shaking for a moment after a page reload (most visible when hovering right away): the box no longer animates into place while the page loads.
+*Saving in the editor now updates the preview in place, so an element you are looking at in the browser's developer tools (Inspect) stays there instead of disappearing.
+*New Flip Trigger option in General Settings: flip on hover (default, unchanged for existing flip boxes) or only on click or tap. Works for all 29 designs, on touch screens and with the keyboard.
 *Added a Clone button next to Edit on every flip box item in the editor preview: it copies the item to the end of the list without reloading the page.
+*Added a copy button to the shortcode and the PHP code in the editor's Shortcode panel: one click copies it.
+*New getting started video tutorial on the Getting Started page and in the editor's Support tab.
+*Custom CSS now has a real code editor (the same one as WordPress's Additional CSS): line numbers, syntax colors and indenting. Line breaks are kept when you save; CSS you saved before loads exactly as it was.
 *The flip box editor now saves without reloading the page: Save changes, saving an item, Rename and Delete update the preview in place and confirm with a short message.
 *Editing a flip box item now opens its dialog instantly, without reloading the page first.
 *Deleting a flip box item now asks in a clear confirmation dialog that names the item, instead of the browser's plain alert.
+*Redesigned the "How to use?" menu: every guide now shows its tool's own logo (Elementor, WPBakery, WordPress) and a short description, plus a quick link to all documentation.
 *Refreshed the flip box editor: a header showing which flip box you are editing with a quick way back, cleaner tabs and settings panels, clearer "Add a flip box" and "Reorder flip boxes" buttons, "Save changes" and "Rename" buttons, accordion arrows on every panel, and tidier dialogs.
 *Redesigned the Import Templates page as a template library: live previews of every design and one click "Add to Create New".
 *Redesigned the Create New page: live previews of every design with a "Use this design" button, so you name the flip box and start editing in one step.
