@@ -295,6 +295,42 @@ body #wpbody-content {
   border-radius: 7px;
   border: 1px solid rgba(47, 180, 75, 0.1);
 }
+
+/* Screenshots: each image is a browser window with transparent rounded
+   corners and no shadow of its own; the shadow and corners come from here. */
+#oxilab-flipbox-getting-started
+  .oxilab-flipbox-plugin-container
+  section
+  .col-image:has(> img) {
+  max-height: none;
+  background: transparent;
+  box-shadow: none;
+}
+#oxilab-flipbox-getting-started
+  .oxilab-flipbox-plugin-container
+  section
+  .col-image
+  img,
+#oxilab-flipbox-getting-started
+  .oxilab-flipbox-plugin-container
+  .faq-item
+  .faq-body
+  img {
+  display: block;
+  height: auto;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(16, 24, 40, 0.08), 0 16px 40px rgba(16, 24, 40, 0.14);
+}
+#oxilab-flipbox-getting-started
+  .oxilab-flipbox-plugin-container
+  .faq-item
+  .faq-body
+  img {
+  width: 100%;
+  max-width: 760px;
+  margin: 14px 0 6px;
+}
 #oxilab-flipbox-getting-started
   .oxilab-flipbox-plugin-container
   section

@@ -12,7 +12,7 @@ class BasicUses {
 					<?php _e( 'Using Flipbox', 'oxi-flip-box-plugin' ); ?>
 					<mark><?php _e( 'Image Overlay', 'oxi-flip-box-plugin' ); ?></mark>
 				</h2>
-				<p><?php _e( 'Here are some common questions and guides to help you get started with Flipbox – Awesome Image Overlay.', 'oxi-flip-box-plugin' ); ?></p>
+				<p><?php _e( 'Here are some common questions and guides to help you get started with Flipbox.', 'oxi-flip-box-plugin' ); ?></p>
 			</div>
 
 			<section class="section-faq">
@@ -44,7 +44,7 @@ class BasicUses {
 						<p>
 							<?php _e( 'Each Flipbox you create generates a shortcode. Simply copy the shortcode and paste it inside any post, page, or widget area where you want the Flipbox to appear. Compatible with Gutenberg, Elementor, WPBakery, Divi, and more.', 'oxi-flip-box-plugin' ); ?>
 						</p>
-						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/basic-uses/shortcode.png'; ?>">
+						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/basic-uses/shortcode.webp'; ?>">
 					</div>
 				</div>
 

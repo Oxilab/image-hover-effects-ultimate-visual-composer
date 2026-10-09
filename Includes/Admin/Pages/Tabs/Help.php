@@ -44,7 +44,7 @@ class Help {
 					</div>
 					<div class="faq-body" style="display:none;">
 						<p>
-							<?php _e( "Go to Plugins → Add New → Upload Plugin, choose the Flipbox .zip file, install and activate. You can also install it directly from the WordPress plugin directory by searching for 'Flipbox – Awesomes Image Overlay'.", 'oxi-flip-box-plugin' ); ?>
+							<?php _e( "Go to Plugins → Add New → Upload Plugin, choose the Flipbox .zip file, install and activate. You can also install it directly from the WordPress plugin directory by searching for 'Flipbox'.", 'oxi-flip-box-plugin' ); ?>
 							<a href="https://oxilab.dev/docs/flipbox/" target="_blank" rel="noopener noreferrer">
 								<?php _e( 'Read Installation Guide', 'oxi-flip-box-plugin' ); ?>
 							</a>
@@ -62,9 +62,9 @@ class Help {
 					</div>
 					<div class="faq-body" style="display:none;">
 						<p>
-							<?php _e( "After purchase, go to the Plugins menu in your WordPress dashboard. Scroll down to the Flipbox - Awesome Flip Boxes Image Overlay plugin and click on 'Activate License.' A modal will appear where you can enter and submit your license key.", 'oxi-flip-box-plugin' ); ?>
+							<?php _e( "After purchase, open Flip Box › Settings in your WordPress dashboard. In the License card, click 'Activate license', then paste the license key from your purchase email and submit it.", 'oxi-flip-box-plugin' ); ?>
 						</p>
-						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/help/license-activate.png'; ?>">
+						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/help/license-activate.webp'; ?>">
 					</div>
 				</div>
 				<!-- FAQ Item 4 -->
@@ -95,7 +95,7 @@ class Help {
 						<p>
 							<?php _e( 'Each Flipbox you create generates a shortcode. Copy this shortcode and paste it inside any post, page, or widget area where you want the Flipbox to appear. Works with Gutenberg, Elementor, WPBakery, Divi, and other builders.', 'oxi-flip-box-plugin' ); ?>
 						</p>
-						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/basic-uses/shortcode.png'; ?>">
+						<img src="<?php echo OXI_FLIP_BOX_URL . 'image/getting-started/basic-uses/shortcode.webp'; ?>">
 					</div>
 				</div>
 

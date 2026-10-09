@@ -18,6 +18,7 @@ class Changelog {
                         'Added a Clone button next to Edit on every flip box item in the editor preview: it copies the item to the end of the list without reloading the page.',
                         'Added a copy button to the shortcode and the PHP code in the editor\'s Shortcode panel: one click copies it.',
                         'New getting started video tutorial on the Getting Started page and in the editor\'s Support tab.',
+                        'Fresh screenshots of the current plugin on the Getting Started page, clearer text there, the real [oxilab_flip_box id="1"] in the shortcode example, and the license help now points to Settings.',
                         'Custom CSS now has a real code editor (the same one as WordPress\'s Additional CSS): line numbers, syntax colors and indenting. Line breaks are kept when you save; CSS you saved before loads exactly as it was.',
                         'Added a Danger zone to the Settings page: delete all flip boxes, items and settings at once after typing DELETE to confirm, or choose to remove all Flipbox data when the plugin is deleted.',
                     ],

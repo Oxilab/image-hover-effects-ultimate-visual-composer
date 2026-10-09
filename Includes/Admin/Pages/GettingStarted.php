@@ -20,7 +20,7 @@ class GettingStarted {
 				<div class="getting-started-header">
 					<img src="<?php echo esc_attr( OXI_FLIP_BOX_URL . 'image/flipbox-logo.svg' ); ?>" alt="Flipbox">
 					<p class="oxilab-flipbox-plugin-description">
-						<?php echo esc_html__( "Thank you for choosing Flipbox - Awesomes Flip Boxes Image Overlay - the most friendly WordPress Flip Box Or Image Overlay Plugins. Here's how to get started.", 'oxi-flip-box-plugin' ); ?>
+						<?php echo esc_html__( "Thank you for choosing Flipbox, the friendly flip box and image overlay plugin for WordPress. Here's how to get started.", 'oxi-flip-box-plugin' ); ?>
 					</p>
 				</div>
 				<div class="getting-started-menu">
