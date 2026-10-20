@@ -37,7 +37,7 @@ class Style1 extends Public_Render {
                         sa-data-animation="<?php echo esc_attr( $styledata[55] ); ?>"
                         sa-data-animation-offset="100%"
                         sa-data-animation-delay="0ms"
-                        sa-data-animation-duration=" <?php echo esc_attr( ( $styledata[57] * 1000 ) ); ?>ms"
+                        sa-data-animation-duration=" <?php echo esc_attr( ( $this->num( $styledata[57] ) * 1000 ) ); ?>ms"
                         >
                         <div class="<?php echo ( $this->admin == 'admin' ) ? 'oxilab-ab-id' : ''; ?>  oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?>-<?php echo esc_attr( $value['id'] ); ?>">
                             <?php
@@ -137,7 +137,7 @@ background-size: 100% 100%;
                     position: relative;
                 }
                 .oxilab-flip-box-body-' . $styleid . ':after {
-                    padding-bottom: ' . ( $styledata[47] / $styledata[45] * 100 ) . '%;
+                    padding-bottom: ' . $this->percent( $styledata[47], $styledata[45] ) . '%;
                     content: "";
                     display: block;
                 }
@@ -161,8 +161,8 @@ background-size: 100% 100%;
                     top: 0;
                     left: 0;
                     background: ' . $styledata[5] . ';
-                    width: calc(100% - ' . ( $styledata[75] * 2 ) . 'px);
-                    height: calc(100% - ' . ( $styledata[75] * 2 ) . 'px);
+                    width: calc(100% - ' . ( $this->num( $styledata[75] ) * 2 ) . 'px);
+                    height: calc(100% - ' . ( $this->num( $styledata[75] ) * 2 ) . 'px);
                     margin: ' . $styledata[75] . 'px;
                     padding: ' . $styledata[71] . 'px ' . $styledata[73] . 'px;
                     display: block;
@@ -193,7 +193,7 @@ background-size: 100% 100%;
                     border: 1px solid ' . $styledata[5] . ';
                     height: ' . $styledata[79] . 'px;
                     width: ' . $styledata[79] . 'px;
-                    bottom: -' . ( $styledata[79] / 2 ) . 'px;
+                    bottom: -' . ( $this->num( $styledata[79] ) / 2 ) . 'px;
                     -webkit-transform: translateX(-50%);
                     -ms-transform: translateX(-50%);
                     -moz-transform: translateX(-50%);
@@ -222,7 +222,7 @@ background-size: 100% 100%;
                     float: left;
                 }
                 .oxilab-flip-box-' . $styleid . '-heading-data{
-                    margin-top: ' . ( $styledata[79] / 2 ) . 'px;
+                    margin-top: ' . ( $this->num( $styledata[79] ) / 2 ) . 'px;
                     color: ' . $styledata[13] . ';
                     width: 100%;
                     float: left;
@@ -255,8 +255,8 @@ background-size: 100% 100%;
                     top: 0;
                     left: 0;
                     background-color: ' . $styledata[15] . ';
-                    width: calc(100% - ' . ( $styledata[105] * 2 ) . 'px);
-                    height: calc(100% - ' . ( $styledata[105] * 2 ) . 'px);
+                    width: calc(100% - ' . ( $this->num( $styledata[105] ) * 2 ) . 'px);
+                    height: calc(100% - ' . ( $this->num( $styledata[105] ) * 2 ) . 'px);
                     margin: ' . $styledata[105] . 'px;
                     padding: ' . $styledata[101] . 'px ' . $styledata[103] . 'px;
                     display: block;

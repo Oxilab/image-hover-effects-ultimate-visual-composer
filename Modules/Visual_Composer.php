@@ -23,6 +23,8 @@ class Visual_Composer {
 				'name' => __( 'Flip Boxes and Image Overlay' ),
 				'base' => 'oxilab_flip_box_VC',
 				'category' => __( 'Content' ),
+				// WPBakery shows a URL here as the element's icon.
+				'icon'     => OXI_FLIP_BOX_URL . 'image/logo.png',
 				'params' => [
 					[
 						'type' => 'textfield',

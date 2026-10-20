@@ -5,7 +5,7 @@ Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 4.4
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -174,6 +174,10 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 
 == Changelog ==
+
+= 3.1.1 =
+*Fixed a PHP 8 error that stopped the whole page right after a flip box when a size setting, such as Icon width, was left empty or set to 0. The rest of the page (footer, styles and page builder layout) now loads again, and flip boxes with normal settings look exactly as before.
+*Added the Flipbox logo to the Flipbox element in WPBakery's Add Element panel, so it is easy to find.
 
 = 3.1.0 =
 *New Flipbox block for the block editor (Gutenberg): add it, choose a flip box, and see a live preview right in the editor (hover it to see it flip). It shows exactly what the shortcode shows, supports wide and full width, and links to the flip box's editor.

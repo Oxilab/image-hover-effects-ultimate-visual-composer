@@ -47,6 +47,8 @@ Every request:
   (`esc_attr` on every value) and item text through `text_render()` (`wp_kses_post`). Keep both.
 - SQL only through `$wpdb->prepare` or `$wpdb->update`; table names from `$wpdb->prefix`.
 - Never let a missing row or class cause a fatal error: check before `new $cls`.
+- Never calculate with a raw saved value: use `$this->num()` and `$this->percent()` from `Public_Render`. On PHP 8
+  one empty setting in plain math stopped a customer's whole page (2026-10-20, [../code/templates.md](../code/templates.md)).
 
 Public (logged out):
 - Shortcodes read a flip box by integer id; there is no public AJAX while the Divi module stays off (its

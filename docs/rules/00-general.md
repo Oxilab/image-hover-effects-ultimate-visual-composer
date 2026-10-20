@@ -152,3 +152,19 @@ end pages run on Astra; the site also has Divi 5 installed (see [coding.md](codi
 
 When Richard corrects something or sets a new rule, update the matching file here in the same session, with the
 reason. If it applies to all Oxilab plugins, also save it to Claude's memory and to the other plugins' `docs/rules/`.
+
+## 18. No version numbers in screenshots and videos
+
+Richard, 2026-10-17: keep the plugin version out of every screenshot and video, so a new release never makes them
+look old and nothing has to be captured again just because the version changed.
+
+- Hide every version number on screen at capture time: the plugin's own version labels (menu footers such as
+  "Version 2.1.1 · Pro", headers, about boxes, badges), the Plugins screen row, update notices and WordPress' own
+  footer version. Hide them with the capture script (CSS or a DOM change in the browser), never by editing the
+  plugin.
+- Don't capture a changelog or "What's new" screen; it is a list of versions.
+- Never write a version number in a title, caption, voice over, on-screen text, thumbnail or anything else the
+  viewer sees.
+- Capture scripts fail a shot when the visible text still holds the current version or "Version" followed by a
+  number, the same way they fail on personal data.
+- This is the one exception to "real UI stays as it is": the version is removed, everything else is shown as it is.

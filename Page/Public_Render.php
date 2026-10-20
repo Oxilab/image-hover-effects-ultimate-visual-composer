@@ -122,6 +122,39 @@ class Public_Render {
         );
     }
 
+    /**
+     * A saved style value as a number, for the sizes a template calculates.
+     *
+     * PHP 8 stops with a fatal TypeError when it calculates with an empty or
+     * text value (PHP 7 only warned and used 0), so one empty setting, such as
+     * an icon size left blank, ended the whole page right after the flip box.
+     * Empty and text values count as 0 here, the number PHP 7 used.
+     *
+     * @since 3.1.1
+     * @param  mixed $value A value from parse_styledata().
+     * @return float
+     */
+    protected function num( $value ) {
+        return is_scalar( $value ) ? (float) $value : 0.0;
+    }
+
+    /**
+     * Height as a percentage of width, for the box ratio every template sets.
+     *
+     * A width of 0 or empty gives 0 instead of a fatal "Division by zero" on
+     * PHP 8. The box looks the same as on PHP 7, where the result was not a
+     * valid CSS value either.
+     *
+     * @since 3.1.1
+     * @param  mixed $height Saved height.
+     * @param  mixed $width  Saved width.
+     * @return float|int
+     */
+    protected function percent( $height, $width ) {
+        $width = $this->num( $width );
+        return 0.0 === $width ? 0 : $this->num( $height ) / $width * 100;
+    }
+
     public function font_familly( $data = '' ) {
 
         $check = get_option( 'oxi_addons_google_font' );

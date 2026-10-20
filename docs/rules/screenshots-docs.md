@@ -56,3 +56,14 @@ context, admin cleanup, privacy scan with the back-face hit test, `fblib.openLis
 3. Show Richard the set with the doc draft.
 4. Save the files in `r2-uploads/flipbox/docs/`, put their CDN URLs and alt text in the doc, and give Richard the
    list of files to upload to R2.
+
+## Background: no grid, no squares (Richard, 2026-10-17)
+
+The stage, frame or canvas behind a screenshot is a plain color or a smooth gradient with soft glows only: **no grid,
+squares, lines, dots or any repeated pattern**, not even faint. The same rule covers videos, thumbnails and blog
+images. On 2026-10-17 the pipelines `image-hover-tutorial-video/scripts/wporg/frame.mjs` and
+`wporg-screenshots/product-layouts/frame.mjs` still draw a 58 px grid ("so the flat areas of the gradient are not
+dead space"): remove that layer before the next build, and never copy it into a new pipeline. The installed
+WordPress.org sets of Shop Manager, Image Hover and Product Layouts still show a grid until they are rebuilt.
+
+- **No version numbers** (Richard, 2026-10-17): hide every plugin and WordPress version on screen and never say one; see [00-general.md](00-general.md) rule 18.

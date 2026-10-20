@@ -75,7 +75,8 @@ dialog). `import_font_family()` also builds the font picker and the free plan ga
 
 ## Page\Public_Render
 
-`parse_styledata()`, `text_render()`, `font_familly()`, `font_awesome_render()`, `hooks()` (assets plus inline CSS
+`parse_styledata()`, `num()` and `percent()` (safe math on saved values, see [templates.md](templates.md)),
+`text_render()`, `font_familly()`, `font_awesome_render()`, `hooks()` (assets plus inline CSS
 and JS), `is_builder_context()`, `public_loader()`, `render()`, `boot_script()` (load guard), `flip_trigger()`,
 `flip_trigger_script()`, `admin_edit_panel()`. Static `$block_preview` is set by the block's editor preview.
 

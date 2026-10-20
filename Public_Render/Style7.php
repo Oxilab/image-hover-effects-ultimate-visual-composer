@@ -38,7 +38,7 @@ class Style7 extends Public_Render {
                         sa-data-animation="<?php echo esc_attr( $styledata[55] ); ?>"
                         sa-data-animation-offset="100%"
                         sa-data-animation-delay="0ms"
-                        sa-data-animation-duration=" <?php echo esc_attr( ( $styledata[57] * 1000 ) ); ?>ms"
+                        sa-data-animation-duration=" <?php echo esc_attr( ( $this->num( $styledata[57] ) * 1000 ) ); ?>ms"
                         >
                         <div class="<?php echo ( $this->admin == 'admin' ) ? 'oxilab-ab-id' : ''; ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?>-<?php echo esc_attr( $value['id'] ); ?>">
                             <?php
@@ -149,7 +149,7 @@ background-size: 100% 100%;
                     position: relative;
                 }
                 .oxilab-flip-box-body-' . $styleid . ':after {
-                    padding-bottom: ' . ( $styledata[47] / $styledata[45] * 100 ) . '%;
+                    padding-bottom: ' . $this->percent( $styledata[47], $styledata[45] ) . '%;
                     content: "";
                     display: block;
                 }

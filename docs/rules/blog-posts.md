@@ -199,7 +199,7 @@ The featured image and every screenshot have exactly this size, so the post look
 
 | Part | Spec |
 | --- | --- |
-| Background | Gradient in the Flipbox logo colors: deep teal to logo teal (`#063b3a` → `#17bcb5`, a soft lighter glow top right), a faint warm touch taken from the banner. **Ask Richard** to approve the first one, as he did for Product Layouts. No photo, no busy pattern |
+| Background | Gradient in the Flipbox logo colors: deep teal to logo teal (`#063b3a` → `#17bcb5`, a soft lighter glow top right), a faint warm touch taken from the banner. **Ask Richard** to approve the first one, as he did for Product Layouts. No photo, no busy pattern, no grid, squares, lines or dots (Richard, 2026-10-17) |
 | Left side, top to bottom | (1) a label pill in a lighter teal with white text, the post type: "How to", "Guide", "Comparison"; (2) the headline in large bold white type, 2 lines, holding the focus keyword ("Add Flip Boxes in WordPress"); (3) a subtitle in lighter white, 1 or 2 lines, the promise ("Front, back and a button. No code."); (4) an optional small wave in the warm accent under the subtitle (a decoration, never a dash before a label); (5) the logo at the bottom: a white pill with the Flipbox mark `icon-256x256.png` and the wordmark "Flipbox" |
 | Right side | Real Flipbox UI or output that shows the topic: 1 or 2 crops (a row of flip boxes with one mid flip, an editor panel, the item dialog) as rounded white cards with a soft shadow, slightly tilted or overlapping, plus at most one round icon badge in the brand teal between them |
 | **No browser frame** | No macOS or Apple browser window, no traffic-light dots, no address bar around the UI cards (Richard's rule) |

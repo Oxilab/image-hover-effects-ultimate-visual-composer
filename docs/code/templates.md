@@ -41,6 +41,11 @@ Rules:
 - Writers of `css`: the editor save, `create_flip` (design JSON or clone), and import; create, clone and import copy
   it verbatim, so appended keys travel with it.
 - `Public_Render::parse_styledata()` runs `esc_attr` on every value and turns numbers into floats (PHP 8 math).
+- Any calculation with a saved value goes through `$this->num( $styledata[N] )`, and the box ratio through
+  `$this->percent( $styledata[47], $styledata[45] )`. On PHP 8 an empty, zero or text value in plain math is a fatal
+  error that stops the whole page right after the flip box (found 2026-10-20 on a customer's WPBakery page: Style 1
+  with the icon size left empty). `num()` counts such values as 0, the number PHP 7 used, so valid flip boxes print
+  byte for byte the same CSS. Test: `security-tests/image-hover-effects-ultimate-visual-composer/empty-values-render.php`.
 
 Field names in the editor form are the keys (`front-background-color`, `flip-col`, `flip-width`, ...).
 Sanitizing is per field in each `Inc/StyleN::register_style()`: `sanitize_text_field`, `sanitize_hex_color` for

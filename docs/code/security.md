@@ -21,6 +21,7 @@ The checklist for new code is in [../rules/coding.md](../rules/coding.md) (Secur
 | Version | Change |
 | --- | --- |
 | 3.1.0 | Danger zone with server-side `confirm=DELETE` and `manage_options`; uninstall on opt in only; "Remove from list" deletes only Flipbox's own `oxi_div_import` row; item Clone checks the item belongs to the flip box; Custom CSS saved with `sanitize_textarea_field` |
+| 3.1.1 (2026-10-20, not tagged yet) | Bad input crash: an empty, zero or text value in a calculated setting (width, height, animation duration; Style 1 also border and icon size) was a fatal 500 on PHP 8 for every visitor of the page. All 64 calculations in the 29 templates now go through `Public_Render::num()` / `percent()`. Tested with `security-tests/image-hover-effects-ultimate-visual-composer/empty-values-render.php`: before 87 of 87 renders fatal, after 0; payload `</style ><script>alert(1)</script>"><img src=x onerror=alert(1)>` in those settings never printed raw (the helpers return numbers only); the 16 saved local flip boxes byte identical (HTML and CSS hashes). No new input, handler, capability or nonce, so no role attacks apply |
 
 ## Open items (found while writing these docs, 2026-10-16, by reading the code; nothing was run or changed)
 

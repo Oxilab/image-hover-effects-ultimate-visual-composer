@@ -8,7 +8,7 @@ Pipeline to copy: `/Users/richard/Local Sites/oxilab/shop-manager-launch-video/`
 
 | Format | Length | Shape |
 | --- | --- | --- |
-| Launch / explainer | 60 to 80 s, 16:9 plus a 9:16 cut | Problem, reveal, 3 to 5 feature beats, outcome, call to action |
+| Launch / explainer | 60 to 90 s (under 1:30 so the Reels cut fits), every platform format ([video-common.md](video-common.md), Platforms and formats) | Problem, reveal, 3 to 5 feature beats, outcome, call to action |
 | Feature tour | 2:30 to 3:10, 16:9 | The main features with their use, calmer pace, chapters |
 
 **Hard limit (Richard, 2026-10-16): every explainer video is under 5 minutes**, the final render included (end card

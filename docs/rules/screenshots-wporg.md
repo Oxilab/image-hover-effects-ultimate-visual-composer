@@ -19,7 +19,7 @@ Nothing touches the plugin folder before step 3. Back up the old screenshots to 
 | --- | --- |
 | Capture | Playwright, 1500 px wide, device scale 2, height per shot (about 860 to 990) |
 | Output | 3256 px wide PNG, the Shop Manager width |
-| Stage | A deep teal gradient from the Flipbox banner and logo (for example `#063b3a` → `#0d817c`), teal glow `rgba(23,188,181,.8)`, a warm accent glow taken from `.wordpress-org/banner-1544x500.png`, faint 58 px grid, padding 64. Pick the exact colors from the banner, as was done for Image Hover |
+| Stage | A deep teal gradient from the Flipbox banner and logo (for example `#063b3a` → `#0d817c`), teal glow `rgba(23,188,181,.8)`, a warm accent glow taken from `.wordpress-org/banner-1544x500.png`, no grid or pattern (see Background below), padding 64. Pick the exact colors from the banner, as was done for Image Hover |
 | Window | macOS window: 42 px bar with traffic lights, 15 px corners, deep shadow |
 | Logo pill | Top left: the mark `.wordpress-org/icon-256x256.png` plus the wordmark "Flipbox" |
 | Title | Centred, 800 weight, 62 px, white, no dashes, about 30 characters; the build fails if the title comes within 24 px of the logo |
@@ -45,3 +45,14 @@ Build it next to the tutorial: `/Users/richard/Local Sites/oxilab/flipbox-tutori
 `frame.mjs` and `build.mjs` from `image-hover-tutorial-video/scripts/wporg/`, change colors, logo and `SHOTS`).
 Output `out/wporg/screenshot-N.png`. Login cookies from `scripts/db/auth-cookies.php`; the identity list and cookies
 live in the scratchpad only.
+
+## Background: no grid, no squares (Richard, 2026-10-17)
+
+The stage, frame or canvas behind a screenshot is a plain color or a smooth gradient with soft glows only: **no grid,
+squares, lines, dots or any repeated pattern**, not even faint. The same rule covers videos, thumbnails and blog
+images. On 2026-10-17 the pipelines `image-hover-tutorial-video/scripts/wporg/frame.mjs` and
+`wporg-screenshots/product-layouts/frame.mjs` still draw a 58 px grid ("so the flat areas of the gradient are not
+dead space"): remove that layer before the next build, and never copy it into a new pipeline. The installed
+WordPress.org sets of Shop Manager, Image Hover and Product Layouts still show a grid until they are rebuilt.
+
+- **No version numbers** (Richard, 2026-10-17): hide every plugin and WordPress version on screen and never say one; see [00-general.md](00-general.md) rule 18.
