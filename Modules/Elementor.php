@@ -13,22 +13,23 @@ class Elementor {
 
     public function __construct() {
         add_action( 'elementor/widgets/register', [ $this, 'register' ] );
-        // Paint the custom widget icon (plugin SVG) in the Elementor editor panel.
+        // Paint the custom widget icon (the plugin logo) in the Elementor editor panel.
         add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'editor_icon_style' ] );
     }
 
     /**
-     * Output the CSS that renders the plugin's SVG as the Flipbox widget icon
+     * Output the CSS that renders the plugin logo as the Flipbox widget icon
      * in Elementor's widget panel. get_icon() returns ICON_CLASS, applied to an
-     * <i> element; we paint that element with the SVG as a background image.
+     * <i> element; we paint that element with the logo as a background image.
+     * The colored logo (the same one WPBakery shows), not the grey menu icon.
      */
     public function editor_icon_style() {
         if ( ! defined( 'OXI_FLIP_BOX_URL' ) ) {
             return;
         }
-        $svg = OXI_FLIP_BOX_URL . 'image/admin-icon.svg';
-        $css = 'i.' . self::ICON_CLASS . '{display:inline-block;width:28px;height:28px;'
-            . "background:url('" . esc_url( $svg ) . "') center/contain no-repeat;}"
+        $icon = OXI_FLIP_BOX_URL . 'image/logo.png';
+        $css  = 'i.' . self::ICON_CLASS . '{display:inline-block;width:28px;height:28px;'
+            . "background:url('" . esc_url( $icon ) . "') center/contain no-repeat;}"
             . 'i.' . self::ICON_CLASS . ':before{content:"";}';
         wp_register_style( 'oxi-flipbox-elementor-icon', false );
         wp_enqueue_style( 'oxi-flipbox-elementor-icon' );

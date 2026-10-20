@@ -158,26 +158,47 @@ If You acquired the Flipbox - Awesomes Flip Boxes Image Overlay and have not rec
 
 - If you can not do that, please contact with us, we will solve this little problem.
 
-= How to enable the Flipbox - Awesomes Flip Boxes Image Overlay to in a post or page? =
+= Can I add a flip box with a shortcode? =
 
-[oxilab_flip_box id="1"]
-= How to enable the Flipbox - Awesomes Flip Boxes Image Overlay to in a page or Template? =
+Yes. Every flip box has its own shortcode, for example `[oxilab_flip_box id="1"]`. Copy it from Flip Box → Flip Box (the Copy button next to each flip box) or from the Shortcode panel in the flip box editor. Then paste it into any post or page, a Shortcode block, a Text widget or any page builder that accepts shortcodes.
 
-&lt;?php echo do_shortcode(&#039;[oxilab_flip_box id=&quot;1&quot;]&#039;); ?&gt;
+To show a flip box from a theme template file, use the PHP code from the same places:
+
+`<?php echo do_shortcode( '[oxilab_flip_box id="1"]' ); ?>`
+
+= Can I use Flipbox with Gutenberg? Does it support the block editor? =
+
+Yes. Flipbox has its own Gutenberg block. Click the + button, search for "Flipbox" and add the Flipbox block. Choose your flip box in the "Select a flip box" list. The block shows a live preview right in the editor and has a link to edit that flip box. It supports wide and full width.
+
+= Can I use Flipbox with Elementor? Does it support Elementor? =
+
+Yes. Flipbox has its own Elementor widget. In the Elementor editor, search for "Flipbox" in the Elements panel and drag the Flipbox widget onto the page. Pick your flip box in the widget's Shortcode list, where each flip box is listed by name and number. The flip box shows in the Elementor editor while you build.
+
+= Can I use Flipbox with WPBakery Page Builder? Does it support WPBakery? =
+
+Yes. Flipbox has its own WPBakery element. Click Add Element, search for "Flip" and add the Flip Boxes and Image Overlay element (in the Content tab). In its ID field, enter the number of your flip box. That is the number in its shortcode and next to its name on the Flip Box page, so for `[oxilab_flip_box id="5"]` enter 5. You can also paste the shortcode into a Text Block.
 
 == Screenshots ==
 
-1. Flipbox - Awesomes Flip Boxes Image Overlay Template Demo
-2. Admin Panel.
-3. Live Preview.
-4. Popup Data Input form.
+1. The flip box editor: settings on top, a live preview below. Hover a card in the preview to see its back side.
+2. The Flip Box page lists every flip box with its shortcode, a Copy button and Edit, Clone, Export and Delete.
+3. A flip box on a page: hover a card and it flips to show its title, text and button.
+4. Create New: pick a design, give the flip box a name and start editing.
+5. The card dialog: set the front image, the back title, text, button text, link and background image.
+6. Flip Trigger in General Settings: flip on hover or only on click.
+7. Import Templates: add more ready made designs to your Create New list in one click.
+8. The Shortcode panel in the editor: copy the shortcode with one click and paste it into any post, page or page builder.
+9. Gutenberg: the Flipbox block in the block inserter, and its live preview in the post.
+10. WPBakery: the Flipbox element in the Add Element panel.
+11. Elementor: the Flipbox widget in the Elements panel, and a flip box on the page.
+12. Settings: who can edit flip boxes, which assets load, and the Danger zone.
 
 
 == Changelog ==
 
 = 3.1.1 =
 *Fixed a PHP 8 error that stopped the whole page right after a flip box when a size setting, such as Icon width, was left empty or set to 0. The rest of the page (footer, styles and page builder layout) now loads again, and flip boxes with normal settings look exactly as before.
-*Added the Flipbox logo to the Flipbox element in WPBakery's Add Element panel, so it is easy to find.
+*Added the colored Flipbox logo to the Flipbox element in WPBakery's Add Element panel and to the Flipbox widget in Elementor's panel, so both are easy to find.
 
 = 3.1.0 =
 *New Flipbox block for the block editor (Gutenberg): add it, choose a flip box, and see a live preview right in the editor (hover it to see it flip). It shows exactly what the shortcode shows, supports wide and full width, and links to the flip box's editor.
