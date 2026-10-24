@@ -66,6 +66,8 @@ class Assets {
 		$current_page   = isset( $_GET['page'] ) && $_GET['page'] ? $_GET['page'] : '';
 
 		wp_enqueue_style( 'oxi_flip-global-admin-style', OXI_FLIP_BOX_URL . 'asset/backend/css/global-admin.css', false, OXI_FLIP_BOX_PLUGIN_VERSION );
+		// Flipbox's Freemius notices (3.1.2); scoped to its own notices, so safe everywhere.
+		wp_enqueue_style( 'oxi-flip-notices-css', OXI_FLIP_BOX_URL . 'asset/backend/css/notices.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/notices.css' ) );
 
 		// "How to use?" menu in the plugin header, on every Flipbox page.
 		if ( 0 === strpos( $current_page, 'oxi-flip-box-ultimate' ) || 'flipbox-getting-started' === $current_page ) {
@@ -95,6 +97,14 @@ class Assets {
 
 		// Freemius Account page: only our own scoped styles, no Bootstrap or
 		// admin.css, so Freemius' forms and dialogs keep working as designed.
+		// Freemius Affiliation page (3.1.2): the Account page styles plus its own.
+		if ( 'oxi-flip-box-ultimate-affiliation' === $current_page ) {
+			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
+			wp_enqueue_style( 'oxi-flip-account-css', OXI_FLIP_BOX_URL . 'asset/backend/css/account.css', [ 'oxi-flip-settings-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/account.css' ) );
+			wp_enqueue_style( 'oxi-flip-affiliation-css', OXI_FLIP_BOX_URL . 'asset/backend/css/affiliation.css', [ 'oxi-flip-account-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/affiliation.css' ) );
+			wp_enqueue_style( 'oxi-flip-admin-menu-css', OXI_FLIP_BOX_URL . 'asset/backend/css/admin-menu.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/admin-menu.css' ) );
+		}
+
 		if ( 'oxi-flip-box-ultimate-account' === $current_page ) {
 			wp_enqueue_style( 'oxi-flip-settings-css', OXI_FLIP_BOX_URL . 'asset/backend/css/settings.css', false, filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/settings.css' ) );
 			wp_enqueue_style( 'oxi-flip-account-css', OXI_FLIP_BOX_URL . 'asset/backend/css/account.css', [ 'oxi-flip-settings-css' ], filemtime( OXI_FLIP_BOX_PATH . 'asset/backend/css/account.css' ) );

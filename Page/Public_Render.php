@@ -232,7 +232,9 @@ class Public_Render {
         endif;
 
         if ( $this->inline_css != '' ) :
-            $css = wp_kses_decode_entities( stripslashes( $inlinecss ) );
+            // A saved value can never end the <style> element: "</" is written
+            // as "<\/" (valid CSS needs neither, so normal output is unchanged).
+            $css = str_replace( '</', '<\/', wp_kses_decode_entities( stripslashes( $inlinecss ) ) );
             if ( $is_builder_ctx ) {
                 echo '<style>' . $css . '</style>';
             } else {

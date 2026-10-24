@@ -43,7 +43,7 @@ class Style25 extends Public_Render {
                         <div class="<?php echo ( $this->admin == 'admin' ) ? 'oxilab-ab-id' : ''; ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?> oxilab-flip-box-body-<?php echo esc_attr( $styleid ); ?>-<?php echo esc_attr( $value['id'] ); ?>">
                             <?php
                             if ( $filesdata[11] != '' ) {
-                                echo '<a href="' . esc_attr( $filesdata[11] ) . '" target="' . esc_attr( $styledata[53] ) . '">';
+                                echo '<a href="' . esc_url( $filesdata[11] ) . '" target="' . esc_attr( $styledata[53] ) . '">';
                             }
                             ?>
                             <div class="oxilab-flip-box-body-absulote">
@@ -55,7 +55,7 @@ class Style25 extends Public_Render {
                                                     <img src="<?php echo esc_url( $filesdata[5] ); ?>" 
                                                     <?php
 													if ( isset( $filesdata[15] ) ) :
-														echo 'alt="' . $filesdata[19] . '"';
+														echo 'alt="' . esc_attr( $filesdata[19] ) . '"';
                                                             endif;
 													?>
                                                     >

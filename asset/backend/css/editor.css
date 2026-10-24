@@ -1083,6 +1083,25 @@ body.oxi-flip-editor-page .oxi-flip-ed-toast.is-error .oxi-flip-ed-toast-icon::b
     font-size: 16px;
 }
 
+/* Info hint, for example "Link Open changes show after you save" (3.1.2). */
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-info {
+    border-left-color: var(--flip-brand);
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-info .oxi-flip-ed-toast-icon {
+    color: var(--flip-brand-strong);
+    background: var(--flip-brand-soft);
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-info .oxi-flip-ed-toast-icon::before {
+    content: "\f348"; /* info */
+    font-size: 16px;
+}
+
+body.oxi-flip-editor-page .oxi-flip-ed-toast.is-info .oxi-flip-ed-toast-text strong {
+    color: var(--flip-ink);
+}
+
 @media (prefers-reduced-motion: reduce) {
     body.oxi-flip-editor-page .oxi-flip-ed-toast {
         transition: none;

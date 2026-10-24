@@ -3,7 +3,7 @@
  * Plugin Name:       Flipbox - Awesomes Flip Boxes Image Overlay
  * Plugin URI:        https://oxilab.dev/flipbox
  * Description:       Flipbox - Awesomes Flip Boxes Image Overlay is the most easiest Flip builder Plugin. Create multiple Flip or  Flipboxes  with this.
- * Version:           3.1.1
+ * Version:           3.1.2
  * Author:            Oxilab
  * Author URI:        https://oxilab.dev
  * Text Domain:       oxi-flip-box-plugin
@@ -38,6 +38,7 @@ if ( ! function_exists( 'wpkin_fb_v' ) ) {
 					'has_premium_version' => false,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,
+					'has_affiliation'     => 'selected',
 					'menu'                => [
 						'slug'       => 'oxi-flip-box-ultimate',
 						'first-path' => 'admin.php?page=flipbox-getting-started',
@@ -80,7 +81,7 @@ if ( ! class_exists( 'Oxilab_Flipbox' ) ) {
 		/**
 		 * Plugin Version
 		 */
-        const VERSION = '3.1.1';
+        const VERSION = '3.1.2';
 
 		/**
 		 * Php Version

@@ -56,7 +56,7 @@ class Style1 extends Public_Render {
                                                             <img src="<?php echo esc_url( $filesdata[5] ); ?>" 
                                                             <?php
                                                             if ( isset( $filesdata[15] ) ) :
-																echo 'alt="' . $filesdata[15] . '"';
+																echo 'alt="' . esc_attr( $filesdata[15] ) . '"';
                                                             endif;
                                                             ?>
                                                             >

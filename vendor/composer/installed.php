@@ -3,7 +3,7 @@
         'name' => 'wpkin/flipbox',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '91fa92281c8a916d7ff23df425cd6cebd5785ead',
+        'reference' => '20001dfcb24942a349c75ea414a0f689c87459d7',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -24,7 +24,7 @@
         'wpkin/flipbox' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '91fa92281c8a916d7ff23df425cd6cebd5785ead',
+            'reference' => '20001dfcb24942a349c75ea414a0f689c87459d7',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

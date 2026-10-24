@@ -241,7 +241,7 @@ CSS inline in Elementor, Divi and block previews so it travels with the extracte
 ## Release
 
 1. **Never bump the version unless Richard asks** ([00-general.md](00-general.md) rule 6). Released versions have a
-   git tag (`v3.1.0` is the newest on 2026-10-16).
+   git tag (`v3.1.1` is the newest, released 2026-10-21 with the PHP 8 empty value fix, the colored WPBakery and Elementor icons, the new FAQ and 12 screenshots).
 2. The version lives in three places: the `Version:` header and `const VERSION` in `index.php`, and `Stable tag:` in
    `readme.txt`. `asset/blocks/flipbox/block.json` has its own `version` (3.1.0).
 3. Changelog lines go in the top section of `readme.txt` (format in [00-general.md](00-general.md) rule 6).

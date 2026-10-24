@@ -9,6 +9,36 @@ class Changelog {
         // Full changelog array
         $logs = [
             [
+                'version' => '3.1.2',
+                'date' => '24-10-2026',
+                'sections' => [
+                    'new' => [
+                        'New Affiliate Program page in the Flipbox menu, in the same look as the rest of the plugin, with the commission, the program summary and how it works.',
+                    ],
+                    'fix' => [
+                        'Security: fixed a stored cross-site scripting issue in the image Alt field of some designs (Style 18, 19, 20, 22, 25 and 29), reported by Wordfence. The Alt text is now always escaped on the page and saved safely, and editor saves check the user\'s permission.',
+                        'Security: hardened how flip box data is printed, so a saved value can never end the flip box styles, and the Style 25 card link only accepts safe links.',
+                    ],
+                    'enhancement' => [
+                        'Redesigned Flipbox\'s notices (such as the affiliate program notice) to match the plugin\'s look.',
+                        'Create New, the flip box editor, Account, Affiliate Program, Settings and Getting Started no longer show admin notices, so they stay clean and easy to work in.',
+                        'Editor hints (for example after changing Link Open, Animation or Animation Duration) now show in the editor\'s own message box with clearer wording, instead of a purple pop up.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.1.1',
+                'date' => '20-10-2026',
+                'sections' => [
+                    'fix' => [
+                        'Fixed a PHP 8 error that stopped the whole page right after a flip box when a size setting, such as Icon width, was left empty or set to 0. The rest of the page (footer, styles and page builder layout) now loads again, and flip boxes with normal settings look exactly as before.',
+                    ],
+                    'enhancement' => [
+                        'Added the colored Flipbox logo to the Flipbox element in WPBakery\'s Add Element panel and to the Flipbox widget in Elementor\'s panel, so both are easy to find.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.1.0',
                 'date' => '08-10-2026',
                 'sections' => [

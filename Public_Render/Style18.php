@@ -58,7 +58,7 @@ class Style18 extends Public_Render {
                                                             <img src="<?php echo esc_url( $filesdata[5] ); ?>" 
                                                             <?php
                                                             if ( isset( $filesdata[15] ) ) :
-																echo 'alt="' . $filesdata[19] . '"';
+																echo 'alt="' . esc_attr( $filesdata[19] ) . '"';
                                                             endif;
                                                             ?>
                                                             >

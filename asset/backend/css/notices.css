@@ -1,0 +1,208 @@
+/*
+ * Flipbox: Freemius notices (affiliate program, license, trial and others), 3.1.2.
+ *
+ * Freemius prints these with its own markup and stores them, so they are
+ * restyled here rather than rewritten: a white card with a soft teal wash,
+ * a colored accent and icon per notice type, the Flipbox button, and no
+ * grey plugin name tag. Every rule is scoped to fs-slug-oxi-flip-box-ultimate
+ * (Flipbox's own notices only) and is stronger than Freemius' common.css,
+ * which uses !important on the background, border, margin and display.
+ * Loaded on every admin page, as Freemius can show a notice anywhere.
+ */
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    margin: 20px 20px 16px 14px !important; /* lines up with the Flipbox page cards */
+    padding: 16px 104px 16px 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475467;
+    background: linear-gradient(110deg, #ffffff 0%, #f3fbfb 55%, #e3f7f6 100%) !important;
+    border: 1px solid #d3eeec !important;
+    border-left: 4px solid #17bcb5 !important;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 8px 20px rgba(13, 129, 124, 0.08);
+}
+
+/* Icon */
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate::before {
+    content: "\f488"; /* megaphone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-family: dashicons;
+    font-size: 22px;
+    line-height: 1;
+    color: #0d817c;
+    background: #ffffff;
+    border: 1px solid #c9ebe8;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(13, 129, 124, 0.12);
+}
+
+/* The grey plugin name tag under the notice: the card already says Flipbox. */
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate label.fs-plugin-title {
+    display: none;
+}
+
+/* Message */
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body {
+    grid-column: 2;
+    margin: 0;
+    padding: 0;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body b,
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body strong {
+    font-weight: 700;
+    color: #101828;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body a:not(.button) {
+    font-weight: 600;
+    color: #0d817c;
+}
+
+/* "Learn more" and other buttons. Freemius wraps the button in a link with an
+   inline display:block; keep it on its own line, only as wide as the button. */
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body a[style] {
+    display: block !important;
+    width: max-content;
+    margin-top: 12px !important;
+    text-decoration: none;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .button,
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .button.button-primary {
+    display: inline-flex;
+    align-items: center;
+    height: auto;
+    min-height: 38px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    background: #0d817c;
+    border: 1px solid #0d817c;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 12px rgba(13, 129, 124, 0.22);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .button:hover,
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .button:focus {
+    color: #ffffff;
+    background: #0a6965;
+    border-color: #0a6965;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(23, 188, 181, 0.28);
+}
+
+/* Dismiss */
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    float: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px 4px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #667085;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #eaecf0;
+    border-radius: 999px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-close > * {
+    margin-top: 0;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-close .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-close:hover {
+    color: #0d817c;
+    border-color: #17bcb5;
+}
+
+/* Types: success (not a promotion), warning and error get their own accent. */
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate.success:not(.promotion) {
+    color: #475467;
+    background: linear-gradient(110deg, #ffffff 0%, #f3fcf7 60%, #ecfdf3 100%) !important;
+    border-color: #d1f2df !important;
+    border-left-color: #12b76a !important;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate.success:not(.promotion)::before {
+    content: "\f12a"; /* yes */
+    color: #067647;
+    border-color: #c7eed8;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate.notice-warning {
+    background: linear-gradient(110deg, #ffffff 0%, #fffaf0 60%, #fef0c7 100%) !important;
+    border-color: #fbe3b0 !important;
+    border-left-color: #f79009 !important;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate.notice-warning::before {
+    content: "\f534"; /* warning */
+    color: #b54708;
+    border-color: #fbdca0;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate.error {
+    background: linear-gradient(110deg, #ffffff 0%, #fff7f6 60%, #fef3f2 100%) !important;
+    border-color: #fbd5d1 !important;
+    border-left-color: #d92d20 !important;
+}
+
+body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate.error::before {
+    content: "\f534"; /* warning */
+    color: #b42318;
+    border-color: #f8cbc6;
+}
+
+/* Narrow screens: icon above, Dismiss stays top right. */
+@media (max-width: 782px) {
+    body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        margin: 16px 10px 12px 0 !important;
+        padding: 16px 16px 16px 14px;
+    }
+
+    body.wp-admin div.fs-notice.fs-slug-oxi-flip-box-ultimate .fs-notice-body {
+        grid-column: 1;
+    }
+}
+
+/* No admin notices on Account, Affiliation, Settings and Getting Started
+   (3.1.2). Account::hide_notices() removes the notice hooks there; this
+   catches notices other plugins print some other way. The body class
+   oxi-flip-no-notices is set by Account::body_class() on those pages only. */
+body.oxi-flip-no-notices #wpbody-content .notice,
+body.oxi-flip-no-notices #wpbody-content .update-nag,
+body.oxi-flip-no-notices #wpbody-content .updated:not(.inline),
+body.oxi-flip-no-notices #wpbody-content .error:not(.inline),
+body.oxi-flip-no-notices #wpbody-content div.fs-notice,
+body.oxi-flip-no-notices #wpbody-content div.fs-notice.fs-slug-oxi-flip-box-ultimate {
+    display: none !important;
+}

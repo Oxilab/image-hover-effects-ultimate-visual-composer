@@ -5,7 +5,7 @@ Tags: flip box, flip image, wordpress flipbox plugins, flipboxes, flipbox
 Requires at least: 4.4
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,23 +14,16 @@ Showcase team members or any list with Flipbox - Awesome Flip Boxes Image Overla
 == Description ==
 <strong>Flipbox - Awesomes Flip Boxes Image Overlay</strong>  is a responsive WordPress plugin that lets you add a box to the screen that will flip through the items within the box.
 
-<blockquote>
-   <strong>Best Flip Box Plugins for WordPress</strong>
-   <br>
-</blockquote>
 
-Flipbox - Awesomes Flip Boxes Image Overlay combines the power of “Info Box” & “Call to Action” block altogether. On the front, it would look like a normal Info Box but as visitor hovers on the block, it flips with a cool CSS3 effect and shows a Call to Action section, provoking him to take a call. Add Flip Box in the Any page builder at WordPress, give user more flexibility in the back box, like icon list, image, web link and text info, etc. Flip box offer incredible elements that leads you to create a beautiful site. You can choose from several different flip animations and add two or more items with many different options for cycling through the items.  The Flipbox - Awesomes Flip Boxes Image Overlay’s content are completely customizable. Include images, videos, icons, buttons, maps, etc. make an amazing flip effect on the image. Besides, by beautiful and unrepeatable effects, your image gives a more professional look to your website. It has 29 unique templates with more than 50 effects in, each with Unlimited Backgrounds Colors. Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin help to create images with hover effects and scrolling animation. You can create images in a circle and square shapes customly. Fully responsive and Pure Css3 Set animation speed. You can represent your data in very beautiful and descriptive way at once!
+✨ **[Demo (Features)](https://demos.oxilab.dev/flipbox/template/)** | 💰 **[Upgrade to Pro](https://oxilab.dev/flipbox/pricing/)** | 📖 **[How to Use (Documentation)](https://oxilab.dev/docs/flipbox/)** | 🆘 **[Support](https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/#new-post)**
+
+---
+
+== Best Flip Box Plugins for WordPress ==
 
 [youtube https://www.youtube.com/watch?v=Jj_8eL8nHPI]
 
-<h3>Quick Links</h3>
-<ul>
-	<li><a href="https://demos.oxilab.dev/flipbox/template/">Demo (Features)</a></li>
-	<li><a href="https://www.youtube.com/watch?v=Jj_8eL8nHPI">How to Use (Video)</a></li>
-	<li><a href="https://oxilab.dev/docs/flipbox/">How to Use (Documentation)</a></li>
-	<li><a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/">Help and Support</a></li>
-	<li><a href="https://oxilab.dev/flipbox/pricing/">Upgrade to Pro</a></li>
-</ul>
+Flipbox - Awesomes Flip Boxes Image Overlay combines the power of “Info Box” & “Call to Action” block altogether. On the front, it would look like a normal Info Box but as visitor hovers on the block, it flips with a cool CSS3 effect and shows a Call to Action section, provoking him to take a call. Add Flip Box in the Any page builder at WordPress, give user more flexibility in the back box, like icon list, image, web link and text info, etc. Flip box offer incredible elements that leads you to create a beautiful site. You can choose from several different flip animations and add two or more items with many different options for cycling through the items.  The Flipbox - Awesomes Flip Boxes Image Overlay’s content are completely customizable. Include images, videos, icons, buttons, maps, etc. make an amazing flip effect on the image. Besides, by beautiful and unrepeatable effects, your image gives a more professional look to your website. It has 29 unique templates with more than 50 effects in, each with Unlimited Backgrounds Colors. Flipbox - Awesomes Flip Boxes Image Overlay Wordpress plugin help to create images with hover effects and scrolling animation. You can create images in a circle and square shapes customly. Fully responsive and Pure Css3 Set animation speed. You can represent your data in very beautiful and descriptive way at once!
 
 Flipbox - Awesomes Flip Boxes Image Overlay are one of the best in responsive Flip Box image plugins which allow you to decorate your product or information page beautifully of the website. It is very powerful and lightweight flip box and image overlay plugin. You can present your product info on your website at a quality and professional way by using this plugin.  Flipbox - Awesomes Flip Boxes Image Overlay is the best way to promote your product by creating amazing sliders with beautiful transition effects. The plugin has the effective tool for adding responsive slider to your website. The WordPress flip box plugin can be added both as a widget and plugin, as well as be included in the theme for displaying the images within the theme using PHP function.  You can choose from a different box types and use the provided shortcode or a template or Visual Composer ID includes to easily embedding Flip box in your Website.
 
@@ -195,6 +188,14 @@ Yes. Flipbox has its own WPBakery element. Click Add Element, search for "Flip" 
 
 
 == Changelog ==
+
+= 3.1.2 =
+*Security: fixed a stored cross-site scripting issue in the image Alt field of some designs (Style 18, 19, 20, 22, 25 and 29), reported by Wordfence. The Alt text is now always escaped on the page and saved safely, and editor saves check the user's permission.
+*Security: hardened how flip box data is printed, so a saved value can never end the flip box styles, and the Style 25 card link only accepts safe links.
+*New Affiliate Program page in the Flipbox menu, in the same look as the rest of the plugin, with the commission, the program summary and how it works.
+*Redesigned Flipbox's notices (such as the affiliate program notice) to match the plugin's look.
+*Create New, the flip box editor, Account, Affiliate Program, Settings and Getting Started no longer show admin notices, so they stay clean and easy to work in.
+*Editor hints (for example after changing Link Open, Animation or Animation Duration) now show in the editor's own message box with clearer wording, instead of a purple pop up.
 
 = 3.1.1 =
 *Fixed a PHP 8 error that stopped the whole page right after a flip box when a size setting, such as Icon width, was left empty or set to 0. The rest of the page (footer, styles and page builder layout) now loads again, and flip boxes with normal settings look exactly as before.

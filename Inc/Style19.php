@@ -21,7 +21,7 @@ class Style19 extends Admin_Render {
                 . ' flip-box-image-upload-url-02 {#}|{#}' . sanitize_url( $_POST['flip-box-image-upload-url-02'] ) . '{#}|{#}'
                 . '  {#}|{#}{#}|{#}'
                 . ' flip-box-backend-title {#}|{#}' . $this->admin_special_charecter( $_POST['flip-box-backend-title'] ) . '{#}|{#}'
-                . ' flip-box-image-upload-url-01-alt {#}|{#}' . sanitize_text_field( $_POST['flip-box-image-upload-url-01-alt'] ) . '{#}|{#}';
+                . ' flip-box-image-upload-url-01-alt {#}|{#}' . $this->admin_special_charecter( isset( $_POST['flip-box-image-upload-url-01-alt'] ) ? sanitize_text_field( wp_unslash( $_POST['flip-box-image-upload-url-01-alt'] ) ) : '' ) . '{#}|{#}'; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce checked in Admin_Render::child_save() before register_child() runs.
         return $data;
     }
 

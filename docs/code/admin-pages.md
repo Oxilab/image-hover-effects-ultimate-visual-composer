@@ -13,6 +13,14 @@ Every screen, checked 2026-10-16. Menu: **Flip Box** (icon `image/admin-icon.svg
 | Getting Started | `flipbox-getting-started` | `Pages\GettingStarted` | getting-started, howto-menu | `getting-started.js` | none |
 | Settings | `oxi-flip-box-ultimate-settings` | `Pages\Settings` | bootstrap, admin, settings, howto-menu | `settings.js` | one per field, `oxi_flipbox_delete_data_on_uninstall`, `oxi_flipbox_delete_all_data` |
 | Account (Freemius) | `oxi-flip-box-ultimate-account` | Freemius template wrapped by `Includes\Admin\Account` | settings, account, admin-menu | Freemius | Freemius |
+| Affiliation (Freemius, 3.1.2) | `oxi-flip-box-ultimate-affiliation` | Freemius `/forms/affiliation.php` wrapped by `Includes\Admin\Affiliation`: hero with the commission from `get_affiliate_terms()`, Freemius' card and form on the left, "How it works" on the right (same design as Product Layouts) | settings, account, affiliation, admin-menu | Freemius | Freemius |
+
+No admin notices show on Account, Affiliation, Settings, Getting Started and Create New with the editor (3.1.2; the list is
+`Account::NO_NOTICE_PAGES`): `Account::hide_notices()` removes the notice hooks on `in_admin_header`, and the body class
+`oxi-flip-no-notices` hides any notice printed another way (notices.css). The other Flipbox pages keep notices, with
+Flipbox's own Freemius notices restyled by `asset/backend/css/notices.css`. Checks in
+`security-tests/image-hover-effects-ultimate-visual-composer/`: `account-pages-check.mjs` (visible notices on those
+pages) and `notice-check.mjs` (the restyled notice on any page).
 
 Getting Started is also the page Freemius opens after activation.
 

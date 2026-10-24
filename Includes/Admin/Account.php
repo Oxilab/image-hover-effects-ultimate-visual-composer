@@ -18,6 +18,20 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Account {
 
+    /**
+     * Flipbox pages that show no admin notices at all.
+     *
+     * @since 3.1.2
+     */
+    const NO_NOTICE_PAGES = [
+        'oxi-flip-box-ultimate-account',
+        'oxi-flip-box-ultimate-affiliation',
+        'oxi-flip-box-ultimate-settings',
+        'flipbox-getting-started',
+        // Create New and the flip box editor (?styleid=N) share this page.
+        'oxi-flip-box-ultimate-new',
+    ];
+
     public function __construct() {
         if ( ! function_exists( 'wpkin_fb_v' ) ) {
             return;
@@ -27,6 +41,36 @@ class Account {
         $fs->add_filter( 'hide_account_tabs', '__return_true' );
         $fs->add_filter( 'templates/account.php', [ $this, 'wrap' ] );
         add_filter( 'admin_body_class', [ $this, 'body_class' ] );
+        // Runs just before WordPress prints admin notices.
+        add_action( 'in_admin_header', [ $this, 'hide_notices' ], 1000 );
+    }
+
+    /**
+     * The admin page that is open, from ?page=.
+     *
+     * @since 3.1.2
+     * @return string
+     */
+    public static function current_page() {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only reads which admin page is open.
+        return isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : '';
+    }
+
+    /**
+     * No admin notices on Account, Affiliation, Settings, Getting Started and
+     * Create New (with the editor): other plugins' banners and nags (and
+     * Freemius' own) only crowd these pages.
+     *
+     * @since 3.1.2
+     */
+    public function hide_notices() {
+        if ( ! in_array( self::current_page(), self::NO_NOTICE_PAGES, true ) ) {
+            return;
+        }
+        remove_all_actions( 'admin_notices' );
+        remove_all_actions( 'all_admin_notices' );
+        remove_all_actions( 'user_admin_notices' );
+        remove_all_actions( 'network_admin_notices' );
     }
 
     /**
@@ -39,6 +83,10 @@ class Account {
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         if ( isset( $_GET['page'] ) && 'oxi-flip-box-ultimate-account' === $_GET['page'] ) {
             $classes .= ' oxi-flip-menu-page';
+        }
+        // notices.css hides any notice these pages still get some other way.
+        if ( in_array( self::current_page(), self::NO_NOTICE_PAGES, true ) ) {
+            $classes .= ' oxi-flip-no-notices';
         }
         return $classes;
     }

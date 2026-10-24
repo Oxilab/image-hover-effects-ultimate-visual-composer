@@ -1,0 +1,495 @@
+/*
+ * Flipbox: Freemius Affiliation page (3.1.2, same design as Product Layouts).
+ * Loaded after settings.css and account.css, which supply the color
+ * tokens, the hero and the buttons (the wrapper carries
+ * .oxi-flip-settings, .oxi-flip-account and .oxi-flip-affiliation); colors are
+ * the Flipbox tokens from settings.css.
+ * Freemius prints its own affiliation.css later in the footer, with
+ * "#fs_affiliation_content_wrapper ..." rules and a few !important font
+ * sizes, so every rule here starts with .oxi-flip-affiliation to outrank it.
+ */
+
+/* Hero: commission badge */
+
+.oxi-flip-aff-rate {
+	flex: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 112px;
+	padding: 10px 18px;
+	background: var(--flip-surface);
+	border: 1px solid rgba(23, 188, 181, 0.35);
+	border-radius: 12px;
+	box-shadow: 0 6px 16px rgba(23, 188, 181, 0.14);
+}
+
+.oxi-flip-aff-rate-value {
+	font-size: 28px;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: var(--flip-brand);
+}
+
+.oxi-flip-aff-rate-label {
+	margin-top: 2px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--flip-ink-3);
+}
+
+/* Freemius' status messages, which WordPress moves below the hero */
+
+.oxi-flip-affiliation > .updated,
+.oxi-flip-affiliation > .error,
+.oxi-flip-affiliation > .notice-warning {
+	margin: 0 0 20px;
+	padding: 12px 16px;
+	background: var(--flip-surface);
+	border: 1px solid var(--flip-line);
+	border-left-width: 4px;
+	border-radius: 10px;
+	box-shadow: var(--flip-shadow);
+}
+
+.oxi-flip-affiliation > .updated {
+	border-left-color: #12b76a;
+}
+
+.oxi-flip-affiliation > .error {
+	border-left-color: #f04438;
+}
+
+.oxi-flip-affiliation > .notice-warning {
+	border-left-color: var(--flip-brand);
+}
+
+.oxi-flip-affiliation > .updated p,
+.oxi-flip-affiliation > .error p,
+.oxi-flip-affiliation > .notice-warning p {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--flip-ink);
+}
+
+.oxi-flip-affiliation > .updated a {
+	font-weight: 600;
+	color: var(--flip-brand-strong);
+}
+
+/* Layout: Freemius' card on the left, "How it works" on the right */
+
+.oxi-flip-aff-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 340px;
+	gap: 24px;
+	align-items: start;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper {
+	margin: 0;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #poststuff {
+	padding-top: 0;
+	min-width: 0;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .postbox {
+	margin: 0;
+	min-width: 0;
+	background: var(--flip-surface);
+	border: 1px solid var(--flip-line);
+	border-radius: var(--flip-radius);
+	box-shadow: var(--flip-shadow);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .postbox .inside {
+	margin: 0;
+	padding: 28px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #messages {
+	margin: 0;
+}
+
+/* Intro */
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #application_messages_container {
+	margin-bottom: 24px;
+	padding: 20px 22px;
+	background:
+		radial-gradient(260px 120px at 100% 0%, rgba(23, 188, 181, 0.14), transparent 70%),
+		var(--flip-brand-soft);
+	border-radius: 12px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #application_messages_container p {
+	margin: 0;
+	font-size: 14px !important;
+	line-height: 1.6 !important;
+	color: var(--flip-ink-2);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #application_messages_container p:first-child {
+	margin-bottom: 4px;
+	font-size: 17px !important;
+	font-weight: 700;
+	color: var(--flip-ink);
+}
+
+/* Program summary */
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper h3 {
+	margin: 0 0 14px;
+	padding: 0;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: var(--flip-ink);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .entry-content > ul {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .entry-content > ul li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin: 0;
+	padding: 12px 14px;
+	font-size: 13px !important;
+	line-height: 1.55 !important;
+	color: var(--flip-ink-2);
+	background: #f6fbfb;
+	border: 1px solid var(--flip-line);
+	border-radius: 10px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .entry-content > ul li::before {
+	content: "\f147";
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	font-family: dashicons;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+	color: var(--flip-success);
+	background: var(--flip-success-soft);
+	border-radius: 50%;
+}
+
+/* Buttons: Become an affiliate, Cancel, Apply */
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button {
+	display: inline-flex;
+	align-items: center;
+	height: auto;
+	min-height: 42px;
+	margin: 24px 8px 0 0;
+	padding: 9px 22px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--flip-ink);
+	background: var(--flip-surface);
+	border: 1px solid var(--flip-line-2);
+	border-radius: 8px;
+	box-shadow: var(--flip-shadow);
+	transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button:hover {
+	color: var(--flip-brand-strong);
+	border-color: var(--flip-brand);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button.button-primary {
+	color: #ffffff;
+	background: var(--flip-brand);
+	border-color: var(--flip-brand);
+	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 12px rgba(23, 188, 181, 0.25);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button.button-primary:hover {
+	color: #ffffff;
+	background: var(--flip-brand-strong);
+	border-color: var(--flip-brand-strong);
+}
+
+/* Apply stays disabled until the terms checkbox is ticked. */
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button.disabled,
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button.button-primary.disabled {
+	color: #98a2b3 !important;
+	background: #f2f4f7 !important;
+	border-color: var(--flip-line) !important;
+	box-shadow: none !important;
+	cursor: not-allowed;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper .button:focus {
+	outline: none;
+	box-shadow: 0 0 0 4px var(--flip-brand-ring);
+}
+
+/* Application form */
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #application_form_container {
+	margin-top: 28px;
+	padding-top: 24px;
+	border-top: 1px solid var(--flip-line);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form .input-container {
+	margin-bottom: 18px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form .input-container .input-label {
+	margin-bottom: 6px;
+	font-size: 13px !important;
+	font-weight: 600;
+	line-height: 1.4 !important;
+	color: var(--flip-ink);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form .input-container label:not(.input-label) {
+	font-size: 14px !important;
+	line-height: 1.5 !important;
+	color: var(--flip-ink-2);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[type="text"],
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form textarea {
+	width: 100%;
+	max-width: 560px;
+	min-height: 42px;
+	padding: 8px 12px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--flip-ink);
+	background: var(--flip-surface);
+	border: 1px solid var(--flip-line-2);
+	border-radius: 8px;
+	box-shadow: none;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form textarea {
+	min-height: 110px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[type="text"]:focus,
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form textarea:focus {
+	border-color: var(--flip-brand);
+	outline: none;
+	box-shadow: 0 0 0 4px var(--flip-brand-ring);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[readonly],
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form textarea[readonly] {
+	color: var(--flip-ink-2);
+	background: #f9fafb;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form .description {
+	max-width: 560px;
+	margin: 6px 0 0;
+	font-size: 12px;
+	line-height: 1.5;
+	color: var(--flip-ink-3);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form #add_domain,
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form .remove-domain {
+	margin-top: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--flip-brand-strong);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form #add_domain.disabled {
+	color: #98a2b3;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[type="checkbox"] {
+	margin: 0 8px 0 0;
+	border-color: var(--flip-line-2);
+	border-radius: 4px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[type="checkbox"]:checked {
+	background: var(--flip-brand);
+	border-color: var(--flip-brand);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[type="checkbox"]:checked::before {
+	filter: brightness(0) invert(1);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form input[type="checkbox"]:focus {
+	box-shadow: 0 0 0 4px var(--flip-brand-ring);
+}
+
+/* The terms checkbox, last in the form */
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #application_form_container > div:last-child {
+	padding: 14px 16px;
+	background: #f6fbfb;
+	border: 1px solid var(--flip-line);
+	border-radius: 10px;
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper #application_form_container > div:last-child label {
+	font-size: 14px !important;
+	line-height: 1.5 !important;
+	color: var(--flip-ink-2);
+}
+
+.oxi-flip-affiliation #fs_affiliation_content_wrapper form a {
+	font-weight: 600;
+	color: var(--flip-brand-strong);
+}
+
+/* "How it works" */
+
+.oxi-flip-aff-card {
+	padding: 24px;
+	background: var(--flip-surface);
+	border: 1px solid var(--flip-line);
+	border-radius: var(--flip-radius);
+	box-shadow: var(--flip-shadow);
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-card-title {
+	margin: 0 0 18px;
+	padding: 0;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: var(--flip-ink);
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-steps {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: flip-step;
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-steps li {
+	position: relative;
+	margin: 0;
+	padding: 0 0 20px 46px;
+	counter-increment: flip-step;
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-steps li:last-child {
+	padding-bottom: 0;
+}
+
+/* Numbered dot, joined to the next step by a thin line. */
+.oxi-flip-affiliation .oxi-flip-aff-steps li::before {
+	content: counter(flip-step);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--flip-brand);
+	background: var(--flip-brand-soft);
+	border-radius: 50%;
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-steps li:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	top: 34px;
+	bottom: 4px;
+	left: 14px;
+	width: 2px;
+	background: var(--flip-line);
+	border-radius: 1px;
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-steps strong {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 30px;
+	color: var(--flip-ink);
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-steps span {
+	display: block;
+	font-size: 13px;
+	line-height: 1.55;
+	color: var(--flip-ink-3);
+}
+
+.oxi-flip-affiliation .oxi-flip-aff-card .oxi-flip-set-btn {
+	width: 100%;
+	justify-content: center;
+	margin-top: 22px;
+}
+
+.oxi-flip-affiliation .oxi-flip-set-btn.is-primary {
+	color: #ffffff;
+	background: var(--flip-brand);
+	border-color: var(--flip-brand);
+}
+
+.oxi-flip-affiliation .oxi-flip-set-btn.is-primary:hover,
+.oxi-flip-affiliation .oxi-flip-set-btn.is-primary:focus {
+	color: #ffffff;
+	background: var(--flip-brand-strong);
+	border-color: var(--flip-brand-strong);
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+	.oxi-flip-aff-layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 782px) {
+	.oxi-flip-affiliation .oxi-flip-aff-rate {
+		order: 3;
+		flex-direction: row;
+		gap: 8px;
+		min-width: 0;
+		padding: 8px 14px;
+	}
+
+	.oxi-flip-aff-rate-value {
+		font-size: 20px;
+	}
+
+	.oxi-flip-affiliation #fs_affiliation_content_wrapper .postbox .inside {
+		padding: 20px 16px;
+	}
+
+	.oxi-flip-affiliation #fs_affiliation_content_wrapper .entry-content > ul {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

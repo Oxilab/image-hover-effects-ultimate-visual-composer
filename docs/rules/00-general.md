@@ -52,7 +52,7 @@ chats in Banglish; that says nothing about the audience. Never offer Bangla or B
 
 - Never bump the version (plugin header and `const VERSION` in `index.php`, readme `Stable tag`) unless Richard asks.
 - Add changelog lines to the **top** version section in `readme.txt` only while that version is unreleased. A version
-  is released when its git tag exists (`git -C <plugin> tag`); 3.1.0 is released. If the top section is released,
+  is released when its git tag exists (`git -C <plugin> tag`); 3.1.1 is released. If the top section is released,
   ask Richard before starting a new one.
 - Changelog line format of this plugin (see the 3.1.0 section): `*` followed directly by one or two sentences a site
   owner understands, starting with the change ("*New Flip Trigger option ...", "*Fixed flip boxes flashing ...",

@@ -701,12 +701,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSExtra.git",
-                "reference": "136e518aead940cdd411a0d47c9da132fa63673e"
+                "reference": "48cfe485e672e70ad62c010dbbcfc443a4d31695"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/136e518aead940cdd411a0d47c9da132fa63673e",
-                "reference": "136e518aead940cdd411a0d47c9da132fa63673e",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/48cfe485e672e70ad62c010dbbcfc443a4d31695",
+                "reference": "48cfe485e672e70ad62c010dbbcfc443a4d31695",
                 "shasum": ""
             },
             "require": {
@@ -776,7 +776,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2026-08-27T00:23:13+00:00"
+            "time": "2026-10-21T02:34:44+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -784,12 +784,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "68da2016f9163ff7d761a67c58e1d0c7b1fe53bd"
+                "reference": "33a13f5bdc00d46cd9ff2ee3f1f0b8078c5c20a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/68da2016f9163ff7d761a67c58e1d0c7b1fe53bd",
-                "reference": "68da2016f9163ff7d761a67c58e1d0c7b1fe53bd",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/33a13f5bdc00d46cd9ff2ee3f1f0b8078c5c20a1",
+                "reference": "33a13f5bdc00d46cd9ff2ee3f1f0b8078c5c20a1",
                 "shasum": ""
             },
             "require": {
@@ -870,7 +870,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2026-09-11T18:20:41+00:00"
+            "time": "2026-10-21T02:12:17+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1197,12 +1197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8b5f757e8e92071bfdbfa93943f94f84c4e31007"
+                "reference": "6d6ba6bd96756f0f10c362ab4b3f27fd74a462c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8b5f757e8e92071bfdbfa93943f94f84c4e31007",
-                "reference": "8b5f757e8e92071bfdbfa93943f94f84c4e31007",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6d6ba6bd96756f0f10c362ab4b3f27fd74a462c2",
+                "reference": "6d6ba6bd96756f0f10c362ab4b3f27fd74a462c2",
                 "shasum": ""
             },
             "require": {
@@ -1276,7 +1276,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.38"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6"
             },
             "funding": [
                 {
@@ -1284,7 +1284,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-10-05T05:44:26+00:00"
+            "time": "2026-10-16T04:26:32+00:00"
         },
         {
             "name": "sebastian/cli-parser",

@@ -19,13 +19,21 @@ jQuery(function ($) {
 
     /* Toast */
 
-    function toast(key, isError) {
+    // message (optional): { label: 'Link Open', text: 'takes effect ...' }
+    // shows that text instead of the data-<key> one, as an info toast.
+    function toast(key, isError, message) {
         if (!$toast.length) {
             return;
         }
         clearTimeout(toastTimer);
-        $toast.toggleClass('is-error', !!isError)
-            .find('.oxi-flip-ed-toast-text').text($toast.attr('data-' + key));
+        var $text = $toast.toggleClass('is-error', !!isError)
+            .toggleClass('is-info', !!message)
+            .find('.oxi-flip-ed-toast-text');
+        if (message) {
+            $text.empty().append($('<strong>').text(message.label), document.createTextNode(' ' + message.text));
+        } else {
+            $text.text($toast.attr('data-' + key));
+        }
         $toast.prop('hidden', false).removeClass('is-in');
         $toast[0].offsetWidth; // restart the slide in
         $toast.addClass('is-in');
@@ -41,6 +49,23 @@ jQuery(function ($) {
         clearTimeout(toastTimer);
         $toast.removeClass('is-in').prop('hidden', true);
     });
+
+    /* Hints from the template scripts (3.1.2). asset/backend/js-files/styleN.js
+       call jQuery.bootstrapGrowl("<strong>Link Open</strong> will works after
+       saved data") when a setting only shows after saving; show those in this
+       toast instead of Bootstrap's purple box. Only the <strong> label is
+       read out of the message (as text); the sentence is ours. */
+    if ($toast.length && $.bootstrapGrowl) {
+        $.bootstrapGrowl = function (message) {
+            var found = /<strong>([^<]*)<\/strong>/.exec(String(message));
+            toast('', false, {
+                label: found ? found[1] : '',
+                text: found
+                    ? 'changes show after you save. Click Save changes to see them.'
+                    : String(message).replace(/<[^>]*>/g, '')
+            });
+        };
+    }
 
     /* Background save */
 

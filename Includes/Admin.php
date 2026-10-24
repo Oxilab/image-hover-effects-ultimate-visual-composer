@@ -18,5 +18,6 @@ class Admin {
 		new Admin\Menu();
 		new Admin\Notice();
 		new Admin\Account();
+		new Admin\Affiliation();
 	}
 }

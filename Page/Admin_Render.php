@@ -967,7 +967,28 @@ class Admin_Render {
         $this->render();
     }
 
+    /**
+     * The capability needed to edit flip boxes: the first capability of the role
+     * chosen in Settings, Who can edit (default manage_options), the same one
+     * the Flip Box menu uses.
+     *
+     * @since 3.1.2
+     * @return string
+     */
+    protected function editor_capability() {
+        $role = get_role( get_option( 'oxi_addons_user_permission' ) );
+        if ( $role && is_array( $role->capabilities ) && ! empty( $role->capabilities ) ) {
+            return (string) key( $role->capabilities );
+        }
+        return 'manage_options';
+    }
+
     public function saving() {
+        // Every editor form save checks the capability itself, not only the
+        // page access WordPress checks before the editor loads.
+        if ( ! current_user_can( $this->editor_capability() ) ) {
+            return;
+        }
         $demos = '{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}{#}|{#}';
         $this->child_editable = explode( '{#}|{#}', $demos );
         $this->blank_child_editable = $this->child_editable;
